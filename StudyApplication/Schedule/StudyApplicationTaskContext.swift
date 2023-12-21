@@ -16,16 +16,12 @@ import SpeziFHIR
 enum StudyApplicationTaskContext: Codable, Identifiable {
     /// The task should display a `Questionnaire`.
     case questionnaire(Questionnaire)
-    /// The task is used for UI testing.
-    case test(String)
     
     
     var id: Questionnaire.ID {
         switch self {
         case let .questionnaire(questionnaire):
             return questionnaire.id
-        case .test:
-            return FHIRPrimitive(FHIRString(UUID().uuidString))
         }
     }
     
@@ -33,8 +29,6 @@ enum StudyApplicationTaskContext: Codable, Identifiable {
         switch self {
         case .questionnaire:
             return LocalizedStringResource("TASK_CONTEXT_ACTION_QUESTIONNAIRE")
-        case .test:
-            return LocalizedStringResource("TASK_CONTEXT_ACTION_TEST")
         }
     }
 }

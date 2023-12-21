@@ -15,22 +15,7 @@ import SwiftUI
 
 /// Displays an multi-step onboarding flow for the Spezi Study Application.
 struct OnboardingFlow: View {
-    @Environment(HealthKit.self) private var healthKitDataSource
-    @Environment(StudyApplicationScheduler.self) private var scheduler
-
     @AppStorage(StorageKeys.onboardingFlowComplete) private var completedOnboardingFlow = false
-    
-    @State private var localNotificationAuthorization = false
-    
-    
-    private var healthKitAuthorization: Bool {
-        // As HealthKit not available in preview simulator
-        if ProcessInfo.processInfo.isPreviewSimulator {
-            return false
-        }
-        
-        return healthKitDataSource.authorized
-    }
     
     
     var body: some View {
@@ -38,25 +23,10 @@ struct OnboardingFlow: View {
             Welcome()
             InterestingModules()
             
-            if !FeatureFlags.disableFirebase {
+            if FeatureFlags.accountEnabled && !FeatureFlags.disableFirebase {
                 AccountOnboarding()
             }
-            
-            #if !(targetEnvironment(simulator) && (arch(i386) || arch(x86_64)))
-                Consent()
-            #endif
-            
-            if HKHealthStore.isHealthDataAvailable() && !healthKitAuthorization {
-                HealthKitPermissions()
-            }
-            
-            if !localNotificationAuthorization {
-                NotificationPermissions()
-            }
         }
-            .task {
-                localNotificationAuthorization = await scheduler.localNotificationAuthorization
-            }
             .interactiveDismissDisabled(!completedOnboardingFlow)
     }
 }
@@ -66,6 +36,5 @@ struct OnboardingFlow: View {
 #Preview {
     OnboardingFlow()
         .environment(Account(MockUserIdPasswordAccountService()))
-        .environment(StudyApplicationScheduler())
 }
 #endif
