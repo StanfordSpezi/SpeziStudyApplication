@@ -55,6 +55,12 @@
         }
       }
     },
+    "After you provide detailed permissions, your data is automatically shared with the studies you participate in." : {
+
+    },
+    "Automatic Data Transfer" : {
+
+    },
     "Background" : {
 
     },
@@ -90,6 +96,7 @@
       }
     },
     "CONTACTS_NAVIGATION_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -101,6 +108,7 @@
     },
     "CONTACTS_TAB_TITLE" : {
       "comment" : "MARK: - Contacts",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -109,6 +117,9 @@
           }
         }
       }
+    },
+    "Contribute to Science" : {
+
     },
     "CONTRIBUTIONS_LIST_DESCRIPTION" : {
       "localizations" : {
@@ -139,6 +150,21 @@
           }
         }
       }
+    },
+    "Enroll and Participate in Research Projects" : {
+
+    },
+    "Enroll in a Research Study" : {
+
+    },
+    "Enroll in the Study" : {
+
+    },
+    "Find your Research Studies" : {
+
+    },
+    "Finish Onboarding" : {
+
     },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
       "localizations" : {
@@ -181,7 +207,11 @@
         }
       }
     },
+    "If you are alredy enrolled in a research study, find it on the application home screen after the onboarding and enter your inviation code." : {
+
+    },
     "INTERESTING_MODULES_AREA1_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -192,6 +222,7 @@
       }
     },
     "INTERESTING_MODULES_AREA1_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -202,6 +233,7 @@
       }
     },
     "INTERESTING_MODULES_AREA2_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -212,6 +244,7 @@
       }
     },
     "INTERESTING_MODULES_AREA2_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -222,6 +255,7 @@
       }
     },
     "INTERESTING_MODULES_AREA3_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -232,6 +266,7 @@
       }
     },
     "INTERESTING_MODULES_AREA3_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -242,6 +277,7 @@
       }
     },
     "INTERESTING_MODULES_AREA4_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -252,6 +288,7 @@
       }
     },
     "INTERESTING_MODULES_AREA4_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -262,6 +299,7 @@
       }
     },
     "INTERESTING_MODULES_BUTTON" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -272,6 +310,7 @@
       }
     },
     "INTERESTING_MODULES_SUBTITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -283,6 +322,7 @@
     },
     "INTERESTING_MODULES_TITLE" : {
       "comment" : "MARK: Interesting Modules",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -293,6 +333,7 @@
       }
     },
     "LELAND_STANFORD_BIO" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -314,6 +355,7 @@
     },
     "MOCK_WEB_SERVICE_TAB_TITLE" : {
       "comment" : "MARK: - Mock Upload Data Storage Provider",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -322,6 +364,9 @@
           }
         }
       }
+    },
+    "No tasks scheduled for today." : {
+
     },
     "NOTIFICATION_PERMISSIONS_BUTTON" : {
       "localizations" : {
@@ -377,7 +422,11 @@
     "Repository Link" : {
 
     },
+    "Right on your phone" : {
+
+    },
     "SCHEDULE_LIST_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -389,6 +438,7 @@
     },
     "SCHEDULE_TAB_TITLE" : {
       "comment" : "MARK: - Schedule",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -397,6 +447,15 @@
           }
         }
       }
+    },
+    "Single application to enroll into multiple studies." : {
+
+    },
+    "Skip" : {
+
+    },
+    "Surveys, Activity Data, and More" : {
+
     },
     "TASK_CONTEXT_ACTION_QUESTIONNAIRE" : {
       "localizations" : {
@@ -409,6 +468,7 @@
       }
     },
     "TASK_CONTEXT_ACTION_TEST" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -429,6 +489,7 @@
       }
     },
     "TASK_SOCIAL_SUPPORT_QUESTIONNAIRE_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -439,6 +500,7 @@
       }
     },
     "TASK_SOCIAL_SUPPORT_QUESTIONNAIRE_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -448,7 +510,20 @@
         }
       }
     },
+    "Tasks" : {
+
+    },
+    "The Spezi Study Application can collect a wide variety of data points that can be helpful for a broad range of digital health studies." : {
+
+    },
+    "Welcome" : {
+
+    },
+    "Welcome to the Spezi Study Application" : {
+
+    },
     "WELCOME_AREA1_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -459,6 +534,7 @@
       }
     },
     "WELCOME_AREA1_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -469,6 +545,7 @@
       }
     },
     "WELCOME_AREA2_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -479,6 +556,7 @@
       }
     },
     "WELCOME_AREA2_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -489,6 +567,7 @@
       }
     },
     "WELCOME_AREA3_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -499,6 +578,7 @@
       }
     },
     "WELCOME_AREA3_TITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -509,6 +589,7 @@
       }
     },
     "WELCOME_BUTTON" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -519,6 +600,7 @@
       }
     },
     "WELCOME_SUBTITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -530,6 +612,7 @@
     },
     "WELCOME_TITLE" : {
       "comment" : "MARK: Welcome",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -538,6 +621,15 @@
           }
         }
       }
+    },
+    "You are all set. Please follow the Study Schedule and consider enabeling notifications to get informed about any upcoming tasks." : {
+
+    },
+    "You will need to provide the application permission to get access to the data that the study collects." : {
+
+    },
+    "Your First Steps" : {
+
     }
   },
   "version" : "1.0"

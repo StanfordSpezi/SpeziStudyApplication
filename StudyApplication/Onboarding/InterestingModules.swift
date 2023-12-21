@@ -14,34 +14,34 @@ struct InterestingModules: View {
     @Environment(OnboardingNavigationPath.self) private var onboardingNavigationPath
     
     
+    // swiftlint:disable line_length
+    // We disable line lengh checks to ensure that we can fit the complete english text in the SwiftUI views,
+    // avoiding unspecific localization keys.
     var body: some View {
         SequentialOnboardingView(
-            title: "INTERESTING_MODULES_TITLE",
-            subtitle: "INTERESTING_MODULES_SUBTITLE",
+            title: "Your First Steps",
+            subtitle: "Enroll in a Research Study",
             content: [
                 SequentialOnboardingView.Content(
-                    title: "INTERESTING_MODULES_AREA1_TITLE",
-                    description: "INTERESTING_MODULES_AREA1_DESCRIPTION"
+                    title: "Find your Research Studies",
+                    description: "If you are alredy enrolled in a research study, find it on the application home screen after the onboarding and enter your inviation code."
                 ),
                 SequentialOnboardingView.Content(
-                    title: "INTERESTING_MODULES_AREA2_TITLE",
-                    description: "INTERESTING_MODULES_AREA2_DESCRIPTION"
+                    title: "Enroll in the Study",
+                    description: "You will need to provide the application permission to get access to the data that the study collects."
                 ),
                 SequentialOnboardingView.Content(
-                    title: "INTERESTING_MODULES_AREA3_TITLE",
-                    description: "INTERESTING_MODULES_AREA3_DESCRIPTION"
-                ),
-                SequentialOnboardingView.Content(
-                    title: "INTERESTING_MODULES_AREA4_TITLE",
-                    description: "INTERESTING_MODULES_AREA4_DESCRIPTION"
+                    title: "Contribute to Science",
+                    description: "You are all set. Please follow the Study Schedule and consider enabeling notifications to get informed about any upcoming tasks."
                 )
             ],
-            actionText: "INTERESTING_MODULES_BUTTON",
+            actionText: "Finish Onboarding",
             action: {
                 onboardingNavigationPath.nextStep()
             }
         )
     }
+    // swiftlint:enable line_length
 }
 
 

@@ -29,16 +29,11 @@ struct ScheduleView: View {
     
     var body: some View {
         NavigationStack {
-            List(startOfDays, id: \.timeIntervalSinceNow) { startOfDay in
-                Section(format(startOfDay: startOfDay)) {
-                    ForEach(eventContextsByDate[startOfDay] ?? [], id: \.event) { eventContext in
-                        EventContextView(eventContext: eventContext)
-                            .onTapGesture {
-                                if !eventContext.event.complete {
-                                    presentedContext = eventContext
-                                }
-                            }
-                    }
+            Group {
+                if startOfDays.isEmpty {
+                    emptyListView
+                } else {
+                    listView
                 }
             }
                 .onChange(of: scheduler) {
@@ -55,7 +50,35 @@ struct ScheduleView: View {
                         AccountButton(isPresented: $presentingAccount)
                     }
                 }
-                .navigationTitle("SCHEDULE_LIST_TITLE")
+                .navigationTitle("Tasks")
+        }
+    }
+    
+    @ViewBuilder private var emptyListView: some View {
+        VStack(spacing: 32) {
+            Image(systemName: "list.clipboard")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 100)
+                .accessibilityHidden(true)
+                .foregroundStyle(.secondary)
+            Text("No tasks scheduled for today.")
+                .foregroundStyle(.secondary)
+        }
+    }
+    
+    @ViewBuilder private var listView: some View {
+        List(startOfDays, id: \.timeIntervalSinceNow) { startOfDay in
+            Section(format(startOfDay: startOfDay)) {
+                ForEach(eventContextsByDate[startOfDay] ?? [], id: \.event) { eventContext in
+                    EventContextView(eventContext: eventContext)
+                        .onTapGesture {
+                            if !eventContext.event.complete {
+                                presentedContext = eventContext
+                            }
+                        }
+                }
+            }
         }
     }
     
@@ -78,10 +101,6 @@ struct ScheduleView: View {
 
                     eventContext.event.complete(true)
                     await standard.add(response: response)
-                }
-            case let .test(string):
-                ModalView(text: string, buttonText: String(localized: "CLOSE")) {
-                    await eventContext.event.complete(true)
                 }
             }
         }
