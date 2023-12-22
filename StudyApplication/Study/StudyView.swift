@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: MIT
 //
 
+import SpeziHealthKit
 import SpeziLocalStorage
 import SpeziOnboarding
 import SwiftUI
@@ -34,9 +35,7 @@ struct StudyView: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 25.0))
             .sheet(isPresented: $showEnrollSheet) {
-                study.onboardingMechanism.createOnboardingView(study: study) {
-                    showEnrollSheet = false
-                }
+                StudyOnboardingFlow(study: study, studyOnboardingComplete: $showEnrollSheet)
             }
     }
     
@@ -102,7 +101,12 @@ struct StudyView: View {
 }
 
 #Preview {
-    let studyViewModel = StudyViewModel(localStorage: LocalStorage())
+    let studyViewModel = StudyViewModel(
+        localStorage: LocalStorage(),
+        healthKit: HealthKit(),
+        scheduler: StudyApplicationScheduler()
+    )
+    
     return ZStack {
         Color.gray
         StudyView(study: studyViewModel.studies[0])

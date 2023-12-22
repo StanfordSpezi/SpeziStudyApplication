@@ -18,6 +18,9 @@ struct Study: Codable, Identifiable {
         case organization
         case description
         case onboardingMechanism
+        case consentDocument
+        case healthKit
+        case notificationDescription
         case tasks
     }
     
@@ -28,6 +31,9 @@ struct Study: Codable, Identifiable {
     let organization: Organization
     let description: String
     let onboardingMechanism: any StudyOnboardingMechanism
+    let consentDocument: String?
+    let healthKit: StudyHealthKitAccess?
+    let notificationDescription: String?
     let tasks: [Task<StudyApplicationTaskContext>]
     
     
@@ -38,7 +44,10 @@ struct Study: Codable, Identifiable {
         organization: Organization,
         description: String,
         onboardingMechanism: any StudyOnboardingMechanism,
-        tasks: [Task<StudyApplicationTaskContext>]
+        consentDocument: String? = nil,
+        healthKit: StudyHealthKitAccess? = nil,
+        notificationDescription: String? = nil,
+        tasks: [Task<StudyApplicationTaskContext>] = []
     ) {
         self.id = id
         self.title = title
@@ -46,6 +55,9 @@ struct Study: Codable, Identifiable {
         self.organization = organization
         self.description = description
         self.onboardingMechanism = onboardingMechanism
+        self.consentDocument = consentDocument
+        self.healthKit = healthKit
+        self.notificationDescription = notificationDescription
         self.tasks = tasks
     }
     
@@ -68,7 +80,10 @@ struct Study: Codable, Identifiable {
             )
         }
         
-        self.tasks = try container.decode([Task<StudyApplicationTaskContext>].self, forKey: .tasks)
+        self.consentDocument = try container.decodeIfPresent(String.self, forKey: .consentDocument)
+        self.healthKit = try container.decodeIfPresent(StudyHealthKitAccess.self, forKey: .healthKit)
+        self.notificationDescription = try container.decodeIfPresent(String.self, forKey: .notificationDescription)
+        self.tasks = try container.decodeIfPresent([Task<StudyApplicationTaskContext>].self, forKey: .tasks) ?? []
     }
     
     
@@ -80,6 +95,9 @@ struct Study: Codable, Identifiable {
         try container.encode(self.organization, forKey: .organization)
         try container.encode(self.description, forKey: .description)
         try container.encode(self.onboardingMechanism.id, forKey: .onboardingMechanism)
+        try container.encode(self.consentDocument, forKey: .consentDocument)
+        try container.encode(self.healthKit, forKey: .healthKit)
+        try container.encode(self.notificationDescription, forKey: .notificationDescription)
         try container.encode(self.tasks, forKey: .tasks)
     }
 }

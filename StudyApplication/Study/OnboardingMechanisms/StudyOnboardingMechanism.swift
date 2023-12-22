@@ -12,7 +12,8 @@ import SwiftUI
 protocol StudyOnboardingMechanism: Identifiable {
     static var identifier: String { get }
     
-    func createOnboardingView(study: Study, closeEnrollment: @escaping () async throws -> Void) -> AnyView
+    /// Views must call the study registration functionality (``StudyViewModel/enrollInStudy(study:)``) to ensure that they are correctly enrolled.
+    func createOnboardingView(study: Study, studyOnboardingComplete: Binding<Bool>) -> AnyView
 }
 
 

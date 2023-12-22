@@ -37,7 +37,14 @@
 		2FC5FBAC2B35121C00F13E59 /* String+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FBAB2B35121C00F13E59 /* String+LocalizedError.swift */; };
 		2FC5FBAF2B3513DD00F13E59 /* StudyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FBAE2B3513DD00F13E59 /* StudyError.swift */; };
 		2FC5FBB22B35153000F13E59 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FBB12B35153000F13E59 /* StudyView.swift */; };
-		2FC5FBB52B351FF800F13E59 /* InvitationCodeFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FBB42B351FF800F13E59 /* InvitationCodeFlow.swift */; };
+		2FC5FBB52B351FF800F13E59 /* StudyOnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FBB42B351FF800F13E59 /* StudyOnboardingFlow.swift */; };
+		2FC5FBBC2B35758700F13E59 /* StudyHealthKitAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FBBB2B35758700F13E59 /* StudyHealthKitAccess.swift */; };
+		2FC5FBC52B357BD700F13E59 /* AHA LE8.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FC5FBBF2B357BD700F13E59 /* AHA LE8.json */; };
+		2FC5FBC62B357BD700F13E59 /* Exercise Benefits Barriers.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FC5FBC02B357BD700F13E59 /* Exercise Benefits Barriers.json */; };
+		2FC5FBC72B357BD700F13E59 /* PAD Walking Impairment.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FC5FBC12B357BD700F13E59 /* PAD Walking Impairment.json */; };
+		2FC5FBC82B357BD700F13E59 /* Physical Activity Questionnaire.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FC5FBC22B357BD700F13E59 /* Physical Activity Questionnaire.json */; };
+		2FC5FBC92B357BD700F13E59 /* PHQ-9 Depression.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FC5FBC32B357BD700F13E59 /* PHQ-9 Depression.json */; };
+		2FC5FBCA2B357BD700F13E59 /* Berlin.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FC5FBC42B357BD700F13E59 /* Berlin.json */; };
 		2FC975A82978F11A00BA99FE /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC975A72978F11A00BA99FE /* Home.swift */; };
 		2FE5DC3529EDD7CA004B9AB4 /* Consent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE5DC2F29EDD7CA004B9AB4 /* Consent.swift */; };
 		2FE5DC3629EDD7CA004B9AB4 /* HealthKitPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE5DC3029EDD7CA004B9AB4 /* HealthKitPermissions.swift */; };
@@ -129,7 +136,14 @@
 		2FC5FBAB2B35121C00F13E59 /* String+LocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedError.swift"; sourceTree = "<group>"; };
 		2FC5FBAE2B3513DD00F13E59 /* StudyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyError.swift; sourceTree = "<group>"; };
 		2FC5FBB12B35153000F13E59 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
-		2FC5FBB42B351FF800F13E59 /* InvitationCodeFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationCodeFlow.swift; sourceTree = "<group>"; };
+		2FC5FBB42B351FF800F13E59 /* StudyOnboardingFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyOnboardingFlow.swift; sourceTree = "<group>"; };
+		2FC5FBBB2B35758700F13E59 /* StudyHealthKitAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHealthKitAccess.swift; sourceTree = "<group>"; };
+		2FC5FBBF2B357BD700F13E59 /* AHA LE8.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "AHA LE8.json"; sourceTree = "<group>"; };
+		2FC5FBC02B357BD700F13E59 /* Exercise Benefits Barriers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Exercise Benefits Barriers.json"; sourceTree = "<group>"; };
+		2FC5FBC12B357BD700F13E59 /* PAD Walking Impairment.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PAD Walking Impairment.json"; sourceTree = "<group>"; };
+		2FC5FBC22B357BD700F13E59 /* Physical Activity Questionnaire.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Physical Activity Questionnaire.json"; sourceTree = "<group>"; };
+		2FC5FBC32B357BD700F13E59 /* PHQ-9 Depression.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "PHQ-9 Depression.json"; sourceTree = "<group>"; };
+		2FC5FBC42B357BD700F13E59 /* Berlin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Berlin.json; sourceTree = "<group>"; };
 		2FC94CD4298B0A1D009C8209 /* StudyApplication.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = StudyApplication.xctestplan; sourceTree = "<group>"; };
 		2FC975A72978F11A00BA99FE /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		2FE5DC2A29EDD78D004B9AB4 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
@@ -225,6 +239,7 @@
 		2FC5FB802B34E69400F13E59 /* StudyOnboarding */ = {
 			isa = PBXGroup;
 			children = (
+				2FC5FBB42B351FF800F13E59 /* StudyOnboardingFlow.swift */,
 				2FE5DC2F29EDD7CA004B9AB4 /* Consent.swift */,
 				2FE5DC3029EDD7CA004B9AB4 /* HealthKitPermissions.swift */,
 				2F65B44D2A3B8B0600A36932 /* NotificationPermissions.swift */,
@@ -239,6 +254,7 @@
 				2FC5FB882B34F09500F13E59 /* Study.swift */,
 				2FC5FB992B350B4900F13E59 /* StudyState.swift */,
 				2FC5FB932B34F55B00F13E59 /* StudyModule.swift */,
+				2FC5FBBB2B35758700F13E59 /* StudyHealthKitAccess.swift */,
 				2FC5FBAE2B3513DD00F13E59 /* StudyError.swift */,
 				2FC5FB962B34F69000F13E59 /* StudyViewModel.swift */,
 				2FC5FB8B2B34F1CA00F13E59 /* Organization.swift */,
@@ -258,6 +274,12 @@
 		2FC5FB902B34F20B00F13E59 /* VascTrac */ = {
 			isa = PBXGroup;
 			children = (
+				2FC5FBBF2B357BD700F13E59 /* AHA LE8.json */,
+				2FC5FBC42B357BD700F13E59 /* Berlin.json */,
+				2FC5FBC02B357BD700F13E59 /* Exercise Benefits Barriers.json */,
+				2FC5FBC12B357BD700F13E59 /* PAD Walking Impairment.json */,
+				2FC5FBC32B357BD700F13E59 /* PHQ-9 Depression.json */,
+				2FC5FBC22B357BD700F13E59 /* Physical Activity Questionnaire.json */,
 				2FC5FB912B34F24E00F13E59 /* VascTracStudy.swift */,
 			);
 			path = VascTrac;
@@ -277,7 +299,6 @@
 			children = (
 				2FC5FBA62B3511F400F13E59 /* InviationCodeStudyOnboardingMechanism.swift */,
 				2FC5FBA82B3511FA00F13E59 /* InvitationCodeView.swift */,
-				2FC5FBB42B351FF800F13E59 /* InvitationCodeFlow.swift */,
 				2FC5FBA42B3511EA00F13E59 /* InviationCodeStudyOnboardingMechanismError.swift */,
 			);
 			path = InvitationCode;
@@ -598,9 +619,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FC3439229EE634B002D773C /* ConsentDocument.md in Resources */,
+				2FC5FBC72B357BD700F13E59 /* PAD Walking Impairment.json in Resources */,
+				2FC5FBC62B357BD700F13E59 /* Exercise Benefits Barriers.json in Resources */,
+				2FC5FBCA2B357BD700F13E59 /* Berlin.json in Resources */,
 				2FC3439129EE6349002D773C /* AppIcon.png in Resources */,
 				653A255528338800005D4D48 /* Assets.xcassets in Resources */,
+				2FC5FBC52B357BD700F13E59 /* AHA LE8.json in Resources */,
+				2FC5FBC92B357BD700F13E59 /* PHQ-9 Depression.json in Resources */,
 				2FC3439029EE6346002D773C /* SocialSupportQuestionnaire.json in Resources */,
+				2FC5FBC82B357BD700F13E59 /* Physical Activity Questionnaire.json in Resources */,
 				2FA0BFED2ACC977500E0EF83 /* Localizable.xcstrings in Resources */,
 				2F6025CB29BBE70F0045459E /* GoogleService-Info.plist in Resources */,
 			);
@@ -688,12 +715,13 @@
 				653A2551283387FE005D4D48 /* StudyApplication.swift in Sources */,
 				2FC5FBAF2B3513DD00F13E59 /* StudyError.swift in Sources */,
 				2FE5DC3629EDD7CA004B9AB4 /* HealthKitPermissions.swift in Sources */,
-				2FC5FBB52B351FF800F13E59 /* InvitationCodeFlow.swift in Sources */,
+				2FC5FBB52B351FF800F13E59 /* StudyOnboardingFlow.swift in Sources */,
 				2FC5FB892B34F09500F13E59 /* Study.swift in Sources */,
 				2F65B44E2A3B8B0600A36932 /* NotificationPermissions.swift in Sources */,
 				97D8B2A42A7653E600715F50 /* ProcessInfo+PreviewSimulator.swift in Sources */,
 				5661552E2AB854C000209B80 /* PackageHelper.swift in Sources */,
 				2FC5FB922B34F24E00F13E59 /* VascTracStudy.swift in Sources */,
+				2FC5FBBC2B35758700F13E59 /* StudyHealthKitAccess.swift in Sources */,
 				27FA29902A388E9B009CAC45 /* ModalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1227,8 +1255,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/StanfordSpezi/SpeziScheduler.git";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.7.0;
+				branch = feature/initializer;
+				kind = branch;
 			};
 		};
 		2F49B7742980407B00BCB272 /* XCRemoteSwiftPackageReference "Spezi" */ = {
@@ -1267,8 +1295,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/StanfordSpezi/SpeziHealthKit.git";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.4.0;
+				branch = feature/addSampleQueries;
+				kind = branch;
 			};
 		};
 		2FE5DC7329EDD8E6004B9AB4 /* XCRemoteSwiftPackageReference "SpeziFirebase" */ = {

@@ -58,6 +58,9 @@
     "After you provide detailed permissions, your data is automatically shared with the studies you participate in." : {
 
     },
+    "Allow Notifications" : {
+
+    },
     "Already Enrolled" : {
 
     },
@@ -92,6 +95,7 @@
       }
     },
     "CONSENT_LOADING_ERROR" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -175,7 +179,14 @@
     "Finish Onboarding" : {
 
     },
+    "Grant Access" : {
+
+    },
+    "HealthKit Access" : {
+
+    },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -186,6 +197,7 @@
       }
     },
     "HEALTHKIT_PERMISSIONS_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -196,6 +208,7 @@
       }
     },
     "HEALTHKIT_PERMISSIONS_SUBTITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -207,6 +220,7 @@
     },
     "HEALTHKIT_PERMISSIONS_TITLE" : {
       "comment" : "MARK: HealthKit",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -384,6 +398,7 @@
 
     },
     "NOTIFICATION_PERMISSIONS_BUTTON" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -394,6 +409,7 @@
       }
     },
     "NOTIFICATION_PERMISSIONS_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -404,6 +420,7 @@
       }
     },
     "NOTIFICATION_PERMISSIONS_SUBTITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -415,6 +432,7 @@
     },
     "NOTIFICATION_PERMISSIONS_TITLE" : {
       "comment" : "MARK: Notifications",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -423,6 +441,9 @@
           }
         }
       }
+    },
+    "Notifications" : {
+
     },
     "Plase enter your invitation code to join the %@ study." : {
 
@@ -532,6 +553,12 @@
       }
     },
     "Tasks" : {
+
+    },
+    "The %@ study requests access to HealthKit data" : {
+
+    },
+    "The %@ study would like to schedule notifications." : {
 
     },
     "The Spezi Study Application can collect a wide variety of data points that can be helpful for a broad range of digital health studies." : {

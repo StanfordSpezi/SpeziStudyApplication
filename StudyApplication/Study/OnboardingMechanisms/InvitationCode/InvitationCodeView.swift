@@ -14,8 +14,8 @@ import SwiftUI
 
 struct InvitationCodeView: View {
     private let study: Study
-    private let closeEnrollment: () async throws -> Void
     
+    @Environment(StudyViewModel.self) private var studyViewModel: StudyViewModel
     @State private var invitationCode = ""
     @State private var viewState: ViewState = .idle
     @ValidationState private var validation
@@ -92,9 +92,8 @@ struct InvitationCodeView: View {
     }
     
     
-    init(study: Study, closeEnrollment: @escaping () async throws -> Void) {
+    init(study: Study) {
         self.study = study
-        self.closeEnrollment = closeEnrollment
     }
     
     
@@ -104,7 +103,7 @@ struct InvitationCodeView: View {
                 throw InviationCodeError.invitationCodeInvalid
             }
             
-            try await closeEnrollment()
+            try await studyViewModel.enrollInStudy(study: study)
         } catch let error as LocalizedError {
             viewState = .error(error)
         } catch {

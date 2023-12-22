@@ -13,7 +13,7 @@ struct InviationCodeStudyOnboardingMechanism: StudyOnboardingMechanism {
     static var identifier = "InviationCode"
     
     
-    func createOnboardingView(study: Study, closeEnrollment: @escaping () async throws -> Void) -> AnyView {
-        AnyView(InvitationCodeFlow(study: study, closeEnrollment: closeEnrollment))
+    func createOnboardingView(study: Study, studyOnboardingComplete: Binding<Bool>) -> AnyView {
+        AnyView(InvitationCodeView(study: study))
     }
 }
