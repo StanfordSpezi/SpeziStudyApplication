@@ -9,14 +9,14 @@
 import Foundation
 
 
-enum InviationCodeError: LocalizedError {
-    case invitationCodeInvalid
+enum StudyError: LocalizedError {
+    case canOnlyEnrollInOneStudy
     
     
     var errorDescription: String? {
         switch self {
-        case .invitationCodeInvalid:
-            String(localized: "Invitation code was invalid.")
+        case .canOnlyEnrollInOneStudy:
+            String(localized: "The Spezi Study Application currently only allows enrolling in a single study at the same time.")
         }
     }
 }

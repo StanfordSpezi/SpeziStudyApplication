@@ -12,7 +12,8 @@ import SwiftUI
 struct InviationCodeStudyOnboardingMechanism: StudyOnboardingMechanism {
     static var identifier = "InviationCode"
     
-    func createOnboardingView(action: @escaping () async throws -> Void, study: Study) -> AnyView {
-        return AnyView(InvitationCodeView(action: action, study: study))
+    
+    func createOnboardingView(study: Study, closeEnrollment: @escaping () async throws -> Void) -> AnyView {
+        AnyView(InvitationCodeFlow(study: study, closeEnrollment: closeEnrollment))
     }
 }

@@ -14,7 +14,7 @@ import SpeziLocalStorage
 class StudyViewModel {
     private let localStorage: LocalStorage
     let studies: [Study] = [Study.vascTracPaloAltoVA, Study.vascTracStanford]
-    var studyState: [StudyState] {
+    private(set) var studyState: [StudyState] {
         didSet {
             try? localStorage.store(studyState)
         }
@@ -24,5 +24,14 @@ class StudyViewModel {
     init(localStorage: LocalStorage) {
         self.localStorage = localStorage
         self.studyState = (try? localStorage.read()) ?? []
+    }
+    
+    
+    func enrollInStudy(study: Study.ID) async throws {
+        guard !studyState.contains(where: { $0.enrolled != nil && $0.finished == nil }) else {
+            throw StudyError.canOnlyEnrollInOneStudy
+        }
+        
+        studyState.append(StudyState(studyId: study, enrolled: .now))
     }
 }

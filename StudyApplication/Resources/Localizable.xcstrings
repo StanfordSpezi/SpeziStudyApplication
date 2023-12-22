@@ -58,6 +58,9 @@
     "After you provide detailed permissions, your data is automatically shared with the studies you participate in." : {
 
     },
+    "Already Enrolled" : {
+
+    },
     "An invitation code is at least 8 characters long." : {
 
     },
@@ -153,6 +156,9 @@
           }
         }
       }
+    },
+    "Enroll" : {
+
     },
     "Enroll and Participate in Research Projects" : {
 
@@ -529,6 +535,9 @@
 
     },
     "The Spezi Study Application can collect a wide variety of data points that can be helpful for a broad range of digital health studies." : {
+
+    },
+    "The Spezi Study Application currently only allows enrolling in a single study at the same time." : {
 
     },
     "Unknown Invitation Code Error" : {

@@ -12,7 +12,7 @@ import SwiftUI
 protocol StudyOnboardingMechanism: Identifiable {
     static var identifier: String { get }
     
-    func createOnboardingView(action: @escaping () async throws -> Void, study: Study) -> AnyView
+    func createOnboardingView(study: Study, closeEnrollment: @escaping () async throws -> Void) -> AnyView
 }
 
 

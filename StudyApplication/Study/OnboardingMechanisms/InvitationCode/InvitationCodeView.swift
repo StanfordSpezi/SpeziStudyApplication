@@ -6,15 +6,15 @@
 // SPDX-License-Identifier: MIT
 //
 
-import SwiftUI
+import SpeziOnboarding
 import SpeziValidation
 import SpeziViews
-import SpeziOnboarding
+import SwiftUI
 
 
 struct InvitationCodeView: View {
-    private let action: () async throws -> Void
     private let study: Study
+    private let closeEnrollment: () async throws -> Void
     
     @State private var invitationCode = ""
     @State private var viewState: ViewState = .idle
@@ -25,9 +25,8 @@ struct InvitationCodeView: View {
         ScrollView {
             VStack(spacing: 32) {
                 Divider()
-                HStack {
-                    
-                }
+                invitationCodeHeader
+                Divider()
                 Grid(horizontalSpacing: 16, verticalSpacing: 16) {
                     invitationCodeView
                 }
@@ -93,19 +92,19 @@ struct InvitationCodeView: View {
     }
     
     
-    init(action: @escaping () async throws -> Void, study: Study) {
-        self.action = action
+    init(study: Study, closeEnrollment: @escaping () async throws -> Void) {
         self.study = study
+        self.closeEnrollment = closeEnrollment
     }
     
     
     private func verifyOnboardingCode() async {
         do {
             guard invitationCode == "VASCTRAC" else {
-                throw InviationCodeStudyOnboardingMechanismError.invitationCodeInvalid
+                throw InviationCodeError.invitationCodeInvalid
             }
             
-            try await action()
+            try await closeEnrollment()
         } catch let error as LocalizedError {
             viewState = .error(error)
         } catch {

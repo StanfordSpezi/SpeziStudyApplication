@@ -31,7 +31,6 @@ struct Study: Codable, Identifiable {
     let tasks: [Task<StudyApplicationTaskContext>]
     
     
-    
     init(
         id: UUID,
         title: String,
