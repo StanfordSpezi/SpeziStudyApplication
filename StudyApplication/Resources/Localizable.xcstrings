@@ -58,6 +58,9 @@
     "After you provide detailed permissions, your data is automatically shared with the studies you participate in." : {
 
     },
+    "An invitation code is at least 8 characters long." : {
+
+    },
     "Automatic Data Transfer" : {
 
     },
@@ -332,6 +335,12 @@
         }
       }
     },
+    "Invitation Code" : {
+
+    },
+    "Invitation code was invalid." : {
+
+    },
     "LELAND_STANFORD_BIO" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -409,6 +418,9 @@
         }
       }
     },
+    "Plase enter your invitation code to join the %@ study." : {
+
+    },
     "PROJECT_LICENSE_DESCRIPTION" : {
       "localizations" : {
         "en" : {
@@ -418,6 +430,9 @@
           }
         }
       }
+    },
+    "Redeem Inviation Code" : {
+
     },
     "Repository Link" : {
 
@@ -514,6 +529,9 @@
 
     },
     "The Spezi Study Application can collect a wide variety of data points that can be helpful for a broad range of digital health studies." : {
+
+    },
+    "Unknown Invitation Code Error" : {
 
     },
     "Welcome" : {
