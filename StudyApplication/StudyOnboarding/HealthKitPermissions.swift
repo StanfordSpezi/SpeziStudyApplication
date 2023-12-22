@@ -12,6 +12,8 @@ import SwiftUI
 
 
 struct HealthKitPermissions: View {
+    let study: Study
+    
     @Environment(HealthKit.self) private var healthKitDataSource
     @Environment(OnboardingNavigationPath.self) private var onboardingNavigationPath
     
@@ -23,22 +25,22 @@ struct HealthKitPermissions: View {
             contentView: {
                 VStack {
                     OnboardingTitleView(
-                        title: "HEALTHKIT_PERMISSIONS_TITLE",
-                        subtitle: "HEALTHKIT_PERMISSIONS_SUBTITLE"
+                        title: "HealthKit Access",
+                        subtitle: "The \(study.title) study requests access to HealthKit data"
                     )
                     Spacer()
                     Image(systemName: "heart.text.square.fill")
                         .font(.system(size: 150))
                         .foregroundColor(.accentColor)
                         .accessibilityHidden(true)
-                    Text("HEALTHKIT_PERMISSIONS_DESCRIPTION")
+                    Text(study.healthKit?.usageDescription ?? "")
                         .multilineTextAlignment(.center)
                         .padding(.vertical, 16)
                     Spacer()
                 }
             }, actionView: {
                 OnboardingActionsView(
-                    "HEALTHKIT_PERMISSIONS_BUTTON",
+                    "Grant Access",
                     action: {
                         do {
                             healthKitProcessing = true
@@ -63,14 +65,3 @@ struct HealthKitPermissions: View {
             .navigationTitle("")
     }
 }
-
-
-#if DEBUG
-#Preview {
-    OnboardingStack(startAtStep: HealthKitPermissions.self) {
-        for onboardingView in OnboardingFlow.previewSimulatorViews {
-            onboardingView
-        }
-    }
-}
-#endif

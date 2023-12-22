@@ -12,6 +12,9 @@ import SwiftUI
 
 
 struct NotificationPermissions: View {
+    let study: Study
+    
+    
     @Environment(StudyApplicationScheduler.self) private var scheduler
     @Environment(OnboardingNavigationPath.self) private var onboardingNavigationPath
     
@@ -23,22 +26,24 @@ struct NotificationPermissions: View {
             contentView: {
                 VStack {
                     OnboardingTitleView(
-                        title: "NOTIFICATION_PERMISSIONS_TITLE",
-                        subtitle: "NOTIFICATION_PERMISSIONS_SUBTITLE"
+                        title: "Notifications",
+                        subtitle: "The \(study.title) study would like to schedule notifications."
                     )
                     Spacer()
                     Image(systemName: "bell.square.fill")
                         .font(.system(size: 150))
                         .foregroundColor(.accentColor)
                         .accessibilityHidden(true)
-                    Text("NOTIFICATION_PERMISSIONS_DESCRIPTION")
-                        .multilineTextAlignment(.center)
-                        .padding(.vertical, 16)
+                    if let notificationDescription = study.notificationDescription {
+                        Text(notificationDescription)
+                            .multilineTextAlignment(.center)
+                            .padding(.vertical, 16)
+                    }
                     Spacer()
                 }
             }, actionView: {
                 OnboardingActionsView(
-                    "NOTIFICATION_PERMISSIONS_BUTTON",
+                    "Allow Notifications",
                     action: {
                         do {
                             notificationProcessing = true

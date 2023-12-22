@@ -23,7 +23,7 @@ struct ScheduleView: View {
     
     
     private var startOfDays: [Date] {
-        Array(eventContextsByDate.keys)
+        Array(eventContextsByDate.keys).sorted()
     }
     
     
@@ -36,10 +36,7 @@ struct ScheduleView: View {
                     listView
                 }
             }
-                .onChange(of: scheduler) {
-                    calculateEventContextsByDate()
-                }
-                .task {
+                .onChange(of: scheduler.tasks, initial: true) {
                     calculateEventContextsByDate()
                 }
                 .sheet(item: $presentedContext) { presentedContext in
@@ -73,7 +70,7 @@ struct ScheduleView: View {
                 ForEach(eventContextsByDate[startOfDay] ?? [], id: \.event) { eventContext in
                     EventContextView(eventContext: eventContext)
                         .onTapGesture {
-                            if !eventContext.event.complete {
+                            if !eventContext.event.complete && eventContext.event.due {
                                 presentedContext = eventContext
                             }
                         }
@@ -119,8 +116,8 @@ struct ScheduleView: View {
         let eventContexts = scheduler.tasks.flatMap { task in
             task
                 .events(
-                    from: Calendar.current.startOfDay(for: .now),
-                    to: .numberOfEventsOrEndDate(100, .now)
+                    from: .distantPast,
+                    to: .numberOfEvents(100)
                 )
                 .map { event in
                     EventContext(event: event, task: task)

@@ -23,12 +23,10 @@ class StudyAppDelegate: SpeziAppDelegate {
         Configuration(standard: StudyApplicationStandard()) {
             if !FeatureFlags.disableFirebase {
                 AccountConfiguration(configuration: [
-                    .requires(\.userId),
-                    .requires(\.name),
-
-                    // additional values stored using the `FirestoreAccountStorage` within our Standard implementation
-                    .collects(\.genderIdentity),
-                    .collects(\.dateOfBirth)
+                    .supports(\.userId),
+                    .supports(\.name),
+                    .supports(\.genderIdentity),
+                    .supports(\.dateOfBirth)
                 ])
 
                 if FeatureFlags.useFirebaseEmulator {
@@ -47,11 +45,12 @@ class StudyAppDelegate: SpeziAppDelegate {
                 }
             }
             if HKHealthStore.isHealthDataAvailable() {
-                healthKit
+                HealthKit()
             }
             MockWebService()
             StudyApplicationScheduler()
             OnboardingDataSource()
+            StudyModule()
         }
     }
     
@@ -67,15 +66,5 @@ class StudyAppDelegate: SpeziAppDelegate {
         return Firestore(
             settings: settings
         )
-    }
-    
-    
-    private var healthKit: HealthKit {
-        HealthKit {
-            CollectSample(
-                HKQuantityType(.stepCount),
-                deliverySetting: .anchorQuery(.afterAuthorizationAndApplicationWillLaunch)
-            )
-        }
     }
 }

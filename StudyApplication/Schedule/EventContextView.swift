@@ -39,7 +39,7 @@ struct EventContextView: View {
                 Divider()
                 Text(eventContext.task.description)
                     .font(.callout)
-                if !eventContext.event.complete {
+                if !eventContext.event.complete && eventContext.event.due {
                     Text(eventContext.task.context.actionType)
                         .frame(maxWidth: .infinity, minHeight: 50)
                         .foregroundColor(.white)
