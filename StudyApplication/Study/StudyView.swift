@@ -35,7 +35,7 @@ struct StudyView: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 25.0))
             .sheet(isPresented: $showEnrollSheet) {
-                StudyOnboardingFlow(study: study, studyOnboardingComplete: $showEnrollSheet)
+                StudyOnboardingFlow(study: study, studyOnboardingComplete: !$showEnrollSheet)
             }
     }
     
@@ -46,9 +46,16 @@ struct StudyView: View {
                 .scaledToFill()
                 .frame(height: 160)
         } placeholder: {
-            ProgressView()
+            HStack {
+                Spacer()
+                ProgressView()
+                Spacer()
+            }
         }
             .frame(height: 160)
+            .background {
+                Color(UIColor.secondarySystemBackground)
+            }
     }
     
     @ViewBuilder private var studyDescription: some View {

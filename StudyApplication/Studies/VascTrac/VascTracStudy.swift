@@ -109,6 +109,8 @@ extension Study {
             description: vascTracDescription,
             onboardingMechanism: InviationCodeStudyOnboardingMechanism(),
             consentDocument: "Consent Document Placeholder ...",
+            healthKit: vascTracHealthKitAccess,
+            notificationDescription: "Vasc Track wants to send you notifications to remind you about answering your questinnaires.",
             tasks: vascTracTasks
         )
     }
@@ -120,21 +122,27 @@ extension Study {
             titleImage: URL(string: "https://images.squarespace-cdn.com/content/v1/57d09729be659485ada8bdd2/1532817554721-8M7FSA6I81WR09Q5I52X/Intro1.png")!,
             organization: Organization(
                 title: "Stanford University",
-                logo: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Seal_of_the_U.S._Department_of_Veterans_Affairs.svg/480px-Seal_of_the_U.S._Department_of_Veterans_Affairs.svg.png")!
+                logo: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Seal_of_Leland_Stanford_Junior_University.svg/480px-Seal_of_Leland_Stanford_Junior_University.svg.png")!
             ),
             description: vascTracDescription,
             onboardingMechanism: InviationCodeStudyOnboardingMechanism(),
             consentDocument: "Consent Document Placeholder ...",
+            healthKit: vascTracHealthKitAccess,
+            notificationDescription: "Vasc Track wants to send you notifications to remind you about answering your questinnaires.",
             tasks: vascTracTasks
         )
     }
     
     
     static func task(forQuestionnaire questionnaire: Questionnaire, title: String, week: Int) -> SpeziScheduler.Task<StudyApplicationTaskContext> {
-        var date = Date.now
+        let hour = week == 0 ? 0 : 7
+        
+        let date: Date
         if week > 0 {
-            let inXWeeks = Calendar.current.date(byAdding: .day, value: week * 7, to: date) ?? .now
-            date = Calendar.current.date(bySettingHour: 7, minute: 0, second: 0, of: inXWeeks) ?? inXWeeks
+            let inXWeeks = Calendar.current.date(byAdding: .day, value: week * 7, to: .now) ?? .now
+            date = Calendar.current.startOfDay(for: inXWeeks)
+        } else {
+            date = Calendar.current.startOfDay(for: .now).addingTimeInterval(-1)
         }
         
         return Task(
@@ -142,7 +150,7 @@ extension Study {
             description: "Plase fill out the \(title) questionnaire on week \(week).",
             schedule: Schedule(
                 start: date,
-                repetition: .matching(DateComponents()),
+                repetition: .matching(DateComponents(hour: hour, minute: 0)),
                 end: .numberOfEvents(1)
             ),
             notifications: true,

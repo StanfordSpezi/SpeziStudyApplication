@@ -14,21 +14,13 @@ import SwiftUI
 struct StudyOnboardingFlow: View {
     private let study: Study
     
-    @Environment(HealthKit.self) private var healthKitDataSource
+    @Environment(HealthKit.self) private var healthKit
     @Environment(StudyApplicationScheduler.self) private var scheduler
         
     @Binding var studyOnboardingComplete: Bool
     @State private var localNotificationAuthorization = false
+    @State private var healthKitAuthorization = false
     
-    
-    private var healthKitAuthorization: Bool {
-        // As HealthKit not available in preview simulator
-        if ProcessInfo.processInfo.isPreviewSimulator {
-            return false
-        }
-        
-        return healthKitDataSource.authorized
-    }
     
     var body: some View {
         OnboardingStack(onboardingFlowComplete: $studyOnboardingComplete) {
@@ -36,7 +28,7 @@ struct StudyOnboardingFlow: View {
             if let consentDocument = study.consentDocument {
                 Consent(consentDocument: consentDocument)
             }
-            if study.healthKit != nil, HKHealthStore.isHealthDataAvailable() && !healthKitAuthorization {
+            if study.healthKit != nil, !healthKitAuthorization {
                 HealthKitPermissions(study: study)
             }
             if !study.tasks.isEmpty, !localNotificationAuthorization {
@@ -45,6 +37,14 @@ struct StudyOnboardingFlow: View {
         }
             .task {
                 localNotificationAuthorization = await scheduler.localNotificationAuthorization
+            }
+            .onChange(of: healthKit.authorized, initial: true) {
+                guard HKHealthStore.isHealthDataAvailable() else {
+                    healthKitAuthorization = true
+                    return
+                }
+                
+                healthKitAuthorization = healthKit.authorized
             }
             .interactiveDismissDisabled()
     }

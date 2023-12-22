@@ -15,6 +15,7 @@ import SwiftUI
 struct InvitationCodeView: View {
     private let study: Study
     
+    @Environment(OnboardingNavigationPath.self) private var onboardingNavigationPath
     @Environment(StudyViewModel.self) private var studyViewModel: StudyViewModel
     @State private var invitationCode = ""
     @State private var viewState: ViewState = .idle
@@ -104,6 +105,10 @@ struct InvitationCodeView: View {
             }
             
             try await studyViewModel.enrollInStudy(study: study)
+            
+            try? await Task.sleep(for: .seconds(0.25))
+            
+            await onboardingNavigationPath.nextStep()
         } catch let error as LocalizedError {
             viewState = .error(error)
         } catch {
