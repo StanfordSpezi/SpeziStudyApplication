@@ -1,1 +1,515 @@
-{"title":"Berlin Questionnaire","resourceType":"Questionnaire","language":"en-US","status":"draft","publisher":"Stanford Biodesign Digital Health","meta":{"profile":["http://spezi.health/fhir/StructureDefinition/sdf-Questionnaire"],"tag":[{"system":"urn:ietf:bcp:47","code":"en-US","display":"English"}]},"useContext":[{"code":{"system":"http://hl7.org/fhir/ValueSet/usage-context-type","code":"focus","display":"Clinical Focus"},"valueCodeableConcept":{"coding":[{"system":"urn:oid:2.16.578.1.12.4.1.1.8655","display":"Berlin Questionnaire"}]}}],"contact":[{"name":"http://spezi.health"}],"subjectType":["Patient"],"url":"http://spezi.health/fhir/questionnaire/a82147d9-af9e-48c1-ba07-d671c1a74e52","item":[{"linkId":"4a026295-4824-4844-b99c-e4600181f289","type":"display","text":"Complete the following: ","required":false},{"linkId":"3c24f5f6-8981-4593-82ee-5447dc55e34a","type":"integer","text":"Height (in inches) ","required":true},{"linkId":"6a35af77-c39a-4623-86fb-d02efe3eb0dc","type":"integer","text":"Weight (in lbs)","required":false},{"linkId":"577dd88d-c3e6-42b5-8ba0-c195a989e09e","type":"integer","text":"Age (in years)","required":false},{"linkId":"e790c2ce-8703-40e0-977e-ecaea634e255","type":"choice","text":"Gender ","required":false,"answerOption":[{"valueCoding":{"id":"cd0aee2a-28d4-43ac-8aa6-cde14f509440","code":"male","system":"urn:uuid:6317536c-b0dd-4a6f-bb62-a04cdafd0c69","display":"Male"}},{"valueCoding":{"id":"49cbe22d-ef36-4160-a1bc-31b2240bb643","code":"female","system":"urn:uuid:6317536c-b0dd-4a6f-bb62-a04cdafd0c69","display":"Female"}}]},{"linkId":"4b1233fc-caae-44d4-fda8-e400ae347d97","type":"choice","text":"Do you snore?","required":false,"answerOption":[{"valueCoding":{"id":"310f4bc2-de51-4a76-83be-e76b71f45fe7","code":"1","system":"urn:uuid:852a1af3-bbb7-457f-9e4e-ec449bb64a66","display":"Yes"}},{"valueCoding":{"id":"2cd86bf2-3d1c-4693-884b-0d5f77e81b9f","code":"0","system":"urn:uuid:852a1af3-bbb7-457f-9e4e-ec449bb64a66","display":"No"}},{"valueCoding":{"id":"6d5f9a6b-227f-4dfc-8c2b-22968192ea50","code":"0","system":"urn:uuid:852a1af3-bbb7-457f-9e4e-ec449bb64a66","display":"Don't know "}}]},{"linkId":"c3fd4167-5ff9-4747-8c0f-0d4228cf3035","type":"choice","text":"Your snoring is...","required":false,"answerOption":[{"valueCoding":{"id":"ac630cb9-e004-4abe-8ee5-3c71ffad308d","code":"0","system":"urn:uuid:3e291441-d852-4f4e-8e45-302d6684acc1","display":"Slightly louder than breathing"}},{"valueCoding":{"id":"b5f584e5-3b54-4e87-ee77-47a4a9471602","code":"0","system":"urn:uuid:3e291441-d852-4f4e-8e45-302d6684acc1","display":"As loud as talking"}},{"valueCoding":{"id":"02f7cb3c-c49d-46ae-889e-ccd782749fd1","code":"1","system":"urn:uuid:3e291441-d852-4f4e-8e45-302d6684acc1","display":"Louder than talking"}},{"valueCoding":{"id":"a207bc4d-ef08-45a7-9161-219f8d26a150","code":"1","system":"urn:uuid:3e291441-d852-4f4e-8e45-302d6684acc1","display":"Very loud, can be heard in adjacent rooms"}}],"enableWhen":[{"question":"4b1233fc-caae-44d4-fda8-e400ae347d97","operator":"=","answerCoding":{"system":"urn:uuid:852a1af3-bbb7-457f-9e4e-ec449bb64a66","code":"1"}}]},{"linkId":"e5f49522-9d10-4bb7-8f85-80b29557d582","type":"choice","text":"How often do you snore?","required":false,"answerOption":[{"valueCoding":{"id":"90a857ff-e447-4a3a-a731-ccecbcc9d553","code":"1","system":"urn:uuid:02929522-c01e-4f3b-9a71-afd2684b2c10","display":"Nearly every day"}},{"valueCoding":{"id":"07eb0a52-60f8-4ee7-8aff-c43f6803c586","code":"1","system":"urn:uuid:02929522-c01e-4f3b-9a71-afd2684b2c10","display":"3-4 times a week"}},{"valueCoding":{"id":"11a5671e-ebb9-4f25-c405-fd871d3a1afb","code":"0","system":"urn:uuid:02929522-c01e-4f3b-9a71-afd2684b2c10","display":"1-2 times a week"}},{"valueCoding":{"id":"ee57fc0c-b505-497b-8315-a707e6a820a4","code":"0","system":"urn:uuid:02929522-c01e-4f3b-9a71-afd2684b2c10","display":"1-2 times a month"}},{"valueCoding":{"id":"1b699e2f-3a29-4e1d-8434-f460a0620775","code":"0","system":"urn:uuid:02929522-c01e-4f3b-9a71-afd2684b2c10","display":"never or nearly never"}}]},{"linkId":"8d3f1d09-6917-4630-86b6-7647697f0178","type":"choice","text":"Has your snoring ever bothered other people?","required":false,"answerOption":[{"valueCoding":{"id":"10f2ec54-16a4-42e7-e28e-bf712e35bc2e","code":"1","system":"urn:uuid:89ec5471-0747-45c4-8a23-af1fc67d9e8e","display":"Yes"}},{"valueCoding":{"id":"13b5d46e-bfc8-45bf-b6ce-d992a31ad053","code":"0","system":"urn:uuid:89ec5471-0747-45c4-8a23-af1fc67d9e8e","display":"No"}}]},{"linkId":"ea01a70d-539b-4725-8564-0f541670fbcc","type":"choice","text":"How often do you feel tired or fatigued after your sleep?","required":false,"answerOption":[{"valueCoding":{"id":"f8e3d12f-a2e7-4fc0-88ef-21d56f93115d","code":"1","system":"urn:uuid:3e30169c-b70c-47ae-81b0-0479213edefe","display":"Nearly every day"}},{"valueCoding":{"id":"8349d1b9-1bf9-4ddd-82be-03e9778041d4","code":"1","system":"urn:uuid:3e30169c-b70c-47ae-81b0-0479213edefe","display":"3-4 times a week"}},{"valueCoding":{"id":"680ced14-678a-4a88-8207-a18ec7238e21","code":"0","system":"urn:uuid:3e30169c-b70c-47ae-81b0-0479213edefe","display":"1-2 times a week"}},{"valueCoding":{"id":"cced5486-c62f-42ed-9885-52d1af011f0b","code":"0","system":"urn:uuid:3e30169c-b70c-47ae-81b0-0479213edefe","display":"1-2 times a month"}},{"valueCoding":{"id":"b98892b0-46ce-40ba-c62c-6b4baf571503","code":"0","system":"urn:uuid:3e30169c-b70c-47ae-81b0-0479213edefe","display":"Never or nearly never"}}]},{"linkId":"fa94564e-d0d2-4ada-c4a9-c50f37c3ff12","type":"choice","text":"During your wake time, do you feel tired, fatigued, or not up to par?","required":false,"answerOption":[{"valueCoding":{"id":"2c694ba2-6291-4499-f8c3-a9a61e4cb288","code":"1","system":"urn:uuid:9bed1072-8ab5-4ef3-a121-712dcfcbc500","display":"Nearly every day"}},{"valueCoding":{"id":"ebcf8a0b-3c55-4ae9-a0b7-6a1635745838","code":"1","system":"urn:uuid:9bed1072-8ab5-4ef3-a121-712dcfcbc500","display":"3-4 times a week"}},{"valueCoding":{"id":"56e0e441-f77c-4e61-86ea-03305d494256","code":"0","system":"urn:uuid:9bed1072-8ab5-4ef3-a121-712dcfcbc500","display":"1-2 times a week"}},{"valueCoding":{"id":"ab95a664-d3c7-4adf-8a46-3f41740d5d80","code":"0","system":"urn:uuid:9bed1072-8ab5-4ef3-a121-712dcfcbc500","display":"1-2 times a month"}},{"valueCoding":{"id":"daee0f7e-de6c-430c-9d1e-71e6bd228b59","code":"0","system":"urn:uuid:9bed1072-8ab5-4ef3-a121-712dcfcbc500","display":"Never or nearly never"}}]},{"linkId":"720a4373-34b0-4d4a-b42f-4a0a5f9b06b5","type":"choice","required":false,"answerOption":[{"valueCoding":{"id":"1b1208e7-5015-435a-f269-12fc5c950dd1","code":"2","system":"urn:uuid:578f637c-5346-4929-e39b-7024c4496321","display":"Nearly every day."}},{"valueCoding":{"id":"705b8494-4ee3-43fd-dde8-7cbaaf9e4ac5","code":"2","system":"urn:uuid:578f637c-5346-4929-e39b-7024c4496321","display":"3-4 times a week"}},{"valueCoding":{"id":"fbdd3119-de77-4b3e-d49d-4124b0294dfa","code":"0","system":"urn:uuid:578f637c-5346-4929-e39b-7024c4496321","display":"1-2 times a week"}},{"valueCoding":{"id":"ae31d8c3-374b-4626-a2be-058db4f26c50","code":"0","system":"urn:uuid:578f637c-5346-4929-e39b-7024c4496321","display":"1-2 times a month"}},{"valueCoding":{"id":"aae2e13c-0ef3-4a36-8bfa-f01f71caadf0","code":"0","system":"urn:uuid:578f637c-5346-4929-e39b-7024c4496321","display":"Never or nearly never"}}],"text":"Has anyone noticed that you quit breathing during your sleep?"},{"linkId":"3fff9365-0f67-49d8-93b0-34eebeedc8ea","type":"choice","item":[{"linkId":"97d38424-4b40-4241-8773-5f0297ffce59","type":"choice","required":false,"answerOption":[{"valueCoding":{"id":"c52eef8d-f736-4541-82e0-445b6c717516","code":"1","system":"urn:uuid:0190a69a-ad5a-4fd7-88f7-b1d6f2a2c9e1","display":"Nearly every day."}},{"valueCoding":{"id":"9248105c-4aae-490c-aab0-d8816db85ef5","code":"1","system":"urn:uuid:0190a69a-ad5a-4fd7-88f7-b1d6f2a2c9e1","display":"3-4 times a week"}},{"valueCoding":{"id":"20b76109-db77-4d3e-a8f0-ea342e72850e","code":"0","system":"urn:uuid:0190a69a-ad5a-4fd7-88f7-b1d6f2a2c9e1","display":"1-2 times a week"}},{"valueCoding":{"id":"2dc1a1d6-b79a-47c5-d6c0-89d5ede78c5b","code":"0","system":"urn:uuid:0190a69a-ad5a-4fd7-88f7-b1d6f2a2c9e1","display":"1-2 times a month"}},{"valueCoding":{"id":"bed6405d-f2ef-4688-8367-7f9be9ba1d4b","code":"0","system":"urn:uuid:0190a69a-ad5a-4fd7-88f7-b1d6f2a2c9e1","display":"Never or nearly never"}}],"text":"How often do you nod off or fall asleep while driving a vehicle? ","enableWhen":[{"question":"3fff9365-0f67-49d8-93b0-34eebeedc8ea","operator":"=","answerCoding":{"system":"urn:uuid:56be8b25-5ee2-49c7-b1b2-a6c89a4d1b6c","code":"1"}}]}],"required":false,"answerOption":[{"valueCoding":{"id":"d0e30925-8acc-4727-84a6-1519924baa5c","code":"1","system":"urn:uuid:56be8b25-5ee2-49c7-b1b2-a6c89a4d1b6c","display":"Yes"}},{"valueCoding":{"id":"28d4dfdc-0437-4d31-aa21-c18a7049f0b8","code":"0","system":"urn:uuid:56be8b25-5ee2-49c7-b1b2-a6c89a4d1b6c","display":"No"}}],"text":"Have you ever nodded off or fallen asleep while driving a vehicle?"},{"linkId":"0480ab26-afb2-4e87-f006-6051292373f1","type":"choice","text":"Do you have high blood pressure?","required":false,"answerOption":[{"valueCoding":{"id":"9be66f82-03ea-4793-919d-376256a1b225","code":"1","system":"urn:uuid:adc58477-fb64-41e3-ba1a-025aac8fe990","display":"Yes"}},{"valueCoding":{"id":"d376e20b-afd3-4a4b-8ec8-bd264b5ab080","code":"0","system":"urn:uuid:adc58477-fb64-41e3-ba1a-025aac8fe990","display":"No"}},{"valueCoding":{"id":"0b03b8b5-1c2a-467e-8279-b2100b6f98d9","code":"0","system":"urn:uuid:adc58477-fb64-41e3-ba1a-025aac8fe990","display":"Don't know "}}]},{"linkId":"c01b2b2a-7797-4651-82c6-35bf9537f50d","type":"integer","text":"BMI (body mass index) = ","required":false}]}
+{
+    "title":"Berlin Questionnaire",
+    "resourceType":"Questionnaire",
+    "language":"en-US",
+    "status":"draft",
+    "publisher":"Stanford Biodesign Digital Health",
+    "meta":{
+        "profile":[
+            "http://spezi.health/fhir/StructureDefinition/sdf-Questionnaire"
+        ],
+        "tag":[
+            {
+                "system":"urn:ietf:bcp:47",
+                "code":"en-US",
+                "display":"English"
+            }
+        ]
+    },
+    "useContext":[
+        {
+            "code":{
+                "system":"http://hl7.org/fhir/ValueSet/usage-context-type",
+                "code":"focus",
+                "display":"Clinical Focus"
+            },
+            "valueCodeableConcept":{
+                "coding":[
+                    {
+                        "system":"urn:oid:2.16.578.1.12.4.1.1.8655",
+                        "display":"Berlin Questionnaire"
+                    }
+                ]
+            }
+        }
+    ],
+    "contact":[
+        {
+            "name":"http://spezi.health"
+        }
+    ],
+    "subjectType":[
+        "Patient"
+    ],
+    "url":"http://spezi.health/fhir/questionnaire/a82147d9-af9e-48c1-ba07-d671c1a74e52",
+    "item":[
+        {
+            "linkId":"4a026295-4824-4844-b99c-e4600181f289",
+            "type":"display",
+            "text":"Complete the following: ",
+            "required":false
+        },
+        {
+            "linkId":"3c24f5f6-8981-4593-82ee-5447dc55e34a",
+            "type":"integer",
+            "text":"Height (in inches) ",
+            "required":true
+        },
+        {
+            "linkId":"6a35af77-c39a-4623-86fb-d02efe3eb0dc",
+            "type":"integer",
+            "text":"Weight (in lbs)",
+            "required":false
+        },
+        {
+            "linkId":"577dd88d-c3e6-42b5-8ba0-c195a989e09e",
+            "type":"integer",
+            "text":"Age (in years)",
+            "required":false
+        },
+        {
+            "linkId":"e790c2ce-8703-40e0-977e-ecaea634e255",
+            "type":"choice",
+            "text":"Gender ",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"cd0aee2a-28d4-43ac-8aa6-cde14f509440",
+                        "code":"male",
+                        "system":"urn:uuid:6317536c-b0dd-4a6f-bb62-a04cdafd0c69",
+                        "display":"Male"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"49cbe22d-ef36-4160-a1bc-31b2240bb643",
+                        "code":"female",
+                        "system":"urn:uuid:6317536c-b0dd-4a6f-bb62-a04cdafd0c69",
+                        "display":"Female"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"4b1233fc-caae-44d4-fda8-e400ae347d97",
+            "type":"choice",
+            "text":"Do you snore?",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"310f4bc2-de51-4a76-83be-e76b71f45fe7",
+                        "code":"1",
+                        "system":"urn:uuid:852a1af3-bbb7-457f-9e4e-ec449bb64a66",
+                        "display":"Yes"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"2cd86bf2-3d1c-4693-884b-0d5f77e81b9f",
+                        "code":"0",
+                        "system":"urn:uuid:852a1af3-bbb7-457f-9e4e-ec449bb64a66",
+                        "display":"No"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"6d5f9a6b-227f-4dfc-8c2b-22968192ea50",
+                        "code":"0",
+                        "system":"urn:uuid:852a1af3-bbb7-457f-9e4e-ec449bb64a66",
+                        "display":"Don't know "
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"c3fd4167-5ff9-4747-8c0f-0d4228cf3035",
+            "type":"choice",
+            "text":"Your snoring is...",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"ac630cb9-e004-4abe-8ee5-3c71ffad308d",
+                        "code":"0",
+                        "system":"urn:uuid:3e291441-d852-4f4e-8e45-302d6684acc1",
+                        "display":"Slightly louder than breathing"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"b5f584e5-3b54-4e87-ee77-47a4a9471602",
+                        "code":"0",
+                        "system":"urn:uuid:3e291441-d852-4f4e-8e45-302d6684acc1",
+                        "display":"As loud as talking"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"02f7cb3c-c49d-46ae-889e-ccd782749fd1",
+                        "code":"1",
+                        "system":"urn:uuid:3e291441-d852-4f4e-8e45-302d6684acc1",
+                        "display":"Louder than talking"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"a207bc4d-ef08-45a7-9161-219f8d26a150",
+                        "code":"1",
+                        "system":"urn:uuid:3e291441-d852-4f4e-8e45-302d6684acc1",
+                        "display":"Very loud, can be heard in adjacent rooms"
+                    }
+                }
+            ],
+            "enableWhen":[
+                {
+                    "question":"4b1233fc-caae-44d4-fda8-e400ae347d97",
+                    "operator":"=",
+                    "answerCoding":{
+                        "system":"urn:uuid:852a1af3-bbb7-457f-9e4e-ec449bb64a66",
+                        "code":"1"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"e5f49522-9d10-4bb7-8f85-80b29557d582",
+            "type":"choice",
+            "text":"How often do you snore?",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"90a857ff-e447-4a3a-a731-ccecbcc9d553",
+                        "code":"1",
+                        "system":"urn:uuid:02929522-c01e-4f3b-9a71-afd2684b2c10",
+                        "display":"Nearly every day"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"07eb0a52-60f8-4ee7-8aff-c43f6803c586",
+                        "code":"1",
+                        "system":"urn:uuid:02929522-c01e-4f3b-9a71-afd2684b2c10",
+                        "display":"3-4 times a week"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"11a5671e-ebb9-4f25-c405-fd871d3a1afb",
+                        "code":"0",
+                        "system":"urn:uuid:02929522-c01e-4f3b-9a71-afd2684b2c10",
+                        "display":"1-2 times a week"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"ee57fc0c-b505-497b-8315-a707e6a820a4",
+                        "code":"0",
+                        "system":"urn:uuid:02929522-c01e-4f3b-9a71-afd2684b2c10",
+                        "display":"1-2 times a month"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"1b699e2f-3a29-4e1d-8434-f460a0620775",
+                        "code":"0",
+                        "system":"urn:uuid:02929522-c01e-4f3b-9a71-afd2684b2c10",
+                        "display":"never or nearly never"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"8d3f1d09-6917-4630-86b6-7647697f0178",
+            "type":"choice",
+            "text":"Has your snoring ever bothered other people?",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"10f2ec54-16a4-42e7-e28e-bf712e35bc2e",
+                        "code":"1",
+                        "system":"urn:uuid:89ec5471-0747-45c4-8a23-af1fc67d9e8e",
+                        "display":"Yes"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"13b5d46e-bfc8-45bf-b6ce-d992a31ad053",
+                        "code":"0",
+                        "system":"urn:uuid:89ec5471-0747-45c4-8a23-af1fc67d9e8e",
+                        "display":"No"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"ea01a70d-539b-4725-8564-0f541670fbcc",
+            "type":"choice",
+            "text":"How often do you feel tired or fatigued after your sleep?",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"f8e3d12f-a2e7-4fc0-88ef-21d56f93115d",
+                        "code":"1",
+                        "system":"urn:uuid:3e30169c-b70c-47ae-81b0-0479213edefe",
+                        "display":"Nearly every day"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"8349d1b9-1bf9-4ddd-82be-03e9778041d4",
+                        "code":"1",
+                        "system":"urn:uuid:3e30169c-b70c-47ae-81b0-0479213edefe",
+                        "display":"3-4 times a week"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"680ced14-678a-4a88-8207-a18ec7238e21",
+                        "code":"0",
+                        "system":"urn:uuid:3e30169c-b70c-47ae-81b0-0479213edefe",
+                        "display":"1-2 times a week"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"cced5486-c62f-42ed-9885-52d1af011f0b",
+                        "code":"0",
+                        "system":"urn:uuid:3e30169c-b70c-47ae-81b0-0479213edefe",
+                        "display":"1-2 times a month"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"b98892b0-46ce-40ba-c62c-6b4baf571503",
+                        "code":"0",
+                        "system":"urn:uuid:3e30169c-b70c-47ae-81b0-0479213edefe",
+                        "display":"Never or nearly never"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"fa94564e-d0d2-4ada-c4a9-c50f37c3ff12",
+            "type":"choice",
+            "text":"During your wake time, do you feel tired, fatigued, or not up to par?",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"2c694ba2-6291-4499-f8c3-a9a61e4cb288",
+                        "code":"1",
+                        "system":"urn:uuid:9bed1072-8ab5-4ef3-a121-712dcfcbc500",
+                        "display":"Nearly every day"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"ebcf8a0b-3c55-4ae9-a0b7-6a1635745838",
+                        "code":"1",
+                        "system":"urn:uuid:9bed1072-8ab5-4ef3-a121-712dcfcbc500",
+                        "display":"3-4 times a week"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"56e0e441-f77c-4e61-86ea-03305d494256",
+                        "code":"0",
+                        "system":"urn:uuid:9bed1072-8ab5-4ef3-a121-712dcfcbc500",
+                        "display":"1-2 times a week"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"ab95a664-d3c7-4adf-8a46-3f41740d5d80",
+                        "code":"0",
+                        "system":"urn:uuid:9bed1072-8ab5-4ef3-a121-712dcfcbc500",
+                        "display":"1-2 times a month"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"daee0f7e-de6c-430c-9d1e-71e6bd228b59",
+                        "code":"0",
+                        "system":"urn:uuid:9bed1072-8ab5-4ef3-a121-712dcfcbc500",
+                        "display":"Never or nearly never"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"720a4373-34b0-4d4a-b42f-4a0a5f9b06b5",
+            "type":"choice",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"1b1208e7-5015-435a-f269-12fc5c950dd1",
+                        "code":"2",
+                        "system":"urn:uuid:578f637c-5346-4929-e39b-7024c4496321",
+                        "display":"Nearly every day."
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"705b8494-4ee3-43fd-dde8-7cbaaf9e4ac5",
+                        "code":"2",
+                        "system":"urn:uuid:578f637c-5346-4929-e39b-7024c4496321",
+                        "display":"3-4 times a week"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"fbdd3119-de77-4b3e-d49d-4124b0294dfa",
+                        "code":"0",
+                        "system":"urn:uuid:578f637c-5346-4929-e39b-7024c4496321",
+                        "display":"1-2 times a week"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"ae31d8c3-374b-4626-a2be-058db4f26c50",
+                        "code":"0",
+                        "system":"urn:uuid:578f637c-5346-4929-e39b-7024c4496321",
+                        "display":"1-2 times a month"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"aae2e13c-0ef3-4a36-8bfa-f01f71caadf0",
+                        "code":"0",
+                        "system":"urn:uuid:578f637c-5346-4929-e39b-7024c4496321",
+                        "display":"Never or nearly never"
+                    }
+                }
+            ],
+            "text":"Has anyone noticed that you quit breathing during your sleep?"
+        },
+        {
+            "linkId":"3fff9365-0f67-49d8-93b0-34eebeedc8ea",
+            "type":"choice",
+            "item":[
+                {
+                    "linkId":"97d38424-4b40-4241-8773-5f0297ffce59",
+                    "type":"choice",
+                    "required":false,
+                    "answerOption":[
+                        {
+                            "valueCoding":{
+                                "id":"c52eef8d-f736-4541-82e0-445b6c717516",
+                                "code":"1",
+                                "system":"urn:uuid:0190a69a-ad5a-4fd7-88f7-b1d6f2a2c9e1",
+                                "display":"Nearly every day."
+                            }
+                        },
+                        {
+                            "valueCoding":{
+                                "id":"9248105c-4aae-490c-aab0-d8816db85ef5",
+                                "code":"1",
+                                "system":"urn:uuid:0190a69a-ad5a-4fd7-88f7-b1d6f2a2c9e1",
+                                "display":"3-4 times a week"
+                            }
+                        },
+                        {
+                            "valueCoding":{
+                                "id":"20b76109-db77-4d3e-a8f0-ea342e72850e",
+                                "code":"0",
+                                "system":"urn:uuid:0190a69a-ad5a-4fd7-88f7-b1d6f2a2c9e1",
+                                "display":"1-2 times a week"
+                            }
+                        },
+                        {
+                            "valueCoding":{
+                                "id":"2dc1a1d6-b79a-47c5-d6c0-89d5ede78c5b",
+                                "code":"0",
+                                "system":"urn:uuid:0190a69a-ad5a-4fd7-88f7-b1d6f2a2c9e1",
+                                "display":"1-2 times a month"
+                            }
+                        },
+                        {
+                            "valueCoding":{
+                                "id":"bed6405d-f2ef-4688-8367-7f9be9ba1d4b",
+                                "code":"0",
+                                "system":"urn:uuid:0190a69a-ad5a-4fd7-88f7-b1d6f2a2c9e1",
+                                "display":"Never or nearly never"
+                            }
+                        }
+                    ],
+                    "text":"How often do you nod off or fall asleep while driving a vehicle? ",
+                    "enableWhen":[
+                        {
+                            "question":"3fff9365-0f67-49d8-93b0-34eebeedc8ea",
+                            "operator":"=",
+                            "answerCoding":{
+                                "system":"urn:uuid:56be8b25-5ee2-49c7-b1b2-a6c89a4d1b6c",
+                                "code":"1"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"d0e30925-8acc-4727-84a6-1519924baa5c",
+                        "code":"1",
+                        "system":"urn:uuid:56be8b25-5ee2-49c7-b1b2-a6c89a4d1b6c",
+                        "display":"Yes"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"28d4dfdc-0437-4d31-aa21-c18a7049f0b8",
+                        "code":"0",
+                        "system":"urn:uuid:56be8b25-5ee2-49c7-b1b2-a6c89a4d1b6c",
+                        "display":"No"
+                    }
+                }
+            ],
+            "text":"Have you ever nodded off or fallen asleep while driving a vehicle?"
+        },
+        {
+            "linkId":"0480ab26-afb2-4e87-f006-6051292373f1",
+            "type":"choice",
+            "text":"Do you have high blood pressure?",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"9be66f82-03ea-4793-919d-376256a1b225",
+                        "code":"1",
+                        "system":"urn:uuid:adc58477-fb64-41e3-ba1a-025aac8fe990",
+                        "display":"Yes"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"d376e20b-afd3-4a4b-8ec8-bd264b5ab080",
+                        "code":"0",
+                        "system":"urn:uuid:adc58477-fb64-41e3-ba1a-025aac8fe990",
+                        "display":"No"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"0b03b8b5-1c2a-467e-8279-b2100b6f98d9",
+                        "code":"0",
+                        "system":"urn:uuid:adc58477-fb64-41e3-ba1a-025aac8fe990",
+                        "display":"Don't know "
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"c01b2b2a-7797-4651-82c6-35bf9537f50d",
+            "type":"integer",
+            "text":"BMI (body mass index) = ",
+            "required":false
+        }
+    ]
+}
