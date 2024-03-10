@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27FA29902A388E9B009CAC45 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA298F2A388E9B009CAC45 /* ModalView.swift */; };
+		2F3AF7362B9D9B8400340B4F /* Peripheral Artery Questionnaire (PAQ).json in Resources */ = {isa = PBXBuildFile; fileRef = 2F3AF7352B9D9B8400340B4F /* Peripheral Artery Questionnaire (PAQ).json */; };
 		2F3D4ABC2A4E7C290068FB2F /* SpeziScheduler in Frameworks */ = {isa = PBXBuildFile; productRef = 2F3D4ABB2A4E7C290068FB2F /* SpeziScheduler */; };
 		2F49B7762980407C00BCB272 /* Spezi in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7752980407B00BCB272 /* Spezi */; };
 		2F4E23832989D51F0013F3D9 /* StudyAppTestingSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E23822989D51F0013F3D9 /* StudyAppTestingSetup.swift */; };
@@ -117,6 +118,7 @@
 
 /* Begin PBXFileReference section */
 		27FA298F2A388E9B009CAC45 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		2F3AF7352B9D9B8400340B4F /* Peripheral Artery Questionnaire (PAQ).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Peripheral Artery Questionnaire (PAQ).json"; sourceTree = "<group>"; };
 		2F4E23822989D51F0013F3D9 /* StudyAppTestingSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyAppTestingSetup.swift; sourceTree = "<group>"; };
 		2F5E32BC297E05EA003432F8 /* StudyAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyAppDelegate.swift; sourceTree = "<group>"; };
 		2F6025CA29BBE70F0045459E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				2FC5FBC12B357BD700F13E59 /* PAD Walking Impairment.json */,
 				2FC5FBC32B357BD700F13E59 /* PHQ-9 Depression.json */,
 				2FC5FBC22B357BD700F13E59 /* Physical Activity Questionnaire.json */,
+				2F3AF7352B9D9B8400340B4F /* Peripheral Artery Questionnaire (PAQ).json */,
 				2FC5FB912B34F24E00F13E59 /* VascTracStudy.swift */,
 			);
 			path = VascTrac;
@@ -621,6 +624,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3AF7362B9D9B8400340B4F /* Peripheral Artery Questionnaire (PAQ).json in Resources */,
 				2FC3439229EE634B002D773C /* ConsentDocument.md in Resources */,
 				2FC5FBC72B357BD700F13E59 /* PAD Walking Impairment.json in Resources */,
 				2FC5FBC62B357BD700F13E59 /* Exercise Benefits Barriers.json in Resources */,

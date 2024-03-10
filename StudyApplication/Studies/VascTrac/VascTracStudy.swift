@@ -27,6 +27,9 @@ extension Study {
     private static var padWalkingImpairmentQuestionnaire: Questionnaire {
         Bundle.main.questionnaire(withName: "PAD Walking Impairment")
     }
+    private static var peripheralArteryQuestionnaire: Questionnaire {
+        Bundle.main.questionnaire(withName: "Peripheral Artery Questionnaire (PAQ)")
+    }
     private static var phq9DepressionQuestionnaire: Questionnaire {
         Bundle.main.questionnaire(withName: "PHQ-9 Depression")
     }
@@ -44,24 +47,28 @@ extension Study {
             task(forQuestionnaire: berlinQuestionnaire, title: "Berlin", week: 0),
             task(forQuestionnaire: exerciseBenefitsBarriersQuestionnaire, title: "Exercise Benefits Barriers", week: 0),
             task(forQuestionnaire: padWalkingImpairmentQuestionnaire, title: "PAD Walking Impairment", week: 0),
+            task(forQuestionnaire: peripheralArteryQuestionnaire, title: "Peripheral Artery Questionnaire (PAQ)", week: 0),
             task(forQuestionnaire: phq9DepressionQuestionnaire, title: "PHQ-9 Depression", week: 0),
             task(forQuestionnaire: physicalActivityQuestionnaire, title: "Physical Activity Questionnaire", week: 0),
             task(forQuestionnaire: ahaLE8Questionnaire, title: "AHA LE8", week: 6),
             task(forQuestionnaire: berlinQuestionnaire, title: "Berlin", week: 6),
             task(forQuestionnaire: exerciseBenefitsBarriersQuestionnaire, title: "Exercise Benefits Barriers", week: 6),
             task(forQuestionnaire: padWalkingImpairmentQuestionnaire, title: "PAD Walking Impairment", week: 6),
+            task(forQuestionnaire: peripheralArteryQuestionnaire, title: "Peripheral Artery Questionnaire (PAQ)", week: 6),
             task(forQuestionnaire: phq9DepressionQuestionnaire, title: "PHQ-9 Depression", week: 6),
             task(forQuestionnaire: physicalActivityQuestionnaire, title: "Physical Activity Questionnaire", week: 6),
             task(forQuestionnaire: ahaLE8Questionnaire, title: "AHA LE8", week: 14),
             task(forQuestionnaire: berlinQuestionnaire, title: "Berlin", week: 14),
             task(forQuestionnaire: exerciseBenefitsBarriersQuestionnaire, title: "Exercise Benefits Barriers", week: 14),
             task(forQuestionnaire: padWalkingImpairmentQuestionnaire, title: "PAD Walking Impairment", week: 14),
+            task(forQuestionnaire: peripheralArteryQuestionnaire, title: "Peripheral Artery Questionnaire (PAQ)", week: 14),
             task(forQuestionnaire: phq9DepressionQuestionnaire, title: "PHQ-9 Depression", week: 14),
             task(forQuestionnaire: physicalActivityQuestionnaire, title: "Physical Activity Questionnaire", week: 14),
             task(forQuestionnaire: ahaLE8Questionnaire, title: "AHA LE8", week: 22),
             task(forQuestionnaire: berlinQuestionnaire, title: "Berlin", week: 22),
             task(forQuestionnaire: exerciseBenefitsBarriersQuestionnaire, title: "Exercise Benefits Barriers", week: 22),
             task(forQuestionnaire: padWalkingImpairmentQuestionnaire, title: "PAD Walking Impairment", week: 22),
+            task(forQuestionnaire: peripheralArteryQuestionnaire, title: "Peripheral Artery Questionnaire (PAQ)", week: 22),
             task(forQuestionnaire: phq9DepressionQuestionnaire, title: "PHQ-9 Depression", week: 22),
             task(forQuestionnaire: physicalActivityQuestionnaire, title: "Physical Activity Questionnaire", week: 22)
         ]
@@ -71,31 +78,20 @@ extension Study {
         StudyHealthKitAccess(
             usageDescription: "VascTrac requires access to your step count, flight climed, and elements like the walking steadiness score to get a complete picture about your procedure preparation."
         ) {
-            CollectSample(
-                HKQuantityType(.stepCount),
-                deliverySetting: .background(.afterAuthorizationAndApplicationWillLaunch)
-            )
-            CollectSample(
-                HKQuantityType(.flightsClimbed),
-                deliverySetting: .background(.afterAuthorizationAndApplicationWillLaunch)
-            )
             CollectSamples(
                 [
+                    HKQuantityType(.activeEnergyBurned),
+                    HKQuantityType(.appleWalkingSteadiness),
+                    HKQuantityType(.flightsClimbed),
+                    HKQuantityType(.sixMinuteWalkTestDistance),
+                    HKQuantityType(.stepCount),
+                    HKQuantityType(.vo2Max),
                     HKQuantityType(.walkingSpeed),
                     HKQuantityType(.walkingStepLength),
                     HKQuantityType(.walkingAsymmetryPercentage),
                     HKQuantityType(.walkingHeartRateAverage),
-                    HKQuantityType(.walkingDoubleSupportPercentage),
-                    HKQuantityType(.appleWalkingSteadiness)
+                    HKQuantityType(.walkingDoubleSupportPercentage)
                 ],
-                deliverySetting: .background(.afterAuthorizationAndApplicationWillLaunch)
-            )
-            CollectSample(
-                HKQuantityType(.vo2Max),
-                deliverySetting: .background(.afterAuthorizationAndApplicationWillLaunch)
-            )
-            CollectSample(
-                HKQuantityType(.sixMinuteWalkTestDistance),
                 deliverySetting: .background(.afterAuthorizationAndApplicationWillLaunch)
             )
         }
