@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct AccountButton: View {
-    static let shouldDisplay = FeatureFlags.accountEnabled && (!FeatureFlags.disableFirebase || ProcessInfo.processInfo.isPreviewSimulator)
+    static let shouldDisplay = !FeatureFlags.disableFirebase || ProcessInfo.processInfo.isPreviewSimulator
 
     @Binding private var isPresented: Bool
 

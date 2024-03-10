@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -11,7 +11,7 @@ import SwiftPackageList
 
 
 enum PackageHelper {
-    /// Helper function that calls the corrensponding API of `SwiftPackageList`to fetch the list of packages
+    /// Helper function that calls the corresponding API of `SwiftPackageList`to fetch the list of packages
     static func getPackageList() -> [Package] {
         do {
             let packages = try packageList()

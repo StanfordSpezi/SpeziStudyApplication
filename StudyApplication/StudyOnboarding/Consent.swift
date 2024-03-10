@@ -26,3 +26,19 @@ struct Consent: View {
         )
     }
 }
+
+
+#if DEBUG
+#Preview {
+    guard let studyConsentDocument = Study.vascTracStanford.consentDocument else {
+        fatalError("Could not load consent document.")
+    }
+    
+    return OnboardingStack {
+        Consent(consentDocument: studyConsentDocument)
+    }
+        .previewWith(standard: StudyApplicationStandard()) {
+            OnboardingDataSource()
+        }
+}
+#endif

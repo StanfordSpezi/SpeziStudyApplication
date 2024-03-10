@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -52,15 +52,10 @@ struct ScheduleView: View {
     }
     
     @ViewBuilder private var emptyListView: some View {
-        VStack(spacing: 32) {
-            Image(systemName: "list.clipboard")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 100)
-                .accessibilityHidden(true)
-                .foregroundStyle(.secondary)
-            Text("No tasks scheduled for today.")
-                .foregroundStyle(.secondary)
+        ContentUnavailableView {
+            Label("No Tasks", systemImage: "list.clipboard")
+        } description: {
+            Text("No tasks scheduled for your enrolled studies.")
         }
     }
     
@@ -137,17 +132,11 @@ struct ScheduleView: View {
 #if DEBUG
 #Preview("ScheduleView") {
     ScheduleView(presentingAccount: .constant(false))
-        .environment(StudyApplicationScheduler())
-        .environment(Account())
-}
-
-#Preview("ScheduleView") {
-    let details = AccountDetails.Builder()
-        .set(\.userId, value: "lelandstanford@stanford.edu")
-        .set(\.name, value: PersonNameComponents(givenName: "Leland", familyName: "Stanford"))
-    
-    return ScheduleView(presentingAccount: .constant(true))
-        .environment(StudyApplicationScheduler())
-        .environment(Account(building: details, active: MockUserIdPasswordAccountService()))
+        .previewWith(standard: StudyApplicationStandard()) {
+            StudyApplicationScheduler()
+            AccountConfiguration {
+                MockUserIdPasswordAccountService()
+            }
+        }
 }
 #endif

@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-private struct StudyAppTestingSetup: ViewModifier {
+private struct StudyApplicationAppTestingSetup: ViewModifier {
     @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
     
     
@@ -29,6 +29,6 @@ private struct StudyAppTestingSetup: ViewModifier {
 
 extension View {
     func testingSetup() -> some View {
-        self.modifier(StudyAppTestingSetup())
+        self.modifier(StudyApplicationAppTestingSetup())
     }
 }

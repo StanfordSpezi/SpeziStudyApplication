@@ -1,6 +1,6 @@
 <!--
 
-This source file is part of the Stanford Spezi Study Application project
+This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 
 SPDX-FileCopyrightText: 2023 Stanford University
 
@@ -8,7 +8,7 @@ SPDX-License-Identifier: MIT
 
 -->
 
-Study Application Contributors
+Spezi Study Application Contributors
 =================================
 
 * [Paul Schmiedmayer](https://github.com/PSchmiedmayer)

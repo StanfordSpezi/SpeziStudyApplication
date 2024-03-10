@@ -92,7 +92,7 @@ extension Study {
                     HKQuantityType(.walkingHeartRateAverage),
                     HKQuantityType(.walkingDoubleSupportPercentage)
                 ],
-                deliverySetting: .background(.afterAuthorizationAndApplicationWillLaunch)
+                deliverySetting: .background(.automatic)
             )
         }
     }

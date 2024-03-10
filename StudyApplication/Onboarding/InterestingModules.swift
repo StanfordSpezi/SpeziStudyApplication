@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -14,7 +14,7 @@ struct InterestingModules: View {
     @Environment(OnboardingNavigationPath.self) private var onboardingNavigationPath
     
     
-    // swiftlint:disable line_length
+// swiftlint:disable line_length
     // We disable line lengh checks to ensure that we can fit the complete english text in the SwiftUI views,
     // avoiding unspecific localization keys.
     var body: some View {
@@ -47,10 +47,8 @@ struct InterestingModules: View {
 
 #if DEBUG
 #Preview {
-    OnboardingStack(startAtStep: InterestingModules.self) {
-        for onboardingView in OnboardingFlow.previewSimulatorViews {
-            onboardingView
-        }
+    OnboardingStack {
+        InterestingModules()
     }
 }
 #endif

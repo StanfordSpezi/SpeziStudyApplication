@@ -39,7 +39,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The Study Application demonstrates the usage of the Firebase Account Module."
+            "value" : "The StudyApplication demonstrates the usage of the Firebase Account Module."
           }
         }
       }
@@ -68,9 +68,6 @@
 
     },
     "Automatic Data Transfer" : {
-
-    },
-    "Background" : {
 
     },
     "CLOSE" : {
@@ -394,9 +391,6 @@
         }
       }
     },
-    "No tasks scheduled for today." : {
-
-    },
     "NOTIFICATION_PERMISSIONS_BUTTON" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -462,13 +456,19 @@
 
     },
     "Repository Link" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repository Link"
+          }
+        }
+      }
     },
     "Right on your phone" : {
 
     },
     "SCHEDULE_LIST_TITLE" : {
-      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -491,9 +491,6 @@
       }
     },
     "Single application to enroll into multiple studies." : {
-
-    },
-    "Skip" : {
 
     },
     "Studies" : {
@@ -585,7 +582,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The Spezi Framework builds the foundation of this study application."
+            "value" : "The Spezi Framework builds the foundation of this application."
           }
         }
       }
@@ -674,7 +671,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spezi\nStudy Application"
+            "value" : "Spezi\nStudyApplication"
           }
         }
       }

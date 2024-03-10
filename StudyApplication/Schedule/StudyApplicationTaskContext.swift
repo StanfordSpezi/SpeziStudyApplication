@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -8,7 +8,6 @@
 
 import Foundation
 import ModelsR4
-import SpeziFHIR
 
 
 /// The context attached to each task in the Spezi Study Application.
@@ -17,9 +16,9 @@ import SpeziFHIR
 enum StudyApplicationTaskContext: Codable, Identifiable {
     /// The task should display a `Questionnaire`.
     case questionnaire(Questionnaire)
+        
     
-    
-    var id: Questionnaire.ID {
+    var id: FHIRPrimitive<FHIRString>? {
         switch self {
         case let .questionnaire(questionnaire):
             return questionnaire.id

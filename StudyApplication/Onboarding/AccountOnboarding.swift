@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -17,26 +17,21 @@ struct AccountOnboarding: View {
     
     
     var body: some View {
-        HStack {
-            AccountSetup { _ in
-                Task {
-                    // Placing the nextStep() call inside this task will ensure that the sheet dismiss animation is
-                    // played till the end before we navigate to the next step.
-                    onboardingNavigationPath.nextStep()
-                }
-            } header: {
-                AccountSetupHeader()
-            } continue: {
-                OnboardingActionsView(
-                    "ACCOUNT_NEXT",
-                    action: {
-                        onboardingNavigationPath.nextStep()
-                    }
-                )
-            }
-            Button("Skip") {
+        AccountSetup { _ in
+            Task {
+                // Placing the nextStep() call inside this task will ensure that the sheet dismiss animation is
+                // played till the end before we navigate to the next step.
                 onboardingNavigationPath.nextStep()
             }
+        } header: {
+            AccountSetupHeader()
+        } continue: {
+            OnboardingActionsView(
+                "ACCOUNT_NEXT",
+                action: {
+                    onboardingNavigationPath.nextStep()
+                }
+            )
         }
     }
 }
@@ -44,12 +39,14 @@ struct AccountOnboarding: View {
 
 #if DEBUG
 #Preview("Account Onboarding SignIn") {
-    OnboardingStack(startAtStep: AccountOnboarding.self) {
-        for onboardingView in OnboardingFlow.previewSimulatorViews {
-            onboardingView
-        }
+    OnboardingStack {
+        AccountOnboarding()
     }
-        .environment(Account(MockUserIdPasswordAccountService()))
+        .previewWith {
+            AccountConfiguration {
+                MockUserIdPasswordAccountService()
+            }
+        }
 }
 
 #Preview("Account Onboarding") {
@@ -57,11 +54,11 @@ struct AccountOnboarding: View {
         .set(\.userId, value: "lelandstanford@stanford.edu")
         .set(\.name, value: PersonNameComponents(givenName: "Leland", familyName: "Stanford"))
     
-    return OnboardingStack(startAtStep: AccountOnboarding.self) {
-        for onboardingView in OnboardingFlow.previewSimulatorViews {
-            onboardingView
-        }
+    return OnboardingStack {
+        AccountOnboarding()
     }
-        .environment(Account(building: details, active: MockUserIdPasswordAccountService()))
+        .previewWith {
+            AccountConfiguration(building: details, active: MockUserIdPasswordAccountService())
+        }
 }
 #endif

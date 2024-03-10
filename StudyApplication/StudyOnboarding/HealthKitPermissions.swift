@@ -65,3 +65,15 @@ struct HealthKitPermissions: View {
             .navigationTitle("")
     }
 }
+
+
+#if DEBUG
+#Preview {
+    OnboardingStack {
+        HealthKitPermissions(study: Study.vascTracStanford)
+    }
+        .previewWith(standard: StudyApplicationStandard()) {
+            HealthKit()
+        }
+}
+#endif
