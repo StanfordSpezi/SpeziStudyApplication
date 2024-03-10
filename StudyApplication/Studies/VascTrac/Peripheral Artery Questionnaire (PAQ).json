@@ -1,0 +1,613 @@
+{
+    "title":"Peripheral Artery Questionnaire (PAQ)",
+    "resourceType":"Questionnaire",
+    "language":"en-US",
+    "status":"draft",
+    "publisher":"Stanford Biodesign Digital Health",
+    "meta":{
+        "profile":[
+            "http://spezi.health/fhir/StructureDefinition/sdf-Questionnaire"
+        ],
+        "tag":[
+            {
+                "system":"urn:ietf:bcp:47",
+                "code":"en-US",
+                "display":"English"
+            }
+        ]
+    },
+    "useContext":[
+        {
+            "code":{
+                "system":"http://hl7.org/fhir/ValueSet/usage-context-type",
+                "code":"focus",
+                "display":"Clinical Focus"
+            },
+            "valueCodeableConcept":{
+                "coding":[
+                    {
+                        "system":"urn:oid:2.16.578.1.12.4.1.1.8655",
+                        "display":"Peripheral Artery Questionnaire (PAQ)"
+                    }
+                ]
+            }
+        }
+    ],
+    "contact":[
+        {
+            "name":"http://spezi.health"
+        }
+    ],
+    "subjectType":[
+        "Patient"
+    ],
+    "url":"http://spezi.health/fhir/questionnaire/e1d8e613-ff9e-48fb-8139-7ac03ab9fb6d",
+    "contained":[
+        {
+            "resourceType":"ValueSet",
+            "id":"0ad0c4b5-9b24-4600-83c4-23424d35794f",
+            "version":"1.0",
+            "name":"limitation",
+            "title":"Limitation",
+            "date":"2024-03-10T07:19:15.715Z",
+            "status":"draft",
+            "compose":{
+                "include":[
+                    {
+                        "system":"urn:uuid:7fca8471-03ac-47f7-8f83-1524bcef10d0",
+                        "concept":[
+                            {
+                                "id":"c331d14e-ff10-49ce-8c3f-70792fa4ebab",
+                                "code":"extremely",
+                                "display":"Extremely Limited"
+                            },
+                            {
+                                "id":"4c8626ea-cce8-407c-c775-cbc29ccf61e3",
+                                "code":"quite-a-bit",
+                                "display":"Quite a bit Limited"
+                            },
+                            {
+                                "id":"a9c8f57b-2ba2-42ff-b977-24439569f047",
+                                "code":"moderately",
+                                "display":"Moderately Limited"
+                            },
+                            {
+                                "id":"722079f3-3b76-47dd-f561-c85406f49eb3",
+                                "code":"slightly",
+                                "display":"Slightly Limited"
+                            },
+                            {
+                                "id":"b6cf4136-a751-493f-8fba-3cdbcd62ad89",
+                                "code":"not-at-all",
+                                "display":"Not at all Limited"
+                            },
+                            {
+                                "id":"030d9872-bed1-42c8-830a-744411220f97",
+                                "code":"other-reasons",
+                                "display":"Limited for other reasons or did not do the activity"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "resourceType":"ValueSet",
+            "id":"3c480caf-58fd-4c29-c161-3d1bc7b130f9",
+            "version":"1.0",
+            "name":"satisfaction",
+            "title":"Satisfaction",
+            "date":"2024-03-10T07:23:03.565Z",
+            "status":"draft",
+            "compose":{
+                "include":[
+                    {
+                        "system":"urn:uuid:d96a897e-3d50-40d0-9742-dc97b70704f2",
+                        "concept":[
+                            {
+                                "id":"caef49ef-1104-438f-9333-4fe5087383c6",
+                                "code":"not-satisfied-at-all",
+                                "display":"Not satisfied at all"
+                            },
+                            {
+                                "id":"ef4b90ae-4659-4ad8-b449-6699477f66b1",
+                                "code":"mostly-dissatisfied",
+                                "display":"Mostly dissatisfied"
+                            },
+                            {
+                                "id":"e52ecc8d-ee6d-486b-85a8-7bbdfedd3002",
+                                "code":"somewhat-satisfied",
+                                "display":"Somewhat satisfied"
+                            },
+                            {
+                                "id":"b4b2d215-35b6-4445-b110-dd192f07c70b",
+                                "code":"mostly-satisfied",
+                                "display":"Mostly satisfied"
+                            },
+                            {
+                                "id":"818163b2-1d21-4dda-a3ca-a65b1a3c5230",
+                                "code":"completely-satisfied",
+                                "display":"Completely satisfied"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "item":[
+        {
+            "linkId":"53c8c013-9528-4b8f-eb16-dad0f4f1ee99",
+            "type":"display",
+            "text":"The following questions refer to blockages in the arteries of your body, particularly your legs, and how that might affect your life. Please read and complete the following questions. There are no right or wrong answers. Please mark the answer that best applies to you.",
+            "required":false
+        },
+        {
+            "linkId":"0a4b63af-1310-41a6-83a7-d40bbe93b516",
+            "type":"choice",
+            "text":"Blockages in the arteries, often referred to as peripheral vascular disease, affect different people in different ways. Some feel cramping or aching while others feel fatigue. Which leg (or buttock) causes you the most severe discomfort, fatigue, pain, aching, or cramps?",
+            "required":true,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"010b0c59-313c-40f6-c4ca-482c2686bf4f",
+                        "code":"the-right-leg-(buttock)",
+                        "system":"urn:uuid:9bf1359b-2c94-4131-80c4-312f67313c84",
+                        "display":"the Right leg (buttock)"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"8a150ba6-7250-4c25-82fd-472579ca8b6f",
+                        "code":"the-left-leg-(buttock)",
+                        "system":"urn:uuid:9bf1359b-2c94-4131-80c4-312f67313c84",
+                        "display":"the Left leg (buttock)"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"59b16193-caa2-49eb-a33f-dad4686e7c62",
+                        "code":"both-are-the-same",
+                        "system":"urn:uuid:9bf1359b-2c94-4131-80c4-312f67313c84",
+                        "display":"Both are the same"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"38cd7744-de6a-4477-890a-b5c1442fdfb2",
+                        "code":"neither",
+                        "system":"urn:uuid:9bf1359b-2c94-4131-80c4-312f67313c84",
+                        "display":"Neither"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"0fc7f47c-ec04-43f5-f201-adb2d75dd2e8",
+            "type":"group",
+            "item":[
+                {
+                    "linkId":"e5e1cee2-eb00-482c-8106-e3c75569a0d8",
+                    "type":"choice",
+                    "text":"Walking around your home",
+                    "required":false,
+                    "answerValueSet":"#0ad0c4b5-9b24-4600-83c4-23424d35794f"
+                },
+                {
+                    "linkId":"68df645e-dfe3-4a78-9671-bc55232eba22",
+                    "type":"choice",
+                    "text":"Walking 1-2 blocks on level ground",
+                    "required":false,
+                    "answerValueSet":"#0ad0c4b5-9b24-4600-83c4-23424d35794f"
+                },
+                {
+                    "linkId":"5046d29e-369c-493f-8c86-aa293655b7f5",
+                    "type":"choice",
+                    "text":"Walking 1-2 blocks up a hill",
+                    "required":false,
+                    "answerValueSet":"#0ad0c4b5-9b24-4600-83c4-23424d35794f"
+                },
+                {
+                    "linkId":"57e1af46-d620-4c3f-8c72-6061b81643a9",
+                    "type":"choice",
+                    "text":"Walking 3-4 blocks on level ground",
+                    "required":false,
+                    "answerValueSet":"#0ad0c4b5-9b24-4600-83c4-23424d35794f"
+                },
+                {
+                    "linkId":"6eccd935-c7fe-4241-878b-352ce721633c",
+                    "type":"choice",
+                    "text":"Hurrying or jogging (as if to catch a bus)",
+                    "required":false,
+                    "answerValueSet":"#0ad0c4b5-9b24-4600-83c4-23424d35794f"
+                },
+                {
+                    "linkId":"2cdc87f2-253b-4f7f-88dc-730279ea28fa",
+                    "type":"choice",
+                    "text":"Vigorous work or exercise",
+                    "required":false,
+                    "answerValueSet":"#0ad0c4b5-9b24-4600-83c4-23424d35794f"
+                }
+            ],
+            "required":false,
+            "text":"Please review the list below and indicate how much limitation you have due to your peripheral vascular disease (discomfort, fatigue, pain, aching, or cramps in your calves (or buttocks)) over the past 4 weeks."
+        },
+        {
+            "linkId":"7527e222-a5b0-4e56-8335-0bde96405712",
+            "type":"choice",
+            "text":"Compared with 4 weeks ago, have your symptoms of peripheral vascular disease (discomfort, fatigue, pain, aching, or cramps in your calves (or buttocks)) changed?\n\nMy symptoms have become ...",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"1ff6e41f-ad3a-4886-8bac-4acc4ef05a56",
+                        "code":"much-worse",
+                        "system":"urn:uuid:367d6dde-9fef-4f92-faf9-5d2a055d02e6",
+                        "display":"Much worse"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"3baee896-4240-4e91-8e88-79aeadee17de",
+                        "code":"slightly-worse",
+                        "system":"urn:uuid:367d6dde-9fef-4f92-faf9-5d2a055d02e6",
+                        "display":"Slightly worse"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"3bc53b9f-18ef-43ea-dba0-e708a4b6e35f",
+                        "code":"not-changed",
+                        "system":"urn:uuid:367d6dde-9fef-4f92-faf9-5d2a055d02e6",
+                        "display":"Not changed"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"e690ba73-d543-4175-92c3-a96aca6b3465",
+                        "code":"slightly-better",
+                        "system":"urn:uuid:367d6dde-9fef-4f92-faf9-5d2a055d02e6",
+                        "display":"Slightly better"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"b5004d94-c15c-469c-81e9-714839754691",
+                        "code":"much-better",
+                        "system":"urn:uuid:367d6dde-9fef-4f92-faf9-5d2a055d02e6",
+                        "display":"Much better"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"0261f15f-6af3-4788-b011-8c645e8e8cc1",
+                        "code":"i-have-had-no-symptoms-over-the-past-4-weeks",
+                        "system":"urn:uuid:367d6dde-9fef-4f92-faf9-5d2a055d02e6",
+                        "display":"I have had no symptoms over the past 4 weeks"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"3d69f4b3-8c8b-458f-84a1-7b8d5e5d8b36",
+            "type":"choice",
+            "text":"Over the past 4 weeks, how many times did you have discomfort, fatigue, pain, aching, or cramps in your calves (or buttocks)?",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"8490e9c9-8b10-470a-8fb6-1f4030f0eee5",
+                        "code":"all-of-the-time",
+                        "system":"urn:uuid:61b874fa-b83f-4317-8ee3-049097c1f64a",
+                        "display":"All of the time"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"6cf9d95b-2218-42ca-8fbc-fd7e01da9a71",
+                        "code":"several-times-per-day",
+                        "system":"urn:uuid:61b874fa-b83f-4317-8ee3-049097c1f64a",
+                        "display":"Several times per day"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"66b3baec-69f2-4685-b625-30e1c7f04193",
+                        "code":"at-least-once-a-day",
+                        "system":"urn:uuid:61b874fa-b83f-4317-8ee3-049097c1f64a",
+                        "display":"At least once a day"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"3c3e70c7-fe64-4b3a-8448-3d3b61af2561",
+                        "code":"3-or-more-times-per-week-but-not-every-day",
+                        "system":"urn:uuid:61b874fa-b83f-4317-8ee3-049097c1f64a",
+                        "display":"3 or more times per week but not every day"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"7f97771c-8a04-4075-8382-360cc165d361",
+                        "code":"1-2-times-per-week",
+                        "system":"urn:uuid:61b874fa-b83f-4317-8ee3-049097c1f64a",
+                        "display":"1-2 times per week"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"3c7bad1a-6cfa-44f7-8a6f-c61b8b88d312",
+                        "code":"less-than-once-a-week",
+                        "system":"urn:uuid:61b874fa-b83f-4317-8ee3-049097c1f64a",
+                        "display":"Less than once a week"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"1f708b10-583a-4812-881d-eb4fc57ad85a",
+                        "code":"never-over-the-past-4-weeks",
+                        "system":"urn:uuid:61b874fa-b83f-4317-8ee3-049097c1f64a",
+                        "display":"Never over the past 4 weeks"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"c92936a3-32d8-4050-f6a0-280dbb27ac95",
+            "type":"choice",
+            "text":"Over the past 4 weeks, how much has discomfort, fatigue, pain, aching, or cramps in your calves (or buttocks) bothered you?\n\nIt has been ...",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"ec994eb2-57ef-4102-879b-0e170ea3afbf",
+                        "code":"extremely-bothersome",
+                        "system":"urn:uuid:32bf243a-dbb5-4d00-96ab-1dcf5493253f",
+                        "display":"Extremely bothersome"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"6556d43f-9140-4d12-938e-a2ac2484307f",
+                        "code":"moderately-bothersome",
+                        "system":"urn:uuid:32bf243a-dbb5-4d00-96ab-1dcf5493253f",
+                        "display":"Moderately bothersome"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"3694a177-2716-4c79-96d8-e79741a4146d",
+                        "code":"somewhat-bothersome",
+                        "system":"urn:uuid:32bf243a-dbb5-4d00-96ab-1dcf5493253f",
+                        "display":"Somewhat bothersome"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"d837fdca-08df-4ad2-8758-e74d449d95cb",
+                        "code":"slightly-bothersome",
+                        "system":"urn:uuid:32bf243a-dbb5-4d00-96ab-1dcf5493253f",
+                        "display":"Slightly bothersome"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"31f7c5b8-dcd2-43d9-8c4d-1ecddb6bb21e",
+                        "code":"not-at-all-bothersome",
+                        "system":"urn:uuid:32bf243a-dbb5-4d00-96ab-1dcf5493253f",
+                        "display":"Not at all bothersome"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"0b062193-8f5c-4247-a1eb-d00405b003e5",
+                        "code":"i've-had-no-leg-discomfort",
+                        "system":"urn:uuid:32bf243a-dbb5-4d00-96ab-1dcf5493253f",
+                        "display":"I've had no leg discomfort"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"aea3b48e-6baf-4d43-a21e-afadefeab828",
+            "type":"choice",
+            "text":"Over the past 4 weeks, how often have you been awakened with pain, aching, or cramps in your legs or feet?",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"db2c6b87-5f88-4240-8604-83d4aa692590",
+                        "code":"every-night",
+                        "system":"urn:uuid:faae78dc-2815-4f2d-ccb5-31ad76392608",
+                        "display":"Every night"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"694a6aee-6483-46b0-8a55-1668a2676752",
+                        "code":"3-or-more-times-per-week-but-not-every-night",
+                        "system":"urn:uuid:faae78dc-2815-4f2d-ccb5-31ad76392608",
+                        "display":"3 or more times per week but not every night"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"6cf34717-5700-45c0-fc09-72a1d9c01168",
+                        "code":"1-2-times-per-week",
+                        "system":"urn:uuid:faae78dc-2815-4f2d-ccb5-31ad76392608",
+                        "display":"1-2 times per week"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"24f0745d-4e57-4bd2-ac55-83acaf82d9fd",
+                        "code":"less-than-once-a-week",
+                        "system":"urn:uuid:faae78dc-2815-4f2d-ccb5-31ad76392608",
+                        "display":"Less than once a week"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"52a547d6-2419-4f30-8b36-202b1f67e310",
+                        "code":"never-over-the-past-4-weeks",
+                        "system":"urn:uuid:faae78dc-2815-4f2d-ccb5-31ad76392608",
+                        "display":"Never over the past 4 weeks"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"4f18a7fa-7810-4a99-8651-b6e5c4f230ed",
+            "type":"choice",
+            "text":"How satisfied are you that everything possible is being done to treat your peripheral vascular disease?",
+            "required":false,
+            "answerValueSet":"#3c480caf-58fd-4c29-c161-3d1bc7b130f9"
+        },
+        {
+            "linkId":"c0891479-0f4a-4e26-89cf-3c0817afea42",
+            "type":"choice",
+            "text":"How satisfied are you with the explanations your doctor has given you about your peripheral vascular disease?",
+            "required":false,
+            "answerValueSet":"#3c480caf-58fd-4c29-c161-3d1bc7b130f9"
+        },
+        {
+            "linkId":"f54c4793-6500-4691-f891-3ec5f01384a3",
+            "type":"choice",
+            "text":"Overall, how satisfied are you with the current treatment of your peripheral vascular disease?",
+            "required":false,
+            "answerValueSet":"#3c480caf-58fd-4c29-c161-3d1bc7b130f9"
+        },
+        {
+            "linkId":"c7395c65-c448-4a79-8516-c5be533f60a6",
+            "type":"choice",
+            "text":"Over the past 4 weeks, how much has your peripheral vascular disease limited your enjoyment of life?",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"f3102a51-ad67-401b-b50a-66cc531b2a62",
+                        "code":"it-has-extremely-limited-my-enjoyment-of-life",
+                        "system":"urn:uuid:67bfc46a-f38b-4b63-c4a0-40364693f54d",
+                        "display":"It has extremely limited my enjoyment of life"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"796f6012-7db6-4642-f3a7-5dcfec10fe94",
+                        "code":"it-has-limited-my-enjoyment-of-life-quite-a-bit",
+                        "system":"urn:uuid:67bfc46a-f38b-4b63-c4a0-40364693f54d",
+                        "display":"It has limited my enjoyment of life quite a bit"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"112900d7-5674-4cc4-89e7-e59e08a1d594",
+                        "code":"it-has-moderately-limited-my-enjoyment-of-life",
+                        "system":"urn:uuid:67bfc46a-f38b-4b63-c4a0-40364693f54d",
+                        "display":"It has moderately limited my enjoyment of life"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"dcd339a8-be23-4e1b-f830-4d0cdffff4b0",
+                        "code":"it-has-slightly-limited-my-enjoyment-of-life",
+                        "system":"urn:uuid:67bfc46a-f38b-4b63-c4a0-40364693f54d",
+                        "display":"It has slightly limited my enjoyment of life"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"5437031e-aa5b-4e55-8951-c1d497815a89",
+                        "code":"it-hast-not-limited-my-enjoyment-of-life-at-all",
+                        "system":"urn:uuid:67bfc46a-f38b-4b63-c4a0-40364693f54d",
+                        "display":"It hast not limited my enjoyment of life at all"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"d618b4b7-dd88-4111-878c-72ade8c65ea0",
+            "type":"choice",
+            "text":"If you had to spend the rest of your life with your peripheral vascular disease the way it is right now, how would you feel about this?",
+            "required":false,
+            "answerValueSet":"#3c480caf-58fd-4c29-c161-3d1bc7b130f9"
+        },
+        {
+            "linkId":"bf26320f-6107-461d-8a48-da9b918c4b03",
+            "type":"choice",
+            "text":"Over the past 4 weeks, how often have you felt discouraged or down in the dumps because of your peripheral vascular disease?",
+            "required":false,
+            "answerOption":[
+                {
+                    "valueCoding":{
+                        "id":"147d83b4-755c-46dc-85a1-261c1ead3e25",
+                        "code":"i-felt-that-way-all-of-the-time",
+                        "system":"urn:uuid:7f5ba246-2bab-4523-9dc0-8dddbf99c2e6",
+                        "display":"I felt that way all of the time"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"f9f69d9f-3aeb-4a5c-8fe8-cc77be00705f",
+                        "code":"i-felt-that-way-most-of-the-time",
+                        "system":"urn:uuid:7f5ba246-2bab-4523-9dc0-8dddbf99c2e6",
+                        "display":"I felt that way most of the time"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"f51a2e2e-7a76-48b5-b6c9-dbd2aaea5b0e",
+                        "code":"i-occasionally-felt-that-way",
+                        "system":"urn:uuid:7f5ba246-2bab-4523-9dc0-8dddbf99c2e6",
+                        "display":"I occasionally felt that way"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"8deb9beb-b3c0-469b-9dfc-62b46260569e",
+                        "code":"i-rarely-felt-that-way",
+                        "system":"urn:uuid:7f5ba246-2bab-4523-9dc0-8dddbf99c2e6",
+                        "display":"I rarely felt that way"
+                    }
+                },
+                {
+                    "valueCoding":{
+                        "id":"918139e6-a132-484d-dab4-0e72273370ae",
+                        "code":"i-never-felt-that-way",
+                        "system":"urn:uuid:7f5ba246-2bab-4523-9dc0-8dddbf99c2e6",
+                        "display":"I never felt that way"
+                    }
+                }
+            ]
+        },
+        {
+            "linkId":"3f3c493c-d490-493d-8107-b1a642a9037e",
+            "type":"group",
+            "text":"How much does your peripheral vascular disease affect your lifestyle? Please indicate how your discomfort, fatigue, pain, aching, or cramps in your calves (or buttocks) may have limited your participation in the following activities over the past 4 weeks.",
+            "item":[
+                {
+                    "linkId":"a5f8ddaa-cc36-4ead-8154-81f2763eacad",
+                    "type":"choice",
+                    "text":"Hobbies, recreational activities",
+                    "required":false,
+                    "answerValueSet":"#0ad0c4b5-9b24-4600-83c4-23424d35794f"
+                },
+                {
+                    "linkId":"314ea0e3-b0d7-488b-ce2a-24bfead719c2",
+                    "type":"choice",
+                    "text":"Visiting family or friends out of your home",
+                    "required":false,
+                    "answerValueSet":"#0ad0c4b5-9b24-4600-83c4-23424d35794f"
+                },
+                {
+                    "linkId":"14c1169d-6454-4d60-8278-b8839b486806",
+                    "type":"choice",
+                    "text":"Working or doing household chores",
+                    "required":false,
+                    "answerValueSet":"#0ad0c4b5-9b24-4600-83c4-23424d35794f"
+                }
+            ],
+            "required":false
+        }
+    ]
+}

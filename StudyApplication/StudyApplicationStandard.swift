@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: MIT
 //
 
+import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
 import HealthKitOnFHIR
@@ -41,21 +42,21 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
     
     private var userDocumentReference: DocumentReference {
         get async throws {
-            guard let details = await account.details else {
+            guard let userId = Auth.auth().currentUser?.uid else {
                 throw StudyApplicationStandardError.userNotAuthenticatedYet
             }
 
-            return Self.userCollection.document(details.accountId)
+            return Self.userCollection.document(userId)
         }
     }
     
     private var userBucketReference: StorageReference {
         get async throws {
-            guard let details = await account.details else {
+            guard let userId = Auth.auth().currentUser?.uid else {
                 throw StudyApplicationStandardError.userNotAuthenticatedYet
             }
 
-            return Storage.storage().reference().child("users/\(details.accountId)")
+            return Storage.storage().reference().child("users/\(userId)")
         }
     }
     

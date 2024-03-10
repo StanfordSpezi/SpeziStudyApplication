@@ -13,9 +13,8 @@ import SwiftUI
 
 struct HomeView: View {
     enum Tabs: String {
+        case studies
         case schedule
-        case contact
-        case mockUpload
     }
     
     static var accountEnabled: Bool {
@@ -23,16 +22,21 @@ struct HomeView: View {
     }
 
 
-    @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.schedule
+    @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.studies
     @State private var presentingAccount = false
 
     
     var body: some View {
         TabView(selection: $selectedTab) {
+            StudiesView()
+                .tag(Tabs.studies)
+                .tabItem {
+                    Label("Studies", systemImage: "list.clipboard")
+                }
             ScheduleView(presentingAccount: $presentingAccount)
                 .tag(Tabs.schedule)
                 .tabItem {
-                    Label("Tasks", systemImage: "list.clipboard")
+                    Label("Tasks", systemImage: "checklist")
                 }
         }
             .sheet(isPresented: $presentingAccount) {

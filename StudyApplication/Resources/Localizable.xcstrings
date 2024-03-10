@@ -58,6 +58,15 @@
     "After you provide detailed permissions, your data is automatically shared with the studies you participate in." : {
 
     },
+    "Allow Notifications" : {
+
+    },
+    "Already Enrolled" : {
+
+    },
+    "An invitation code is at least 8 characters long." : {
+
+    },
     "Automatic Data Transfer" : {
 
     },
@@ -86,6 +95,7 @@
       }
     },
     "CONSENT_LOADING_ERROR" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -151,6 +161,9 @@
         }
       }
     },
+    "Enroll" : {
+
+    },
     "Enroll and Participate in Research Projects" : {
 
     },
@@ -166,7 +179,14 @@
     "Finish Onboarding" : {
 
     },
+    "Grant Access" : {
+
+    },
+    "HealthKit Access" : {
+
+    },
     "HEALTHKIT_PERMISSIONS_BUTTON" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -177,6 +197,7 @@
       }
     },
     "HEALTHKIT_PERMISSIONS_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -187,6 +208,7 @@
       }
     },
     "HEALTHKIT_PERMISSIONS_SUBTITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -198,6 +220,7 @@
     },
     "HEALTHKIT_PERMISSIONS_TITLE" : {
       "comment" : "MARK: HealthKit",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -332,6 +355,12 @@
         }
       }
     },
+    "Invitation Code" : {
+
+    },
+    "Invitation code was invalid." : {
+
+    },
     "LELAND_STANFORD_BIO" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -369,6 +398,7 @@
 
     },
     "NOTIFICATION_PERMISSIONS_BUTTON" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -379,6 +409,7 @@
       }
     },
     "NOTIFICATION_PERMISSIONS_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -389,6 +420,7 @@
       }
     },
     "NOTIFICATION_PERMISSIONS_SUBTITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -400,6 +432,7 @@
     },
     "NOTIFICATION_PERMISSIONS_TITLE" : {
       "comment" : "MARK: Notifications",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -408,6 +441,12 @@
           }
         }
       }
+    },
+    "Notifications" : {
+
+    },
+    "Plase enter your invitation code to join the %@ study." : {
+
     },
     "PROJECT_LICENSE_DESCRIPTION" : {
       "localizations" : {
@@ -418,6 +457,9 @@
           }
         }
       }
+    },
+    "Redeem Inviation Code" : {
+
     },
     "Repository Link" : {
 
@@ -452,6 +494,9 @@
 
     },
     "Skip" : {
+
+    },
+    "Studies" : {
 
     },
     "Surveys, Activity Data, and More" : {
@@ -513,7 +558,19 @@
     "Tasks" : {
 
     },
+    "The %@ study requests access to HealthKit data" : {
+
+    },
+    "The %@ study would like to schedule notifications." : {
+
+    },
     "The Spezi Study Application can collect a wide variety of data points that can be helpful for a broad range of digital health studies." : {
+
+    },
+    "The Spezi Study Application currently only allows enrolling in a single study at the same time." : {
+
+    },
+    "Unknown Invitation Code Error" : {
 
     },
     "Welcome" : {
