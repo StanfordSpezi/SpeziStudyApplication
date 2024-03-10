@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -23,20 +23,28 @@ struct ScheduleView: View {
     
     
     private var startOfDays: [Date] {
-        Array(eventContextsByDate.keys).sorted()
+        Array(eventContextsByDate.keys)
     }
     
     
     var body: some View {
         NavigationStack {
-            Group {
-                if startOfDays.isEmpty {
-                    emptyListView
-                } else {
-                    listView
+            List(startOfDays, id: \.timeIntervalSinceNow) { startOfDay in
+                Section(format(startOfDay: startOfDay)) {
+                    ForEach(eventContextsByDate[startOfDay] ?? [], id: \.event) { eventContext in
+                        EventContextView(eventContext: eventContext)
+                            .onTapGesture {
+                                if !eventContext.event.complete {
+                                    presentedContext = eventContext
+                                }
+                            }
+                    }
                 }
             }
-                .onChange(of: scheduler.tasks, initial: true) {
+                .onChange(of: scheduler) {
+                    calculateEventContextsByDate()
+                }
+                .task {
                     calculateEventContextsByDate()
                 }
                 .sheet(item: $presentedContext) { presentedContext in
@@ -47,35 +55,7 @@ struct ScheduleView: View {
                         AccountButton(isPresented: $presentingAccount)
                     }
                 }
-                .navigationTitle("Tasks")
-        }
-    }
-    
-    @ViewBuilder private var emptyListView: some View {
-        VStack(spacing: 32) {
-            Image(systemName: "list.clipboard")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 100)
-                .accessibilityHidden(true)
-                .foregroundStyle(.secondary)
-            Text("No tasks scheduled for today.")
-                .foregroundStyle(.secondary)
-        }
-    }
-    
-    @ViewBuilder private var listView: some View {
-        List(startOfDays, id: \.timeIntervalSinceNow) { startOfDay in
-            Section(format(startOfDay: startOfDay)) {
-                ForEach(eventContextsByDate[startOfDay] ?? [], id: \.event) { eventContext in
-                    EventContextView(eventContext: eventContext)
-                        .onTapGesture {
-                            if !eventContext.event.complete && eventContext.event.due {
-                                presentedContext = eventContext
-                            }
-                        }
-                }
-            }
+                .navigationTitle("SCHEDULE_LIST_TITLE")
         }
     }
     
@@ -116,8 +96,8 @@ struct ScheduleView: View {
         let eventContexts = scheduler.tasks.flatMap { task in
             task
                 .events(
-                    from: .distantPast,
-                    to: .numberOfEvents(100)
+                    from: Calendar.current.startOfDay(for: .now),
+                    to: .numberOfEventsOrEndDate(100, .now)
                 )
                 .map { event in
                     EventContext(event: event, task: task)
@@ -137,17 +117,11 @@ struct ScheduleView: View {
 #if DEBUG
 #Preview("ScheduleView") {
     ScheduleView(presentingAccount: .constant(false))
-        .environment(StudyApplicationScheduler())
-        .environment(Account())
-}
-
-#Preview("ScheduleView") {
-    let details = AccountDetails.Builder()
-        .set(\.userId, value: "lelandstanford@stanford.edu")
-        .set(\.name, value: PersonNameComponents(givenName: "Leland", familyName: "Stanford"))
-    
-    return ScheduleView(presentingAccount: .constant(true))
-        .environment(StudyApplicationScheduler())
-        .environment(Account(building: details, active: MockUserIdPasswordAccountService()))
+        .previewWith(standard: StudyApplicationStandard()) {
+            StudyApplicationScheduler()
+            AccountConfiguration {
+                MockUserIdPasswordAccountService()
+            }
+        }
 }
 #endif

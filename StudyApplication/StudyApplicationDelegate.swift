@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -18,15 +18,15 @@ import SpeziScheduler
 import SwiftUI
 
 
-class StudyAppDelegate: SpeziAppDelegate {
+class StudyApplicationDelegate: SpeziAppDelegate {
     override var configuration: Configuration {
         Configuration(standard: StudyApplicationStandard()) {
             if !FeatureFlags.disableFirebase {
                 AccountConfiguration(configuration: [
-                    .supports(\.userId),
-                    .supports(\.name),
-                    .supports(\.genderIdentity),
-                    .supports(\.dateOfBirth)
+                    .requires(\.userId),
+                    .requires(\.name),
+                    .collects(\.genderIdentity),
+                    .collects(\.dateOfBirth)
                 ])
 
                 if FeatureFlags.useFirebaseEmulator {
@@ -47,7 +47,6 @@ class StudyAppDelegate: SpeziAppDelegate {
             if HKHealthStore.isHealthDataAvailable() {
                 HealthKit()
             }
-            MockWebService()
             StudyApplicationScheduler()
             OnboardingDataSource()
             StudyModule()

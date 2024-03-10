@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -39,7 +39,7 @@ struct EventContextView: View {
                 Divider()
                 Text(eventContext.task.description)
                     .font(.callout)
-                if !eventContext.event.complete && eventContext.event.due {
+                if !eventContext.event.complete {
                     Text(eventContext.task.context.actionType)
                         .frame(maxWidth: .infinity, minHeight: 50)
                         .foregroundColor(.white)
@@ -61,3 +61,23 @@ struct EventContextView: View {
         return dateFormatter.string(from: eventDate)
     }
 }
+
+
+#if DEBUG
+#Preview(traits: .sizeThatFitsLayout) {
+    guard let task = Study.vascTracStanford.tasks.first else {
+        fatalError("Could not load task")
+    }
+    
+    return EventContextView(
+        eventContext: EventContext(
+            // We use a force unwrap in the preview as we can not recover from an error here
+            // and the code will never end up in a production environment.
+            // swiftlint:disable:next force_unwrapping
+            event: task.events(from: .now.addingTimeInterval(-60 * 60 * 24)).first!,
+            task: task
+        )
+    )
+        .padding()
+}
+#endif

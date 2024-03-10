@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -40,10 +40,8 @@ struct ModalView: View {
 
 #if DEBUG
 #Preview {
-    Text("Background").sheet(isPresented: .constant(true)) {
-        ModalView(text: "Preview Modal", buttonText: "Close") {
-            print("Preview Modal closed.")
-        }
+    ModalView(text: "Preview Modal", buttonText: "Close") {
+        print("Preview Modal closed.")
     }
 }
 #endif

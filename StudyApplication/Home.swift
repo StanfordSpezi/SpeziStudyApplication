@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -7,7 +7,6 @@
 //
 
 import SpeziAccount
-import SpeziMockWebService
 import SwiftUI
 
 
@@ -17,12 +16,13 @@ struct HomeView: View {
         case schedule
     }
     
+    
     static var accountEnabled: Bool {
-        FeatureFlags.accountEnabled && (!FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding)
+        !FeatureFlags.disableFirebase && !FeatureFlags.skipOnboarding
     }
 
-
-    @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.studies
+    
+    @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.schedule
     @State private var presentingAccount = false
 
     
@@ -54,8 +54,18 @@ struct HomeView: View {
         .set(\.name, value: PersonNameComponents(givenName: "Leland", familyName: "Stanford"))
     
     return HomeView()
-        .environment(Account(building: details, active: MockUserIdPasswordAccountService()))
-        .environment(StudyApplicationScheduler())
-        .environment(MockWebService())
+        .previewWith(standard: StudyApplicationStandard()) {
+            AccountConfiguration(building: details, active: MockUserIdPasswordAccountService())
+        }
+}
+
+#Preview {
+    CommandLine.arguments.append("--disableFirebase")
+    return HomeView()
+        .previewWith(standard: StudyApplicationStandard()) {
+            AccountConfiguration {
+                MockUserIdPasswordAccountService()
+            }
+        }
 }
 #endif

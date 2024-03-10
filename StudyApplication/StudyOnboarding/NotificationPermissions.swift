@@ -72,10 +72,11 @@ struct NotificationPermissions: View {
 
 #if DEBUG
 #Preview {
-    OnboardingStack(startAtStep: NotificationPermissions.self) {
-        for onboardingView in OnboardingFlow.previewSimulatorViews {
-            onboardingView
-        }
+    OnboardingStack {
+        NotificationPermissions(study: Study.vascTracStanford)
     }
+        .previewWith(standard: StudyApplicationStandard()) {
+            StudyApplicationScheduler()
+        }
 }
 #endif

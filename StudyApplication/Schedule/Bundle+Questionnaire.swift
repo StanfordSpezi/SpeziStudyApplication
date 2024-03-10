@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import ModelsR4
-import SpeziFHIR
+import SpeziQuestionnaire
 
 
 extension Foundation.Bundle {

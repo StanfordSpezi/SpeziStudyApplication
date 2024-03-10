@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -17,13 +17,12 @@ import SpeziAccount
 import SpeziFirebaseAccountStorage
 import SpeziFirestore
 import SpeziHealthKit
-import SpeziMockWebService
 import SpeziOnboarding
 import SpeziQuestionnaire
 import SwiftUI
 
 
-actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstraint, OnboardingConstraint, AccountStorageStandard {
+actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstraint, OnboardingConstraint, AccountStorageConstraint {
     enum StudyApplicationStandardError: Error {
         case userNotAuthenticatedYet
     }
@@ -32,8 +31,7 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
         Firestore.firestore().collection("users")
     }
 
-    @Dependency var mockWebService = MockWebService()
-    @Dependency var accountStorage = FirestoreAccountStorage(storeIn: userCollection)
+    @Dependency var accountStorage: FirestoreAccountStorage?
 
     @AccountReference var account: Account
 
@@ -59,16 +57,16 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
             return Storage.storage().reference().child("users/\(userId)")
         }
     }
-    
-    func add(sample: HKSample) async {
-        guard !FeatureFlags.disableFirebase else {
-            let encoder = JSONEncoder()
-            encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
-            let jsonRepresentation = (try? String(data: encoder.encode(sample.resource), encoding: .utf8)) ?? ""
-            try? await mockWebService.upload(path: "healthkit/\(sample.uuid.uuidString)", body: jsonRepresentation)
-            return
+
+
+    init() {
+        if !FeatureFlags.disableFirebase {
+            _accountStorage = Dependency(wrappedValue: FirestoreAccountStorage(storeIn: StudyApplicationStandard.userCollection))
         }
-        
+    }
+
+
+    func add(sample: HKSample) async {
         do {
             try await healthKitDocument(id: sample.id).setData(from: sample.resource)
         } catch {
@@ -77,11 +75,6 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
     }
     
     func remove(sample: HKDeletedObject) async {
-        guard !FeatureFlags.disableFirebase else {
-            try? await mockWebService.remove(path: "healthkit/\(sample.uuid.uuidString)")
-            return
-        }
-        
         do {
             try await healthKitDocument(id: sample.uuid).delete()
         } catch {
@@ -91,12 +84,6 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
     
     func add(response: ModelsR4.QuestionnaireResponse) async {
         let id = response.identifier?.value?.value?.string ?? UUID().uuidString
-        
-        guard !FeatureFlags.disableFirebase else {
-            let jsonRepresentation = (try? String(data: JSONEncoder().encode(response), encoding: .utf8)) ?? ""
-            try? await mockWebService.upload(path: "questionnaireResponse/\(id)", body: jsonRepresentation)
-            return
-        }
         
         do {
             try await userDocumentReference
@@ -160,22 +147,37 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
 
 
     func create(_ identifier: AdditionalRecordId, _ details: SignupDetails) async throws {
+        guard let accountStorage else {
+            preconditionFailure("Account Storage was requested although not enabled in current configuration.")
+        }
         try await accountStorage.create(identifier, details)
     }
 
     func load(_ identifier: AdditionalRecordId, _ keys: [any AccountKey.Type]) async throws -> PartialAccountDetails {
-        try await accountStorage.load(identifier, keys)
+        guard let accountStorage else {
+            preconditionFailure("Account Storage was requested although not enabled in current configuration.")
+        }
+        return try await accountStorage.load(identifier, keys)
     }
 
     func modify(_ identifier: AdditionalRecordId, _ modifications: AccountModifications) async throws {
+        guard let accountStorage else {
+            preconditionFailure("Account Storage was requested although not enabled in current configuration.")
+        }
         try await accountStorage.modify(identifier, modifications)
     }
 
     func clear(_ identifier: AdditionalRecordId) async {
+        guard let accountStorage else {
+            preconditionFailure("Account Storage was requested although not enabled in current configuration.")
+        }
         await accountStorage.clear(identifier)
     }
 
     func delete(_ identifier: AdditionalRecordId) async throws {
+        guard let accountStorage else {
+            preconditionFailure("Account Storage was requested although not enabled in current configuration.")
+        }
         try await accountStorage.delete(identifier)
     }
 }

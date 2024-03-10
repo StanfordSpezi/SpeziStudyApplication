@@ -1,5 +1,5 @@
 //
-// This source file is part of the Stanford Spezi Study Application project
+// This source file is part of the StudyApplication based on the Stanford Spezi Template Application project
 //
 // SPDX-FileCopyrightText: 2023 Stanford University
 //
@@ -13,7 +13,7 @@ import SwiftUI
 
 @main
 struct StudyApplication: App {
-    @UIApplicationDelegateAdaptor(StudyAppDelegate.self) var appDelegate
+    @UIApplicationDelegateAdaptor(StudyApplicationDelegate.self) var appDelegate
     @AppStorage(StorageKeys.onboardingFlowComplete) var completedOnboardingFlow = false
 
     
