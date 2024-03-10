@@ -6,7 +6,6 @@
 // SPDX-License-Identifier: MIT
 //
 
-import SpeziAccount
 import SpeziFirebaseAccount
 import SpeziHealthKit
 import SpeziOnboarding
@@ -37,10 +36,6 @@ struct OnboardingFlow: View {
         OnboardingStack(onboardingFlowComplete: $completedOnboardingFlow) {
             Welcome()
             InterestingModules()
-            
-            if !FeatureFlags.disableFirebase {
-                AccountOnboarding()
-            }
         }
             .interactiveDismissDisabled(!completedOnboardingFlow)
     }
@@ -50,10 +45,6 @@ struct OnboardingFlow: View {
 #if DEBUG
 #Preview {
     OnboardingFlow()
-        .previewWith(standard: StudyApplicationStandard()) {
-            AccountConfiguration {
-                MockUserIdPasswordAccountService()
-            }
-        }
+        .previewWith(standard: StudyApplicationStandard()) {}
 }
 #endif

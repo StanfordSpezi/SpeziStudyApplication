@@ -5,6 +5,7 @@
 
     },
     "ACCOUNT_NEXT" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -15,6 +16,7 @@
       }
     },
     "ACCOUNT_SETUP_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -25,6 +27,7 @@
       }
     },
     "ACCOUNT_SIGNED_IN_DESCRIPTION" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -35,6 +38,7 @@
       }
     },
     "ACCOUNT_SUBTITLE" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -46,6 +50,7 @@
     },
     "ACCOUNT_TITLE" : {
       "comment" : "MARK: Account",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -72,6 +77,7 @@
     },
     "CLOSE" : {
       "comment" : "MARK: General",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

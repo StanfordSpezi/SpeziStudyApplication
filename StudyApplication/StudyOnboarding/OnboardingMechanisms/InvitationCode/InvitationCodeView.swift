@@ -6,6 +6,8 @@
 // SPDX-License-Identifier: MIT
 //
 
+import FirebaseAuth
+import FirebaseFunctions
 import SpeziOnboarding
 import SpeziValidation
 import SpeziViews
@@ -100,13 +102,38 @@ struct InvitationCodeView: View {
     
     private func verifyOnboardingCode() async {
         do {
-            guard invitationCode == "VASCTRAC" else {
-                throw InviationCodeError.invitationCodeInvalid
+            if FeatureFlags.disableFirebase {
+                guard invitationCode == "VASCTRAC" else {
+                    throw InviationCodeError.invitationCodeInvalid
+                }
+                
+                try? await Task.sleep(for: .seconds(0.25))
+            } else {
+                let user: User
+                if let currentUser = Auth.auth().currentUser {
+                    user = currentUser
+                } else {
+                    let authResult = try await Auth.auth().signInAnonymously()
+                    user = authResult.user
+                }
+                
+                let isAnonymous = user.isAnonymous
+                let uid = user.uid
+                print("User \(uid) is anonymous: \(isAnonymous)")
+                
+                let options = HTTPSCallableOptions(requireLimitedUseAppCheckTokens: true)
+                let helloWorld = Functions.functions().httpsCallable("helloWorld", options: options)
+                
+                let result = try await helloWorld.call()
+                
+                guard let data = result.data as? [String: Any] else {
+                    throw InviationCodeError.invitationCodeInvalid
+                }
+                
+                print(data)
             }
             
             try await studyViewModel.enrollInStudy(study: study)
-            
-            try? await Task.sleep(for: .seconds(0.25))
             
             await onboardingNavigationPath.nextStep()
         } catch let error as LocalizedError {

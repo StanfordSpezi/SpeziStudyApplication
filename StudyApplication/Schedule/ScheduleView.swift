@@ -6,7 +6,6 @@
 // SPDX-License-Identifier: MIT
 //
 
-import SpeziAccount
 import SpeziQuestionnaire
 import SpeziScheduler
 import SwiftUI
@@ -41,11 +40,6 @@ struct ScheduleView: View {
                 }
                 .sheet(item: $presentedContext) { presentedContext in
                     destination(withContext: presentedContext)
-                }
-                .toolbar {
-                    if AccountButton.shouldDisplay {
-                        AccountButton(isPresented: $presentingAccount)
-                    }
                 }
                 .navigationTitle("Tasks")
         }
@@ -134,9 +128,6 @@ struct ScheduleView: View {
     ScheduleView(presentingAccount: .constant(false))
         .previewWith(standard: StudyApplicationStandard()) {
             StudyApplicationScheduler()
-            AccountConfiguration {
-                MockUserIdPasswordAccountService()
-            }
         }
 }
 #endif
