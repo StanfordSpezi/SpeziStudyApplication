@@ -23,28 +23,20 @@ struct ScheduleView: View {
     
     
     private var startOfDays: [Date] {
-        Array(eventContextsByDate.keys)
+        Array(eventContextsByDate.keys).sorted()
     }
     
     
     var body: some View {
         NavigationStack {
-            List(startOfDays, id: \.timeIntervalSinceNow) { startOfDay in
-                Section(format(startOfDay: startOfDay)) {
-                    ForEach(eventContextsByDate[startOfDay] ?? [], id: \.event) { eventContext in
-                        EventContextView(eventContext: eventContext)
-                            .onTapGesture {
-                                if !eventContext.event.complete {
-                                    presentedContext = eventContext
-                                }
-                            }
-                    }
+            Group {
+                if startOfDays.isEmpty {
+                    emptyListView
+                } else {
+                    listView
                 }
             }
-                .onChange(of: scheduler) {
-                    calculateEventContextsByDate()
-                }
-                .task {
+                .onChange(of: scheduler.tasks, initial: true) {
                     calculateEventContextsByDate()
                 }
                 .sheet(item: $presentedContext) { presentedContext in
@@ -55,7 +47,30 @@ struct ScheduleView: View {
                         AccountButton(isPresented: $presentingAccount)
                     }
                 }
-                .navigationTitle("SCHEDULE_LIST_TITLE")
+                .navigationTitle("Tasks")
+        }
+    }
+    
+    @ViewBuilder private var emptyListView: some View {
+        ContentUnavailableView {
+            Label("No Tasks", systemImage: "list.clipboard")
+        } description: {
+            Text("No tasks scheduled for your enrolled studies.")
+        }
+    }
+    
+    @ViewBuilder private var listView: some View {
+        List(startOfDays, id: \.timeIntervalSinceNow) { startOfDay in
+            Section(format(startOfDay: startOfDay)) {
+                ForEach(eventContextsByDate[startOfDay] ?? [], id: \.event) { eventContext in
+                    EventContextView(eventContext: eventContext)
+                        .onTapGesture {
+                            if !eventContext.event.complete && eventContext.event.due {
+                                presentedContext = eventContext
+                            }
+                        }
+                }
+            }
         }
     }
     
@@ -96,8 +111,8 @@ struct ScheduleView: View {
         let eventContexts = scheduler.tasks.flatMap { task in
             task
                 .events(
-                    from: Calendar.current.startOfDay(for: .now),
-                    to: .numberOfEventsOrEndDate(100, .now)
+                    from: .distantPast,
+                    to: .numberOfEvents(100)
                 )
                 .map { event in
                     EventContext(event: event, task: task)
