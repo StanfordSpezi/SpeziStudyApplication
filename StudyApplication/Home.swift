@@ -21,7 +21,7 @@ struct HomeView: View {
     }
 
     
-    @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.schedule
+    @AppStorage(StorageKeys.homeTabSelection) private var selectedTab = Tabs.studies
     @State private var presentingAccount = false
 
     

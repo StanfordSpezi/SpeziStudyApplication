@@ -99,7 +99,7 @@ extension Study {
     
     static var vascTracPaloAltoVA: Study {
         Study(
-            id: UUID(uuidString: "02e8b3e6-c4e3-4cd9-b3f2-8bf257825478")!,
+            id: UUID(uuidString: "02E8B3E6-C4E3-4CD9-B3F2-8BF257825478")!,
             title: "VascTrac - Palo Alto VA",
             titleImage: URL(string: "https://images.squarespace-cdn.com/content/v1/57d09729be659485ada8bdd2/1532817554721-8M7FSA6I81WR09Q5I52X/Intro1.png")!,
             organization: Organization(
@@ -117,7 +117,7 @@ extension Study {
     
     static var vascTracStanford: Study {
         Study(
-            id: UUID(uuidString: "911485b5-ccb0-4291-b21b-934307afd1a3")!,
+            id: UUID(uuidString: "911485B5-CCB0-4291-B21B-934307AFD1A3")!,
             title: "VascTrac - Stanford University",
             titleImage: URL(string: "https://images.squarespace-cdn.com/content/v1/57d09729be659485ada8bdd2/1532817554721-8M7FSA6I81WR09Q5I52X/Intro1.png")!,
             organization: Organization(
