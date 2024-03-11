@@ -38,6 +38,7 @@ jobs:
         uses: actions/setup-node@v3
       - name: eslint
         run: |
+          npm install
           npm run lint
   markdownlinkcheck:
     name: Markdown Link Check
