@@ -18,4 +18,9 @@ enum StorageKeys {
     // MARK: - Home
     /// The currently selected home tab.
     static let homeTabSelection = "home.tabselection"
+    
+    
+    // MARK: - Study
+    /// The currently enrolled studies
+    static let currentlyEnrolledStudies = "studies.currentlyEnrolled"
 }

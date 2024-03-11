@@ -6,7 +6,6 @@
 // SPDX-License-Identifier: MIT
 //
 
-import SpeziAccount
 import SwiftUI
 
 
@@ -39,33 +38,12 @@ struct HomeView: View {
                     Label("Tasks", systemImage: "checklist")
                 }
         }
-            .sheet(isPresented: $presentingAccount) {
-                AccountSheet()
-            }
-            .verifyRequiredAccountDetails(Self.accountEnabled)
     }
 }
 
 
 #if DEBUG
 #Preview {
-    let details = AccountDetails.Builder()
-        .set(\.userId, value: "lelandstanford@stanford.edu")
-        .set(\.name, value: PersonNameComponents(givenName: "Leland", familyName: "Stanford"))
-    
-    return HomeView()
-        .previewWith(standard: StudyApplicationStandard()) {
-            AccountConfiguration(building: details, active: MockUserIdPasswordAccountService())
-        }
-}
-
-#Preview {
-    CommandLine.arguments.append("--disableFirebase")
-    return HomeView()
-        .previewWith(standard: StudyApplicationStandard()) {
-            AccountConfiguration {
-                MockUserIdPasswordAccountService()
-            }
-        }
+    HomeView()
 }
 #endif

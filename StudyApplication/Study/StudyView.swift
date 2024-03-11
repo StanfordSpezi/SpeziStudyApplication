@@ -15,11 +15,11 @@ import SwiftUI
 struct StudyView: View {
     private let study: Study
     @State private var showEnrollSheet = false
-    @Environment(StudyViewModel.self) private var studyViewModel: StudyViewModel
+    @Environment(StudyModule.self) private var studyModule: StudyModule
     
     
     private var enrolled: Bool {
-        studyViewModel.studyState.contains(where: { $0.studyId == study.id })
+        studyModule.studyState.contains(where: { $0.studyId == study.id })
     }
     
     var body: some View {
@@ -107,16 +107,13 @@ struct StudyView: View {
     }
 }
 
+
 #Preview {
-    let studyViewModel = StudyViewModel(
-        localStorage: LocalStorage(),
-        healthKit: HealthKit(),
-        scheduler: StudyApplicationScheduler()
-    )
-    
-    return ZStack {
+    ZStack {
         Color.gray
-        StudyView(study: studyViewModel.studies[0])
-            .environment(studyViewModel)
+        StudyView(study: StudyModule().studies[0])
+            .previewWith(standard: StudyApplicationStandard()) {
+                StudyModule()
+            }
     }
 }

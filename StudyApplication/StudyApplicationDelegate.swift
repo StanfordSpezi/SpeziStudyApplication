@@ -7,13 +7,11 @@
 //
 
 import Spezi
-import SpeziAccount
-import SpeziFirebaseAccount
 import SpeziFirebaseStorage
 import SpeziFirestore
 import SpeziHealthKit
 import SpeziOnboarding
-import SpeziScheduler
+@_spi(Spezi) import SpeziScheduler
 import SwiftUI
 
 
@@ -21,32 +19,22 @@ class StudyApplicationDelegate: SpeziAppDelegate {
     override var configuration: Configuration {
         Configuration(standard: StudyApplicationStandard()) {
             if !FeatureFlags.disableFirebase {
-                AccountConfiguration(configuration: [
-                    .requires(\.userId),
-                    .requires(\.name),
-                    .collects(\.genderIdentity),
-                    .collects(\.dateOfBirth)
-                ])
-
                 if FeatureFlags.useFirebaseEmulator {
-                    FirebaseAccountConfiguration(
-                        authenticationMethods: [.emailAndPassword, .signInWithApple],
-                        emulatorSettings: (host: "localhost", port: 9099)
-                    )
-                } else {
-                    FirebaseAccountConfiguration(authenticationMethods: [.emailAndPassword, .signInWithApple])
-                }
-                firestore
-                if FeatureFlags.useFirebaseEmulator {
+                    FirebaseFunctionsConfiguration(emulatorSettings: (host: "localhost", port: 5001))
+                    FirebaseAccountConfiguration(emulatorSettings: (host: "localhost", port: 9099))
                     FirebaseStorageConfiguration(emulatorSettings: (host: "localhost", port: 9199))
                 } else {
+                    FirebaseAccountConfiguration()
+                    FirebaseFunctionsConfiguration()
                     FirebaseStorageConfiguration()
                 }
+                firestore
             }
             if HKHealthStore.isHealthDataAvailable() {
                 HealthKit()
             }
             StudyApplicationScheduler()
+            SchedulerStorage(for: StudyApplicationScheduler.self, mockedStorage: false)
             OnboardingDataSource()
             StudyModule()
         }

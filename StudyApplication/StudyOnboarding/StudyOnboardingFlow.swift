@@ -25,14 +25,25 @@ struct StudyOnboardingFlow: View {
     var body: some View {
         OnboardingStack(onboardingFlowComplete: $studyOnboardingComplete) {
             study.onboardingMechanism.createOnboardingView(study: study, studyOnboardingComplete: $studyOnboardingComplete)
+                .toolbar {
+                    Button("Cancel", role: .cancel) {
+                        studyOnboardingComplete = true
+                    }
+                }
             if let consentDocument = study.consentDocument {
                 Consent(consentDocument: consentDocument)
+                    .interactiveDismissDisabled()
+                    .navigationBarBackButtonHidden()
             }
             if study.healthKit != nil, !healthKitAuthorization {
                 HealthKitPermissions(study: study)
+                    .interactiveDismissDisabled()
+                    .navigationBarBackButtonHidden()
             }
             if !study.tasks.isEmpty, !localNotificationAuthorization {
                 NotificationPermissions(study: study)
+                    .interactiveDismissDisabled()
+                    .navigationBarBackButtonHidden()
             }
         }
             .task {
@@ -46,7 +57,6 @@ struct StudyOnboardingFlow: View {
                 
                 healthKitAuthorization = healthKit.authorized
             }
-            .interactiveDismissDisabled()
     }
     
     

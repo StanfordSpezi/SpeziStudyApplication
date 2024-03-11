@@ -6,6 +6,8 @@
 // SPDX-License-Identifier: MIT
 //
 
+import FirebaseAuth
+import FirebaseFunctions
 import SpeziOnboarding
 import SpeziValidation
 import SpeziViews
@@ -16,7 +18,7 @@ struct InvitationCodeView: View {
     private let study: Study
     
     @Environment(OnboardingNavigationPath.self) private var onboardingNavigationPath
-    @Environment(StudyViewModel.self) private var studyViewModel: StudyViewModel
+    @Environment(StudyModule.self) private var studyModule: StudyModule
     @State private var invitationCode = ""
     @State private var viewState: ViewState = .idle
     @ValidationState private var validation
@@ -25,7 +27,6 @@ struct InvitationCodeView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 32) {
-                Divider()
                 invitationCodeHeader
                 Divider()
                 Grid(horizontalSpacing: 16, verticalSpacing: 16) {
@@ -100,13 +101,27 @@ struct InvitationCodeView: View {
     
     private func verifyOnboardingCode() async {
         do {
-            guard invitationCode == "VASCTRAC" else {
-                throw InviationCodeError.invitationCodeInvalid
+            if FeatureFlags.disableFirebase {
+                guard invitationCode == "VASCTRAC" else {
+                    throw InviationCodeError.invitationCodeInvalid
+                }
+                
+                try? await Task.sleep(for: .seconds(0.25))
+            } else {
+                if Auth.auth().currentUser == nil {
+                    try await Auth.auth().signInAnonymously()
+                }
+                
+                let checkInvitationCode = Functions.functions().httpsCallable("checkInvitationCode")
+                
+                do {
+                    _ = try await checkInvitationCode.call(["invitationCode": invitationCode])
+                } catch {
+                    throw InviationCodeError.invitationCodeInvalid
+                }
             }
             
-            try await studyViewModel.enrollInStudy(study: study)
-            
-            try? await Task.sleep(for: .seconds(0.25))
+            try await studyModule.enrollInStudy(study: study)
             
             await onboardingNavigationPath.nextStep()
         } catch let error as LocalizedError {

@@ -13,8 +13,6 @@ import HealthKitOnFHIR
 import OSLog
 import PDFKit
 import Spezi
-import SpeziAccount
-import SpeziFirebaseAccountStorage
 import SpeziFirestore
 import SpeziHealthKit
 import SpeziOnboarding
@@ -22,7 +20,7 @@ import SpeziQuestionnaire
 import SwiftUI
 
 
-actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstraint, OnboardingConstraint, AccountStorageConstraint {
+actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstraint, OnboardingConstraint {
     enum StudyApplicationStandardError: Error {
         case userNotAuthenticatedYet
     }
@@ -30,10 +28,6 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
     private static var userCollection: CollectionReference {
         Firestore.firestore().collection("users")
     }
-
-    @Dependency var accountStorage: FirestoreAccountStorage?
-
-    @AccountReference var account: Account
 
     private let logger = Logger(subsystem: "StudyApplication", category: "Standard")
     
@@ -59,11 +53,7 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
     }
 
 
-    init() {
-        if !FeatureFlags.disableFirebase {
-            _accountStorage = Dependency(wrappedValue: FirestoreAccountStorage(storeIn: StudyApplicationStandard.userCollection))
-        }
-    }
+    init() { }
 
 
     func add(sample: HKSample) async {
@@ -101,15 +91,6 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
             .collection("HealthKit") // Add all HealthKit sources in a /HealthKit collection.
             .document(uuid.uuidString) // Set the document identifier to the UUID of the document.
     }
-
-    func deletedAccount() async throws {
-        // delete all user associated data
-        do {
-            try await userDocumentReference.delete()
-        } catch {
-            logger.error("Could not delete user document: \(error)")
-        }
-    }
     
     /// Stores the given consent form in the user's document directory with a unique timestamped filename.
     ///
@@ -143,41 +124,5 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
         } catch {
             logger.error("Could not store consent form: \(error)")
         }
-    }
-
-
-    func create(_ identifier: AdditionalRecordId, _ details: SignupDetails) async throws {
-        guard let accountStorage else {
-            preconditionFailure("Account Storage was requested although not enabled in current configuration.")
-        }
-        try await accountStorage.create(identifier, details)
-    }
-
-    func load(_ identifier: AdditionalRecordId, _ keys: [any AccountKey.Type]) async throws -> PartialAccountDetails {
-        guard let accountStorage else {
-            preconditionFailure("Account Storage was requested although not enabled in current configuration.")
-        }
-        return try await accountStorage.load(identifier, keys)
-    }
-
-    func modify(_ identifier: AdditionalRecordId, _ modifications: AccountModifications) async throws {
-        guard let accountStorage else {
-            preconditionFailure("Account Storage was requested although not enabled in current configuration.")
-        }
-        try await accountStorage.modify(identifier, modifications)
-    }
-
-    func clear(_ identifier: AdditionalRecordId) async {
-        guard let accountStorage else {
-            preconditionFailure("Account Storage was requested although not enabled in current configuration.")
-        }
-        await accountStorage.clear(identifier)
-    }
-
-    func delete(_ identifier: AdditionalRecordId) async throws {
-        guard let accountStorage else {
-            preconditionFailure("Account Storage was requested although not enabled in current configuration.")
-        }
-        try await accountStorage.delete(identifier)
     }
 }
