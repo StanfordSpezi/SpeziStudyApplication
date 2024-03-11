@@ -49,7 +49,6 @@ struct HealthKitPermissions: View {
                                 try await _Concurrency.Task.sleep(for: .seconds(5))
                             } else {
                                 try await healthKitDataSource.askForAuthorization()
-                                try await healthKitDataSource.triggerDataSourceCollection()
                             }
                         } catch {
                             print("Could not request HealthKit permissions.")

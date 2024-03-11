@@ -108,7 +108,6 @@ extension Study {
             ),
             description: vascTracDescription,
             onboardingMechanism: InviationCodeStudyOnboardingMechanism(),
-            consentDocument: "Consent Document Placeholder ...",
             healthKit: vascTracHealthKitAccess,
             notificationDescription: "Vasc Track wants to send you notifications to remind you about answering your questinnaires.",
             tasks: vascTracTasks
@@ -126,7 +125,6 @@ extension Study {
             ),
             description: vascTracDescription,
             onboardingMechanism: InviationCodeStudyOnboardingMechanism(),
-            consentDocument: "Consent Document Placeholder ...",
             healthKit: vascTracHealthKitAccess,
             notificationDescription: "Vasc Track wants to send you notifications to remind you about answering your questinnaires.",
             tasks: vascTracTasks

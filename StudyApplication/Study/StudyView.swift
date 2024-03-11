@@ -19,7 +19,7 @@ struct StudyView: View {
     
     
     private var enrolled: Bool {
-        studyModule.studyState.contains(where: { $0.studyId == study.id })
+        studyModule.enrolledStudy?.id == study.id
     }
     
     var body: some View {
