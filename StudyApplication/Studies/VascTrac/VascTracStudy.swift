@@ -145,7 +145,7 @@ extension Study {
         
         return Task(
             title: "\(title) - Week \(week)",
-            description: "Plase fill out the \(title) questionnaire on week \(week).",
+            description: "Please fill out the \(title) questionnaire on week \(week).",
             schedule: Schedule(
                 start: date,
                 repetition: .matching(DateComponents(hour: hour, minute: 0)),
