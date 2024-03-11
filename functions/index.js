@@ -8,7 +8,7 @@
 
 const {onCall} = require("firebase-functions/v2/https");
 const {logger, https} = require("firebase-functions/v2");
-const { FieldValue } = require('firebase-admin/firestore');
+const {FieldValue} = require("firebase-admin/firestore");
 const admin = require("firebase-admin");
 
 admin.initializeApp();

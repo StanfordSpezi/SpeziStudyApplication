@@ -24,6 +24,21 @@ jobs:
     uses: StanfordBDHG/.github/.github/workflows/swiftlint.yml@v2
     permissions:
       contents: read
+  eslint:
+    name: eslint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    defaults:
+      run:
+        working-directory: ./functions
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+      - name: eslint
+        run: |
+          npm run lint
   markdownlinkcheck:
     name: Markdown Link Check
     uses: StanfordBDHG/.github/.github/workflows/markdown-link-check.yml@v2
