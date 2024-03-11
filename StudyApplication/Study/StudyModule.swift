@@ -20,7 +20,7 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
     @ObservationIgnored @Dependency private var scheduler: StudyApplicationScheduler
     
     let studies: [Study] = [Study.vascTracPaloAltoVA, Study.vascTracStanford]
-    private(set) var studyState: [StudyState] = [] {
+    private var studyState: [StudyState] = [] {
         didSet {
             do {
                 try localStorage.store(studyState, storageKey: StorageKeys.currentlyEnrolledStudies)
@@ -28,6 +28,25 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
                 logger.error("Could not store enrolled studies.")
             }
         }
+    }
+    
+    var enrolledStudy: Study? {
+        #warning(
+            """
+            We currently only support one enrolled study at the same time.
+            Multiplexing in the standard needs to be more complex based on multiple studies.
+            """
+        )
+        guard let enrolledStudy = studyState.first(where: { $0.enrolled != nil && $0.finished == nil }) else {
+            return nil
+        }
+        
+        guard let study = studies.first(where: { $0.id == enrolledStudy.id }) else {
+            logger.error("Could not find enrolled study \(enrolledStudy.id)")
+            return nil
+        }
+        
+        return study
     }
     
     
@@ -41,6 +60,10 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
             logger.info("Could not retrieve existing enrolled studies.")
             self.studyState = []
         }
+        
+        if let enrolledStudy {
+            executeHealthKitQueries(for: enrolledStudy)
+        }
     }
     
     
@@ -49,14 +72,19 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
             throw StudyError.canOnlyEnrollInOneStudy
         }
         
-        for healthKitDescription in study.healthKit?.healthKitDescriptions ?? [] {
-            healthKit.execute(healthKitDescription)
-        }
+        executeHealthKitQueries(for: study)
         
         for task in study.tasks {
             await scheduler.schedule(task: task)
         }
         
         studyState.append(StudyState(studyId: study.id, enrolled: .now))
+    }
+    
+    
+    private func executeHealthKitQueries(for study: Study) {
+        for healthKitDescription in study.healthKit?.healthKitDescriptions ?? [] {
+            healthKit.execute(healthKitDescription)
+        }
     }
 }

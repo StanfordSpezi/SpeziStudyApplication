@@ -115,7 +115,12 @@ struct InvitationCodeView: View {
                 let checkInvitationCode = Functions.functions().httpsCallable("checkInvitationCode")
                 
                 do {
-                    _ = try await checkInvitationCode.call(["invitationCode": invitationCode])
+                    _ = try await checkInvitationCode.call(
+                        [
+                            "invitationCode": invitationCode,
+                            "studyId": study.id.uuidString
+                        ]
+                    )
                 } catch {
                     throw InviationCodeError.invitationCodeInvalid
                 }

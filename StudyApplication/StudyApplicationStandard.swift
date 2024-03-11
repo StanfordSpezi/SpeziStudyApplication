@@ -23,32 +23,43 @@ import SwiftUI
 actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstraint, OnboardingConstraint {
     enum StudyApplicationStandardError: Error {
         case userNotAuthenticatedYet
+        case userNotEnrolledInStudy
     }
 
     private static var userCollection: CollectionReference {
         Firestore.firestore().collection("users")
     }
-
-    private let logger = Logger(subsystem: "StudyApplication", category: "Standard")
     
     
-    private var userDocumentReference: DocumentReference {
+    @Application(\.logger) private var logger: Logger
+    @Dependency private var studyModule: StudyModule
+    
+    
+    private var studyDocumentReference: DocumentReference {
         get async throws {
             guard let userId = Auth.auth().currentUser?.uid else {
                 throw StudyApplicationStandardError.userNotAuthenticatedYet
             }
+            
+            guard let enrolledStudy = studyModule.enrolledStudy else {
+                throw StudyApplicationStandardError.userNotEnrolledInStudy
+            }
 
-            return Self.userCollection.document(userId)
+            return Self.userCollection.document(userId).collection("studies").document(enrolledStudy.id.uuidString)
         }
     }
     
-    private var userBucketReference: StorageReference {
+    private var studyBucketReference: StorageReference {
         get async throws {
             guard let userId = Auth.auth().currentUser?.uid else {
                 throw StudyApplicationStandardError.userNotAuthenticatedYet
             }
-
-            return Storage.storage().reference().child("users/\(userId)")
+            
+            guard let enrolledStudy = studyModule.enrolledStudy else {
+                throw StudyApplicationStandardError.userNotEnrolledInStudy
+            }
+            
+            return Storage.storage().reference().child("users/\(userId)/studies/\(enrolledStudy.id.uuidString)")
         }
     }
 
@@ -76,7 +87,7 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
         let id = response.identifier?.value?.value?.string ?? UUID().uuidString
         
         do {
-            try await userDocumentReference
+            try await studyDocumentReference
                 .collection("QuestionnaireResponse") // Add all HealthKit sources in a /QuestionnaireResponse collection.
                 .document(id) // Set the document identifier to the id of the response.
                 .setData(from: response)
@@ -87,7 +98,7 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
     
     
     private func healthKitDocument(id uuid: UUID) async throws -> DocumentReference {
-        try await userDocumentReference
+        try await studyDocumentReference
             .collection("HealthKit") // Add all HealthKit sources in a /HealthKit collection.
             .document(uuid.uuidString) // Set the document identifier to the UUID of the document.
     }
@@ -120,7 +131,7 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
             
             let metadata = StorageMetadata()
             metadata.contentType = "application/pdf"
-            _ = try await userBucketReference.child("consent/\(dateString).pdf").putDataAsync(consentData, metadata: metadata)
+            _ = try await studyBucketReference.child("consent/\(dateString).pdf").putDataAsync(consentData, metadata: metadata)
         } catch {
             logger.error("Could not store consent form: \(error)")
         }
