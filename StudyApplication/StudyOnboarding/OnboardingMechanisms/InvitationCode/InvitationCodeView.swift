@@ -109,28 +109,17 @@ struct InvitationCodeView: View {
                 
                 try? await Task.sleep(for: .seconds(0.25))
             } else {
-                let user: User
-                if let currentUser = Auth.auth().currentUser {
-                    user = currentUser
-                } else {
-                    let authResult = try await Auth.auth().signInAnonymously()
-                    user = authResult.user
+                if Auth.auth().currentUser == nil {
+                    try await Auth.auth().signInAnonymously()
                 }
                 
-                let isAnonymous = user.isAnonymous
-                let uid = user.uid
-                print("User \(uid) is anonymous: \(isAnonymous)")
+                let checkInvitationCode = Functions.functions().httpsCallable("checkInvitationCode")
                 
-                let options = HTTPSCallableOptions(requireLimitedUseAppCheckTokens: true)
-                let helloWorld = Functions.functions().httpsCallable("helloWorld", options: options)
-                
-                let result = try await helloWorld.call()
-                
-                guard let data = result.data as? [String: Any] else {
+                do {
+                    _ = try await checkInvitationCode.call(["invitationCode": invitationCode])
+                } catch {
                     throw InviationCodeError.invitationCodeInvalid
                 }
-                
-                print(data)
             }
             
             try await studyViewModel.enrollInStudy(study: study)

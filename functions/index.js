@@ -6,15 +6,23 @@
 // SPDX-License-Identifier: MIT
 //
 
-const { onCall } = require("firebase-functions/v2/https");
+const {onCall} = require("firebase-functions/v2/https");
+const {logger, https} = require("firebase-functions/v2");
 
-exports.helloWorld = onCall(
-  {
-    enforceAppCheck: true, // Reject requests with missing or invalid App Check tokens.
-    consumeAppCheckToken: true  // Consume the token after verification.
-  },
-  (request) => {
-    // request.app contains data from App Check, including the app ID.
-    return { message: "Hello World" };
+
+exports.checkInvitationCode = onCall((request) => {
+  if (!request.auth || !request.auth.uid) {
+    throw new https.HttpsError('unauthenticated', 'User is not properly authenticated.');
   }
-);
+
+  const invitationCode = request.data.invitationCode;
+  const uid = request.auth.uid;
+
+  logger.debug("Called by user with id (" + uid + ") -> InvitationCode: " + invitationCode);
+
+  if (invitationCode === "VASCTRAC") {
+    return {};
+  } else {
+    throw new https.HttpsError('invalid-argument', 'Invitation code not correct.');
+  }
+});
