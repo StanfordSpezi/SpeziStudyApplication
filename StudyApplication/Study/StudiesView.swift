@@ -10,13 +10,13 @@ import SwiftUI
 
 
 struct StudiesView: View {
-    @Environment(StudyViewModel.self) var studyViewModel
+    @Environment(StudyModule.self) var studyModule
     
     
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
-                ForEach(studyViewModel.studies) { study in
+                ForEach(studyModule.studies) { study in
                     StudyView(study: study)
                         .shadow(radius: 10)
                         .padding()

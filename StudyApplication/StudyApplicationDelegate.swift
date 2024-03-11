@@ -11,7 +11,7 @@ import SpeziFirebaseStorage
 import SpeziFirestore
 import SpeziHealthKit
 import SpeziOnboarding
-import SpeziScheduler
+@_spi(Spezi) import SpeziScheduler
 import SwiftUI
 
 
@@ -34,6 +34,7 @@ class StudyApplicationDelegate: SpeziAppDelegate {
                 HealthKit()
             }
             StudyApplicationScheduler()
+            SchedulerStorage(for: StudyApplicationScheduler.self, mockedStorage: false)
             OnboardingDataSource()
             StudyModule()
         }

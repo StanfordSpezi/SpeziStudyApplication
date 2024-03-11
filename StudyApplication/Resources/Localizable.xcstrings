@@ -75,6 +75,9 @@
     "Automatic Data Transfer" : {
 
     },
+    "Cancel" : {
+
+    },
     "CLOSE" : {
       "comment" : "MARK: General",
       "extractionState" : "stale",

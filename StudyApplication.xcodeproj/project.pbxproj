@@ -33,7 +33,6 @@
 		2FC5FB8C2B34F1CA00F13E59 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FB8B2B34F1CA00F13E59 /* Organization.swift */; };
 		2FC5FB922B34F24E00F13E59 /* VascTracStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FB912B34F24E00F13E59 /* VascTracStudy.swift */; };
 		2FC5FB942B34F55B00F13E59 /* StudyModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FB932B34F55B00F13E59 /* StudyModule.swift */; };
-		2FC5FB972B34F69000F13E59 /* StudyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FB962B34F69000F13E59 /* StudyViewModel.swift */; };
 		2FC5FB9A2B350B4900F13E59 /* StudyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FB992B350B4900F13E59 /* StudyState.swift */; };
 		2FC5FBA32B3511E400F13E59 /* StudyOnboardingMechanism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FBA22B3511E300F13E59 /* StudyOnboardingMechanism.swift */; };
 		2FC5FBA52B3511EA00F13E59 /* InviationCodeStudyOnboardingMechanismError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FBA42B3511EA00F13E59 /* InviationCodeStudyOnboardingMechanismError.swift */; };
@@ -124,7 +123,6 @@
 		2FC5FB8B2B34F1CA00F13E59 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		2FC5FB912B34F24E00F13E59 /* VascTracStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VascTracStudy.swift; sourceTree = "<group>"; };
 		2FC5FB932B34F55B00F13E59 /* StudyModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyModule.swift; sourceTree = "<group>"; };
-		2FC5FB962B34F69000F13E59 /* StudyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewModel.swift; sourceTree = "<group>"; };
 		2FC5FB992B350B4900F13E59 /* StudyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyState.swift; sourceTree = "<group>"; };
 		2FC5FBA22B3511E300F13E59 /* StudyOnboardingMechanism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyOnboardingMechanism.swift; sourceTree = "<group>"; };
 		2FC5FBA42B3511EA00F13E59 /* InviationCodeStudyOnboardingMechanismError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviationCodeStudyOnboardingMechanismError.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 				2FC5FB932B34F55B00F13E59 /* StudyModule.swift */,
 				2FC5FBBB2B35758700F13E59 /* StudyHealthKitAccess.swift */,
 				2FC5FBAE2B3513DD00F13E59 /* StudyError.swift */,
-				2FC5FB962B34F69000F13E59 /* StudyViewModel.swift */,
 				2FC5FB8B2B34F1CA00F13E59 /* Organization.swift */,
 				2FC5FBB12B35153000F13E59 /* StudyView.swift */,
 				2FC5FBCC2B357F3F00F13E59 /* StudiesView.swift */,
@@ -677,7 +674,6 @@
 				2FE5DC4629EDD7F2004B9AB4 /* Bundle+Image.swift in Sources */,
 				2F2A56BA2B9DAA5500B3534C /* String+LocalizedError.swift in Sources */,
 				2FE5DC4F29EDD7FA004B9AB4 /* EventContext.swift in Sources */,
-				2FC5FB972B34F69000F13E59 /* StudyViewModel.swift in Sources */,
 				2FC5FBB22B35153000F13E59 /* StudyView.swift in Sources */,
 				2FE5DC5029EDD7FA004B9AB4 /* EventContextView.swift in Sources */,
 				2FC5FBCD2B357F3F00F13E59 /* StudiesView.swift in Sources */,

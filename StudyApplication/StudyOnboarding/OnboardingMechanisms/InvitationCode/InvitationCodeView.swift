@@ -18,7 +18,7 @@ struct InvitationCodeView: View {
     private let study: Study
     
     @Environment(OnboardingNavigationPath.self) private var onboardingNavigationPath
-    @Environment(StudyViewModel.self) private var studyViewModel: StudyViewModel
+    @Environment(StudyModule.self) private var studyModule: StudyModule
     @State private var invitationCode = ""
     @State private var viewState: ViewState = .idle
     @ValidationState private var validation
@@ -27,7 +27,6 @@ struct InvitationCodeView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 32) {
-                Divider()
                 invitationCodeHeader
                 Divider()
                 Grid(horizontalSpacing: 16, verticalSpacing: 16) {
@@ -122,7 +121,7 @@ struct InvitationCodeView: View {
                 }
             }
             
-            try await studyViewModel.enrollInStudy(study: study)
+            try await studyModule.enrollInStudy(study: study)
             
             await onboardingNavigationPath.nextStep()
         } catch let error as LocalizedError {
