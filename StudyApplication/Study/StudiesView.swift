@@ -26,3 +26,11 @@ struct StudiesView: View {
         }
     }
 }
+
+
+#Preview {
+    StudiesView()
+        .previewWith(standard: StudyApplicationStandard()) {
+            StudyModule()
+        }
+}

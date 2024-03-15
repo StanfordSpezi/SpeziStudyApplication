@@ -45,10 +45,8 @@ struct InterestingModules: View {
 }
 
 
-#if DEBUG
 #Preview {
     OnboardingStack {
         InterestingModules()
     }
 }
-#endif

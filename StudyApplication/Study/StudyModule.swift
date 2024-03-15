@@ -19,7 +19,13 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
     @ObservationIgnored @Dependency private var healthKit: HealthKit
     @ObservationIgnored @Dependency private var scheduler: StudyApplicationScheduler
     
-    let studies: [Study] = [Study.vascTracPaloAltoVA, Study.vascTracStanford]
+    let studies: [Study] = {
+        if ProcessInfo.processInfo.isPreviewSimulator {
+            [Study.mockStudy]
+        } else {
+            [Study.vascTracPaloAltoVA, Study.vascTracStanford]
+        }
+    }()
     private var studyState: [StudyState] = [] {
         didSet {
             do {
@@ -29,6 +35,7 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
             }
         }
     }
+    
     
     var enrolledStudy: Study? {
         #warning(

@@ -132,7 +132,7 @@ extension Study {
     }
     
     
-    static func task(forQuestionnaire questionnaire: Questionnaire, title: String, week: Int) -> SpeziScheduler.Task<StudyApplicationTaskContext> {
+    private static func task(forQuestionnaire questionnaire: Questionnaire, title: String, week: Int) -> SpeziScheduler.Task<StudyApplicationTaskContext> {
         let hour = week == 0 ? 0 : 7
         
         let date: Date

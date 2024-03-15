@@ -28,9 +28,8 @@ struct Consent: View {
 }
 
 
-#if DEBUG
 #Preview {
-    guard let studyConsentDocument = Study.vascTracStanford.consentDocument else {
+    guard let studyConsentDocument = Study.mockStudy.consentDocument else {
         fatalError("Could not load consent document.")
     }
     
@@ -41,4 +40,3 @@ struct Consent: View {
             OnboardingDataSource()
         }
 }
-#endif

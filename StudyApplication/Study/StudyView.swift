@@ -33,7 +33,7 @@ struct StudyView: View {
                 Color(uiColor: .systemBackground)
                     .ignoresSafeArea()
             }
-            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+            .clipShape(RoundedRectangle(cornerRadius: 10.0))
             .sheet(isPresented: $showEnrollSheet) {
                 StudyOnboardingFlow(study: study, studyOnboardingComplete: !$showEnrollSheet)
             }
@@ -110,10 +110,12 @@ struct StudyView: View {
 
 #Preview {
     ZStack {
-        Color.gray
+        Color(.systemGroupedBackground)
+            .edgesIgnoringSafeArea(.all)
         StudyView(study: StudyModule().studies[0])
             .previewWith(standard: StudyApplicationStandard()) {
                 StudyModule()
             }
+            .padding()
     }
 }

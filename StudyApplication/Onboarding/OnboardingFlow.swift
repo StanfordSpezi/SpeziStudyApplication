@@ -41,9 +41,7 @@ struct OnboardingFlow: View {
 }
 
 
-#if DEBUG
 #Preview {
     OnboardingFlow()
         .previewWith(standard: StudyApplicationStandard()) {}
 }
-#endif

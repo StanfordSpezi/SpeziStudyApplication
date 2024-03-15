@@ -20,7 +20,7 @@ struct StudyApplication: App {
         WindowGroup {
             ZStack {
                 if completedOnboardingFlow {
-                    HomeView()
+                    MainView()
                 } else {
                     EmptyView()
                 }

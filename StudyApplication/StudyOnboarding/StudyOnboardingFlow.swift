@@ -65,3 +65,14 @@ struct StudyOnboardingFlow: View {
         self._studyOnboardingComplete = studyOnboardingComplete
     }
 }
+
+
+#Preview {
+    StudyOnboardingFlow(
+        study: StudyModule().studies[0],
+        studyOnboardingComplete: .constant(false)
+    )
+        .previewWith(standard: StudyApplicationStandard()) {
+            StudyModule()
+        }
+}

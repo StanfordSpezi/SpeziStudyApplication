@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		27FA29902A388E9B009CAC45 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA298F2A388E9B009CAC45 /* ModalView.swift */; };
+		2F2168AF2BA4F3A7004603AE /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2168AE2BA4F3A7004603AE /* Home.swift */; };
+		2F2168B32BA4FBF3004603AE /* MockStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F2168B22BA4FBF3004603AE /* MockStudy.swift */; };
 		2F2A56AF2B9DA6DF00B3534C /* SpeziFirebaseConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = 2F2A56AE2B9DA6DF00B3534C /* SpeziFirebaseConfiguration */; };
 		2F2A56B12B9DA6DF00B3534C /* SpeziFirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2F2A56B02B9DA6DF00B3534C /* SpeziFirebaseStorage */; };
 		2F2A56B32B9DA6DF00B3534C /* SpeziFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2F2A56B22B9DA6DF00B3534C /* SpeziFirestore */; };
@@ -49,7 +51,7 @@
 		2FC5FBC92B357BD700F13E59 /* PHQ-9 Depression.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FC5FBC32B357BD700F13E59 /* PHQ-9 Depression.json */; };
 		2FC5FBCA2B357BD700F13E59 /* Berlin.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FC5FBC42B357BD700F13E59 /* Berlin.json */; };
 		2FC5FBCD2B357F3F00F13E59 /* StudiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC5FBCC2B357F3F00F13E59 /* StudiesView.swift */; };
-		2FC975A82978F11A00BA99FE /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC975A72978F11A00BA99FE /* Home.swift */; };
+		2FC975A82978F11A00BA99FE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC975A72978F11A00BA99FE /* MainView.swift */; };
 		2FD08B5F2B9DBE9200AC7523 /* FirebaseAccountConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD08B5E2B9DBE9200AC7523 /* FirebaseAccountConfiguration.swift */; };
 		2FD08B622B9DC17200AC7523 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 2FD08B612B9DC17200AC7523 /* FirebaseFunctions */; };
 		2FD08B652B9DC2E500AC7523 /* FirebaseFunctionsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD08B642B9DC2E500AC7523 /* FirebaseFunctionsConfiguration.swift */; };
@@ -110,6 +112,8 @@
 
 /* Begin PBXFileReference section */
 		27FA298F2A388E9B009CAC45 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		2F2168AE2BA4F3A7004603AE /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		2F2168B22BA4FBF3004603AE /* MockStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStudy.swift; sourceTree = "<group>"; };
 		2F2A56B42B9DA74100B3534C /* StudyApplicationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyApplicationDelegate.swift; sourceTree = "<group>"; };
 		2F2A56B52B9DA74100B3534C /* StudyApplicationTestingSetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyApplicationTestingSetup.swift; sourceTree = "<group>"; };
 		2F2A56B92B9DAA5500B3534C /* String+LocalizedError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+LocalizedError.swift"; sourceTree = "<group>"; };
@@ -140,7 +144,7 @@
 		2FC5FBC42B357BD700F13E59 /* Berlin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Berlin.json; sourceTree = "<group>"; };
 		2FC5FBCC2B357F3F00F13E59 /* StudiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudiesView.swift; sourceTree = "<group>"; };
 		2FC94CD4298B0A1D009C8209 /* StudyApplication.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = StudyApplication.xctestplan; sourceTree = "<group>"; };
-		2FC975A72978F11A00BA99FE /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		2FC975A72978F11A00BA99FE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2FD08B5E2B9DBE9200AC7523 /* FirebaseAccountConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAccountConfiguration.swift; sourceTree = "<group>"; };
 		2FD08B642B9DC2E500AC7523 /* FirebaseFunctionsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFunctionsConfiguration.swift; sourceTree = "<group>"; };
 		2FE5DC2A29EDD78D004B9AB4 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
@@ -224,6 +228,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F2168AD2BA4F39D004603AE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2F2168AE2BA4F3A7004603AE /* Home.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2F2168B02BA4FBDF004603AE /* MockStudy */ = {
+			isa = PBXGroup;
+			children = (
+				2F2168B22BA4FBF3004603AE /* MockStudy.swift */,
+			);
+			path = MockStudy;
+			sourceTree = "<group>";
+		};
 		2FC5FB802B34E69400F13E59 /* StudyOnboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +274,7 @@
 		2FC5FB8E2B34F20200F13E59 /* Studies */ = {
 			isa = PBXGroup;
 			children = (
+				2F2168B02BA4FBDF004603AE /* MockStudy */,
 				2FC5FB902B34F20B00F13E59 /* VascTrac */,
 			);
 			path = Studies;
@@ -408,7 +429,8 @@
 				2F2A56B42B9DA74100B3534C /* StudyApplicationDelegate.swift */,
 				2FF53D8C2A8729D600042B76 /* StudyApplicationStandard.swift */,
 				2F2A56B52B9DA74100B3534C /* StudyApplicationTestingSetup.swift */,
-				2FC975A72978F11A00BA99FE /* Home.swift */,
+				2FC975A72978F11A00BA99FE /* MainView.swift */,
+				2F2168AD2BA4F39D004603AE /* Home */,
 				2FC5FB872B34F08500F13E59 /* Study */,
 				2FC5FB802B34E69400F13E59 /* StudyOnboarding */,
 				2FC5FB8E2B34F20200F13E59 /* Studies */,
@@ -663,7 +685,7 @@
 				2FE5DC3529EDD7CA004B9AB4 /* Consent.swift in Sources */,
 				2FC5FBA32B3511E400F13E59 /* StudyOnboardingMechanism.swift in Sources */,
 				2FE5DC4529EDD7F2004B9AB4 /* Binding+Negate.swift in Sources */,
-				2FC975A82978F11A00BA99FE /* Home.swift in Sources */,
+				2FC975A82978F11A00BA99FE /* MainView.swift in Sources */,
 				2FE5DC4E29EDD7FA004B9AB4 /* ScheduleView.swift in Sources */,
 				2FD08B5F2B9DBE9200AC7523 /* FirebaseAccountConfiguration.swift in Sources */,
 				2FE5DC3729EDD7CA004B9AB4 /* OnboardingFlow.swift in Sources */,
@@ -673,11 +695,13 @@
 				2FE5DC4029EDD7EE004B9AB4 /* FeatureFlags.swift in Sources */,
 				2FE5DC4629EDD7F2004B9AB4 /* Bundle+Image.swift in Sources */,
 				2F2A56BA2B9DAA5500B3534C /* String+LocalizedError.swift in Sources */,
+				2F2168B32BA4FBF3004603AE /* MockStudy.swift in Sources */,
 				2FE5DC4F29EDD7FA004B9AB4 /* EventContext.swift in Sources */,
 				2FC5FBB22B35153000F13E59 /* StudyView.swift in Sources */,
 				2FE5DC5029EDD7FA004B9AB4 /* EventContextView.swift in Sources */,
 				2FC5FBCD2B357F3F00F13E59 /* StudiesView.swift in Sources */,
 				2FC5FBA52B3511EA00F13E59 /* InviationCodeStudyOnboardingMechanismError.swift in Sources */,
+				2F2168AF2BA4F3A7004603AE /* Home.swift in Sources */,
 				2FC5FBA72B3511F400F13E59 /* InviationCodeStudyOnboardingMechanism.swift in Sources */,
 				2FC5FB942B34F55B00F13E59 /* StudyModule.swift in Sources */,
 				2FC5FB8C2B34F1CA00F13E59 /* Organization.swift in Sources */,
