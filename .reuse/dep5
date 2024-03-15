@@ -1,0 +1,6 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: firebase/*
+Copyright: 2024 Stanford University and the project authors (see CONTRIBUTORS.md)
+License: MIT
+Comment: All firebase emulator testing data is part of the Stanford Spezi Study Application open source project.
