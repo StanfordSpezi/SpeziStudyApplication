@@ -26,10 +26,10 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
             [Study.vascTracPaloAltoVA, Study.vascTracStanford]
         }
     }()
-    private var studyState: [StudyState] = [] {
+    private var states: [Study.State] = [] {
         didSet {
             do {
-                try localStorage.store(studyState, storageKey: StorageKeys.currentlyEnrolledStudies)
+                try localStorage.store(states, storageKey: StorageKeys.currentlyEnrolledStudies)
             } catch {
                 logger.error("Could not store enrolled studies.")
             }
@@ -44,7 +44,7 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
             Multiplexing in the standard needs to be more complex based on multiple studies.
             """
         )
-        guard let enrolledStudy = studyState.first(where: { $0.enrolled != nil && $0.finished == nil }) else {
+        guard let enrolledStudy = states.first(where: { $0.enrolled != nil && $0.finished == nil }) else {
             return nil
         }
         
@@ -62,10 +62,11 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
     
     func configure() {
         do {
-            self.studyState = try localStorage.read(storageKey: StorageKeys.currentlyEnrolledStudies)
+            #warning("We need to store the study state in Firebase and observe changes in the study app.")
+            self.states = try localStorage.read(storageKey: StorageKeys.currentlyEnrolledStudies)
         } catch {
             logger.info("Could not retrieve existing enrolled studies.")
-            self.studyState = []
+            self.states = []
         }
         
         if let enrolledStudy {
@@ -75,7 +76,7 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
     
     
     func enrollInStudy(study: Study) async throws {
-        guard !studyState.contains(where: { $0.enrolled != nil && $0.finished == nil }) else {
+        guard !states.contains(where: { $0.enrolled != nil && $0.finished == nil }) else {
             throw StudyError.canOnlyEnrollInOneStudy
         }
         
@@ -85,7 +86,7 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
             await scheduler.schedule(task: task)
         }
         
-        studyState.append(StudyState(studyId: study.id, enrolled: .now))
+        states.append(Study.State(studyId: study.id, enrolled: .now))
     }
     
     

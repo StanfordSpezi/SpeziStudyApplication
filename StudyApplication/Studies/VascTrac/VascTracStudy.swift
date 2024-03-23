@@ -74,8 +74,8 @@ extension Study {
         ]
     }
     
-    private static var vascTracHealthKitAccess: StudyHealthKitAccess {
-        StudyHealthKitAccess(
+    private static var vascTracHealthKitAccess: Study.HealthKitAccess {
+        Study.HealthKitAccess(
             usageDescription: "VascTrac requires access to your step count, flight climed, and elements like the walking steadiness score to get a complete picture about your procedure preparation."
         ) {
             CollectSamples(

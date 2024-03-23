@@ -10,10 +10,35 @@ import SwiftUI
 
 
 struct Home: View {
+    @Environment(StepCountModule.self) var todayStepCount
+    @Environment(StudyModule.self) var studyModule
+    
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationStack {
+            if let enrolledStudy = studyModule.enrolledStudy {
+                ScrollView(.vertical) {
+                    
+                }
+            } else {
+                ContentUnavailableView(
+                    label: {
+                        Label("No Enrolled Study", systemImage: "list.clipboard")
+                    },
+                    description: {
+                        Text(
+                            """
+                            You are not enrolled in a study.
+                            Please navigate to the Study tab to enroll in a study.
+                            """
+                        )
+                    }
+                )
+            }
+        }
     }
 }
+
 
 #Preview {
     Home()

@@ -41,6 +41,5 @@ jobs:
       contents: read
     with:
       arguments: '--debug'
-      customcommand: 'npm install --prefix functions'
     secrets:
       GOOGLE_APPLICATION_CREDENTIALS_BASE64: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_BASE64 }}

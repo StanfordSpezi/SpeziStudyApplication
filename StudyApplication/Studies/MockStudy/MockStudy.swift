@@ -34,8 +34,8 @@ extension Study {
         ]
     }
     
-    private static var mockHealthKitAccess: StudyHealthKitAccess {
-        StudyHealthKitAccess(
+    private static var mockHealthKitAccess: Study.HealthKitAccess {
+        Study.HealthKitAccess(
             usageDescription: "The Mock Study requires access to your step count to get a complete picture about your health status."
         ) {
             CollectSamples(

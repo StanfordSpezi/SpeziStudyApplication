@@ -133,6 +133,9 @@
         }
       }
     },
+    "Daily Step Count Goal ..." : {
+
+    },
     "Enroll" : {
 
     },
@@ -157,9 +160,6 @@
     "HealthKit Access" : {
 
     },
-    "Hello, World!" : {
-
-    },
     "Home" : {
 
     },
@@ -181,6 +181,12 @@
           }
         }
       }
+    },
+    "No Enrolled Study" : {
+
+    },
+    "No Studies" : {
+
     },
     "No Tasks" : {
 
@@ -264,6 +270,9 @@
     "The Spezi Study Application currently only allows enrolling in a single study at the same time." : {
 
     },
+    "There are no studies to enroll to at the moment.\nPlease check back in the future; we add studies on a rolling basis." : {
+
+    },
     "Unknown Invitation Code Error" : {
 
     },
@@ -274,6 +283,9 @@
 
     },
     "You are all set. Please follow the Study Schedule and consider enabeling notifications to get informed about any upcoming tasks." : {
+
+    },
+    "You are not enrolled in a study.\nPlease navigate to the Study tab to enroll in a study." : {
 
     },
     "You will need to provide the application permission to get access to the data that the study collects." : {
