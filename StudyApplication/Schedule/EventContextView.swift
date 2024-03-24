@@ -39,7 +39,7 @@ struct EventContextView: View {
                 Divider()
                 Text(eventContext.task.description)
                     .font(.callout)
-                if !eventContext.event.complete {
+                if !eventContext.event.complete && eventContext.event.due {
                     Text(eventContext.task.context.actionType)
                         .frame(maxWidth: .infinity, minHeight: 50)
                         .foregroundColor(.white)
@@ -63,21 +63,24 @@ struct EventContextView: View {
 }
 
 
-#if DEBUG
 #Preview(traits: .sizeThatFitsLayout) {
-    guard let task = Study.vascTracStanford.tasks.first else {
+    guard let task = Study.vascTracStanford.tasks.first,
+          let event = task.events(from: .now.addingTimeInterval(-60 * 60 * 24)).first else {
         fatalError("Could not load task")
     }
     
-    return EventContextView(
-        eventContext: EventContext(
-            // We use a force unwrap in the preview as we can not recover from an error here
-            // and the code will never end up in a production environment.
-            // swiftlint:disable:next force_unwrapping
-            event: task.events(from: .now.addingTimeInterval(-60 * 60 * 24)).first!,
-            task: task
+    return List {
+        Section(
+            content: {
+                ForEach(0..<2) { _ in
+                    EventContextView(eventContext: EventContext(event: event, task: task))
+                }
+                    .listRowSeparator(.hidden)
+            },
+            header: {
+                Text("\(.now, style: .date)")
+            }
         )
-    )
-        .padding()
+    }
+        .listStyle(.plain)
 }
-#endif

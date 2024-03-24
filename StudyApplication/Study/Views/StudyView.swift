@@ -33,7 +33,7 @@ struct StudyView: View {
                 Color(uiColor: .systemBackground)
                     .ignoresSafeArea()
             }
-            .clipShape(RoundedRectangle(cornerRadius: 10.0))
+            .clipShape(Rectangle())
             .sheet(isPresented: $showEnrollSheet) {
                 StudyOnboardingFlow(study: study, studyOnboardingComplete: !$showEnrollSheet)
             }
@@ -54,7 +54,7 @@ struct StudyView: View {
         }
             .frame(height: 160)
             .background {
-                Color(UIColor.secondarySystemBackground)
+                Color(.systemGray5)
             }
     }
     
@@ -113,9 +113,8 @@ struct StudyView: View {
         Color(.systemGroupedBackground)
             .edgesIgnoringSafeArea(.all)
         StudyView(study: StudyModule().studies[0])
-            .previewWith(standard: StudyApplicationStandard()) {
-                StudyModule()
-            }
-            .padding()
     }
+        .previewWith(standard: StudyApplicationStandard()) {
+            StudyModule()
+        }
 }

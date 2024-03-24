@@ -18,10 +18,21 @@ extension Study {
         "Our mission is to advance digital health research and applications by fostering an accessible health ecosystem at the Stanford Byers Center for Biodesign. We develop, implement, and investigate digital health solutions that improve health journeys. Our flagship project, Stanford Spezi, is an open-source framework for building modular, interoperable, and scalable digital health applications."
     }
     
-    private static var vascTracTasks: [SpeziScheduler.Task<StudyApplicationTaskContext>] {
+    private static var mockTasks: [SpeziScheduler.Task<StudyApplicationTaskContext>] {
         [
             Task(
                 title: "Example Title",
+                description: "This is a bit longer example description that is rendered with a task.",
+                schedule: Schedule(
+                    start: .now,
+                    repetition: .matching(DateComponents(hour: 23, minute: 59)),
+                    end: .numberOfEvents(1)
+                ),
+                notifications: true,
+                context: .questionnaire(Questionnaire.phq9)
+            ),
+            Task(
+                title: "An Other Example Title",
                 description: "This is a bit longer example description that is rendered with a task.",
                 schedule: Schedule(
                     start: .now,
@@ -61,7 +72,7 @@ extension Study {
             consentDocument: "This is an example consent",
             healthKit: mockHealthKitAccess,
             notificationDescription: "The Mock Study wants to send you notifications to remind you about answering your questinnaires.",
-            tasks: vascTracTasks,
+            tasks: mockTasks,
             engagements: [
                 .studyEnrollment,
                 .dailyStepCountGoal

@@ -15,7 +15,7 @@ struct StudiesView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView(.vertical) {
+            Group {
                 if studyModule.studies.isEmpty {
                     ContentUnavailableView(
                         label: {
@@ -31,15 +31,23 @@ struct StudiesView: View {
                         }
                     )
                 } else {
-                    ForEach(studyModule.studies) { study in
-                        StudyView(study: study)
-                            .shadow(radius: 10)
-                            .padding()
+                    List {
+                        ForEach(studyModule.studies) { study in
+                            StudyApplicationListCard {
+                                StudyView(study: study)
+                                    .padding(.horizontal, -16)
+                                    .padding(.vertical, -8)
+                            }
+                        }
                     }
+                        .studyApplicationList()
                 }
             }
-                .scrollBounceBehavior(.basedOnSize)
                 .navigationTitle("Studies")
+                .background {
+                    Color(.systemGroupedBackground)
+                        .ignoresSafeArea(.all)
+                }
         }
     }
 }

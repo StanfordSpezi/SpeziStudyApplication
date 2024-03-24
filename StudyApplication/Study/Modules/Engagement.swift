@@ -26,7 +26,7 @@ extension Study {
             case .dailyStepCountGoal:
                 DailyStepCountGoal(study: study)
             case .studyEnrollment:
-                DailyStepCountGoal(study: study)
+                StudyEnrollment(study: study)
             }
         }
     }

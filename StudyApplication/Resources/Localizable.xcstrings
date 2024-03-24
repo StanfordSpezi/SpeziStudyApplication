@@ -4,6 +4,9 @@
     "" : {
 
     },
+    "%@" : {
+
+    },
     "ACCOUNT_NEXT" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -100,6 +103,9 @@
         }
       }
     },
+    "Content ..." : {
+
+    },
     "Contribute to Science" : {
 
     },
@@ -178,6 +184,12 @@
           }
         }
       }
+    },
+    "List With Sections" : {
+
+    },
+    "List Without Sections" : {
+
     },
     "No Enrolled Study" : {
 

@@ -20,7 +20,7 @@ struct Home: View {
                     List {
                         enrolledStudySection(enrolledStudy: enrolledStudy)
                     }
-                        .listStyle(.sidebar)
+                        .studyApplicationList()
                 } else {
                     ContentUnavailableView(
                         label: {
@@ -46,11 +46,13 @@ struct Home: View {
     private func enrolledStudySection(enrolledStudy: Study) -> some View {
         Section(
             content: {
-                VStack {
-                    if enrolledStudy.engagements.isEmpty {
+                if enrolledStudy.engagements.isEmpty {
+                    StudyApplicationListCard {
                         Study.Engagement.studyEnrollment.view(correlatedToStudy: enrolledStudy)
-                    } else {
-                        ForEach(enrolledStudy.engagements) { engagement in
+                    }
+                } else {
+                    ForEach(enrolledStudy.engagements) { engagement in
+                        StudyApplicationListCard {
                             engagement.view(correlatedToStudy: enrolledStudy)
                         }
                     }
@@ -58,6 +60,7 @@ struct Home: View {
             },
             header: {
                 Text(enrolledStudy.title)
+                    .studyApplicationHeaderStyle()
             }
         )
     }

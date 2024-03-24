@@ -27,11 +27,15 @@ struct StudyEnrollment: View {
     }
 }
 
+
 #Preview {
     let studyModule = StudyModule()
     
     return StudyEnrollment(study: studyModule.studies[0])
-        .previewWith {
+        .previewWith(standard: StudyApplicationStandard()) {
             studyModule
+        }
+        .task {
+            try? await studyModule.enrollInStudy(study: studyModule.studies[0])
         }
 }
