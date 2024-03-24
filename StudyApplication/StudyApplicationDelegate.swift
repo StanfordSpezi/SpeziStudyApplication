@@ -37,7 +37,7 @@ class StudyApplicationDelegate: SpeziAppDelegate {
             SchedulerStorage(for: StudyApplicationScheduler.self, mockedStorage: false)
             OnboardingDataSource()
             StudyModule()
-            StepCountModule()
+            DailyStepCountGoalModule()
         }
     }
     

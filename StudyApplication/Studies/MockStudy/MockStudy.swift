@@ -61,7 +61,11 @@ extension Study {
             consentDocument: "This is an example consent",
             healthKit: mockHealthKitAccess,
             notificationDescription: "The Mock Study wants to send you notifications to remind you about answering your questinnaires.",
-            tasks: vascTracTasks
+            tasks: vascTracTasks,
+            engagements: [
+                .studyEnrollment,
+                .dailyStepCountGoal
+            ]
         )
     }
 }

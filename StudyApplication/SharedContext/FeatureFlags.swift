@@ -6,6 +6,10 @@
 // SPDX-License-Identifier: MIT
 //
 
+import Foundation
+import SpeziFoundation
+
+
 /// A collection of feature flags for the Spezi Study Application.
 enum FeatureFlags {
     /// Skips the onboarding flow to enable easier development of features in the application and to allow UI tests to skip the onboarding flow.
@@ -13,7 +17,7 @@ enum FeatureFlags {
     /// Always show the onboarding when the application is launched. Makes it easy to modify and test the onboarding flow without the need to manually remove the application or reset the simulator.
     static let showOnboarding = CommandLine.arguments.contains("--showOnboarding")
     /// Disables the Firebase interactions, including the login/sign-up step and the Firebase Firestore upload.
-    static let disableFirebase = CommandLine.arguments.contains("--disableFirebase")
+    static let disableFirebase = CommandLine.arguments.contains("--disableFirebase") || ProcessInfo.processInfo.isPreviewSimulator
     #if targetEnvironment(simulator)
     /// Defines if the application should connect to the local firebase emulator. Always set to true when using the iOS simulator.
     static let useFirebaseEmulator = true

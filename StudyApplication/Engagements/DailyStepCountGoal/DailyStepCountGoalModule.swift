@@ -13,7 +13,7 @@ import SpeziHealthKit
 
 
 @Observable
-class StepCountModule: Module, EnvironmentAccessible, DefaultInitializable {
+class DailyStepCountGoalModule: Module, EnvironmentAccessible, DefaultInitializable {
     private let logger = Logger(subsystem: "edu.stanford.spezi.studyapplication", category: "TodayStepCount")
     private let healthStore = HKHealthStore()
     

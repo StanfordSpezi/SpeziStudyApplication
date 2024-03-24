@@ -62,8 +62,10 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
     
     func configure() {
         do {
-            #warning("We need to store the study state in Firebase and observe changes in the study app.")
-            self.states = try localStorage.read(storageKey: StorageKeys.currentlyEnrolledStudies)
+            if !ProcessInfo.processInfo.isPreviewSimulator {
+                #warning("We need to store the study state in Firebase and observe changes in the study app.")
+                self.states = try localStorage.read(storageKey: StorageKeys.currentlyEnrolledStudies)
+            }
         } catch {
             logger.info("Could not retrieve existing enrolled studies.")
             self.states = []
@@ -89,6 +91,9 @@ class StudyModule: Module, EnvironmentAccessible, DefaultInitializable {
         states.append(Study.State(studyId: study.id, enrolled: .now))
     }
     
+    func studyState(for studyId: Study.ID) -> Study.State {
+        states.first(where: { $0.id == studyId }) ?? Study.State(studyId: studyId)
+    }
     
     private func executeHealthKitQueries(for study: Study) {
         for healthKitDescription in study.healthKit?.healthKitDescriptions ?? [] {

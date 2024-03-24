@@ -10,16 +10,24 @@ import SwiftUI
 
 
 extension Study {
-    enum Engagement: String, Codable {
+    enum Engagement: String, Codable, Identifiable {
+        case studyEnrollment
         case dailyStepCountGoal
         
         
-        @ViewBuilder var view: some View {
+        var id: RawValue {
+            rawValue
+        }
+        
+        
+        @ViewBuilder
+        func view(correlatedToStudy study: Study) -> some View {
             switch self {
             case .dailyStepCountGoal:
-                Text("Daily Step Count Goal ...")
+                DailyStepCountGoal(study: study)
+            case .studyEnrollment:
+                DailyStepCountGoal(study: study)
             }
         }
     }
-
 }

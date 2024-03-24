@@ -133,9 +133,6 @@
         }
       }
     },
-    "Daily Step Count Goal ..." : {
-
-    },
     "Enroll" : {
 
     },
@@ -273,6 +270,9 @@
     "There are no studies to enroll to at the moment.\nPlease check back in the future; we add studies on a rolling basis." : {
 
     },
+    "Today's step count: %lld" : {
+
+    },
     "Unknown Invitation Code Error" : {
 
     },
@@ -284,6 +284,16 @@
     },
     "You are all set. Please follow the Study Schedule and consider enabeling notifications to get informed about any upcoming tasks." : {
 
+    },
+    "You are enrolled in the %@ since %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You are enrolled in the %1$@ since %2$@"
+          }
+        }
+      }
     },
     "You are not enrolled in a study.\nPlease navigate to the Study tab to enroll in a study." : {
 

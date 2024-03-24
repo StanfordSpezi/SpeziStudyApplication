@@ -27,9 +27,11 @@
 		2FB099B32A875DF100B20952 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB099B22A875DF100B20952 /* FirebaseFirestoreSwift */; };
 		2FB099B62A875E2B00B20952 /* HealthKitOnFHIR in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB099B52A875E2B00B20952 /* HealthKitOnFHIR */; };
 		2FBD738C2A3BD150004228E7 /* SpeziScheduler in Frameworks */ = {isa = PBXBuildFile; productRef = 2FBD738B2A3BD150004228E7 /* SpeziScheduler */; };
-		2FBF11702BAE918B0084DC05 /* StepCountModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF116F2BAE918B0084DC05 /* StepCountModule.swift */; };
+		2FBF11702BAE918B0084DC05 /* DailyStepCountGoalModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF116F2BAE918B0084DC05 /* DailyStepCountGoalModule.swift */; };
 		2FBF11752BAF69BA0084DC05 /* Observation+Continous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF11742BAF69BA0084DC05 /* Observation+Continous.swift */; };
 		2FBF11792BAF6DFB0084DC05 /* Engagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF11782BAF6DFB0084DC05 /* Engagement.swift */; };
+		2FBF11862BB098660084DC05 /* DailyStepCountGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF11852BB098660084DC05 /* DailyStepCountGoal.swift */; };
+		2FBF118B2BB0999D0084DC05 /* StudyEnrollment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FBF118A2BB0999D0084DC05 /* StudyEnrollment.swift */; };
 		2FC3439029EE6346002D773C /* SocialSupportQuestionnaire.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FE5DC5529EDD811004B9AB4 /* SocialSupportQuestionnaire.json */; };
 		2FC3439129EE6349002D773C /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE5DC2A29EDD78D004B9AB4 /* AppIcon.png */; };
 		2FC3439229EE634B002D773C /* ConsentDocument.md in Resources */ = {isa = PBXBuildFile; fileRef = 2FE5DC2C29EDD78E004B9AB4 /* ConsentDocument.md */; };
@@ -124,9 +126,11 @@
 		2F65B44D2A3B8B0600A36932 /* NotificationPermissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissions.swift; sourceTree = "<group>"; };
 		2FA0BFEC2ACC977500E0EF83 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		2FAEC07F297F583900C11C42 /* StudyApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudyApplication.entitlements; sourceTree = "<group>"; };
-		2FBF116F2BAE918B0084DC05 /* StepCountModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountModule.swift; sourceTree = "<group>"; };
+		2FBF116F2BAE918B0084DC05 /* DailyStepCountGoalModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStepCountGoalModule.swift; sourceTree = "<group>"; };
 		2FBF11742BAF69BA0084DC05 /* Observation+Continous.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observation+Continous.swift"; sourceTree = "<group>"; };
 		2FBF11782BAF6DFB0084DC05 /* Engagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Engagement.swift; sourceTree = "<group>"; };
+		2FBF11852BB098660084DC05 /* DailyStepCountGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStepCountGoal.swift; sourceTree = "<group>"; };
+		2FBF118A2BB0999D0084DC05 /* StudyEnrollment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyEnrollment.swift; sourceTree = "<group>"; };
 		2FC5FB842B34EA6700F13E59 /* StudyApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyApplicationUITests.swift; sourceTree = "<group>"; };
 		2FC5FB882B34F09500F13E59 /* Study.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Study.swift; sourceTree = "<group>"; };
 		2FC5FB8B2B34F1CA00F13E59 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
@@ -236,7 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				2F2168AE2BA4F3A7004603AE /* Home.swift */,
-				2FBF116F2BAE918B0084DC05 /* StepCountModule.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -268,6 +271,32 @@
 				2FBF11782BAF6DFB0084DC05 /* Engagement.swift */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		2FBF11822BB0981D0084DC05 /* Engagements */ = {
+			isa = PBXGroup;
+			children = (
+				2FBF11882BB0998E0084DC05 /* StudyEnrollment */,
+				2FBF11842BB098310084DC05 /* DailyStepCountGoal */,
+			);
+			path = Engagements;
+			sourceTree = "<group>";
+		};
+		2FBF11842BB098310084DC05 /* DailyStepCountGoal */ = {
+			isa = PBXGroup;
+			children = (
+				2FBF116F2BAE918B0084DC05 /* DailyStepCountGoalModule.swift */,
+				2FBF11852BB098660084DC05 /* DailyStepCountGoal.swift */,
+			);
+			path = DailyStepCountGoal;
+			sourceTree = "<group>";
+		};
+		2FBF11882BB0998E0084DC05 /* StudyEnrollment */ = {
+			isa = PBXGroup;
+			children = (
+				2FBF118A2BB0999D0084DC05 /* StudyEnrollment.swift */,
+			);
+			path = StudyEnrollment;
 			sourceTree = "<group>";
 		};
 		2FC5FB802B34E69400F13E59 /* StudyOnboarding */ = {
@@ -454,6 +483,7 @@
 				2FC975A72978F11A00BA99FE /* MainView.swift */,
 				2F2168AD2BA4F39D004603AE /* Home */,
 				2FC5FB872B34F08500F13E59 /* Study */,
+				2FBF11822BB0981D0084DC05 /* Engagements */,
 				2FC5FB802B34E69400F13E59 /* StudyOnboarding */,
 				2FC5FB8E2B34F20200F13E59 /* Studies */,
 				2FE5DC2829EDD398004B9AB4 /* Onboarding */,
@@ -705,6 +735,7 @@
 				2FE5DC3829EDD7CA004B9AB4 /* InterestingModules.swift in Sources */,
 				2FC5FB9A2B350B4900F13E59 /* State.swift in Sources */,
 				2FE5DC3529EDD7CA004B9AB4 /* Consent.swift in Sources */,
+				2FBF11862BB098660084DC05 /* DailyStepCountGoal.swift in Sources */,
 				2FC5FBA32B3511E400F13E59 /* StudyOnboardingMechanism.swift in Sources */,
 				2FE5DC4529EDD7F2004B9AB4 /* Binding+Negate.swift in Sources */,
 				2FC975A82978F11A00BA99FE /* MainView.swift in Sources */,
@@ -713,6 +744,7 @@
 				2FE5DC3729EDD7CA004B9AB4 /* OnboardingFlow.swift in Sources */,
 				2FF53D8D2A8729D600042B76 /* StudyApplicationStandard.swift in Sources */,
 				2FBF11792BAF6DFB0084DC05 /* Engagement.swift in Sources */,
+				2FBF118B2BB0999D0084DC05 /* StudyEnrollment.swift in Sources */,
 				2F2A56B62B9DA74100B3534C /* StudyApplicationDelegate.swift in Sources */,
 				2FE5DC4729EDD7F2004B9AB4 /* CodableArray+RawRepresentable.swift in Sources */,
 				2FE5DC4029EDD7EE004B9AB4 /* FeatureFlags.swift in Sources */,
@@ -734,7 +766,7 @@
 				2FE5DC5129EDD7FA004B9AB4 /* StudyApplicationTaskContext.swift in Sources */,
 				56F6F2A02AB441930022FE5A /* ContributionsList.swift in Sources */,
 				566155292AB8447C00209B80 /* Package+LicenseType.swift in Sources */,
-				2FBF11702BAE918B0084DC05 /* StepCountModule.swift in Sources */,
+				2FBF11702BAE918B0084DC05 /* DailyStepCountGoalModule.swift in Sources */,
 				5680DD392AB8983D004E6D4A /* PackageCell.swift in Sources */,
 				2FE5DC5229EDD7FA004B9AB4 /* StudyApplicationScheduler.swift in Sources */,
 				653A2551283387FE005D4D48 /* StudyApplication.swift in Sources */,

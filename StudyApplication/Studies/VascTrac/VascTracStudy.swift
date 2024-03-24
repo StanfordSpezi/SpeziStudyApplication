@@ -110,7 +110,10 @@ extension Study {
             onboardingMechanism: InviationCodeStudyOnboardingMechanism(),
             healthKit: vascTracHealthKitAccess,
             notificationDescription: "Vasc Track wants to send you notifications to remind you about answering your questinnaires.",
-            tasks: vascTracTasks
+            tasks: vascTracTasks,
+            engagements: [
+                .dailyStepCountGoal
+            ]
         )
     }
     
@@ -127,7 +130,11 @@ extension Study {
             onboardingMechanism: InviationCodeStudyOnboardingMechanism(),
             healthKit: vascTracHealthKitAccess,
             notificationDescription: "Vasc Track wants to send you notifications to remind you about answering your questinnaires.",
-            tasks: vascTracTasks
+            tasks: vascTracTasks,
+            engagements: [
+                .studyEnrollment,
+                .dailyStepCountGoal
+            ]
         )
     }
     
