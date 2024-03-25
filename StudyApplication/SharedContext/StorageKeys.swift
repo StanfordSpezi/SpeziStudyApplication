@@ -28,4 +28,6 @@ enum StorageKeys {
     // MARK: - Engagements
     /// Daily step count goal
     static let dailyStepCountGoal = "engagement.dailyStepCountGoal"
+    /// Daily step count goal
+    static let dailyStepCountGoalNotifications = "engagement.dailyStepCountGoal.notifications"
 }

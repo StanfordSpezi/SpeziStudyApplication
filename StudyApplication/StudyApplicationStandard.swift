@@ -32,6 +32,7 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
     
     
     @Application(\.logger) private var logger: Logger
+    @Dependency private var dailyStepCountGoalModule: DailyStepCountGoalModule
     @Dependency private var studyModule: StudyModule
     
     
@@ -68,6 +69,10 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
 
 
     func add(sample: HKSample) async {
+        if sample.sampleType == HKQuantityType(.stepCount) {
+            await dailyStepCountGoalModule.refreshTodayStepCount()
+        }
+        
         guard !FeatureFlags.disableFirebase else {
             logger.debug("Firebase disabled - would upload HKSample: \(sample)")
             return

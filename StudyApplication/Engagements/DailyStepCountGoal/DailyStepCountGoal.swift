@@ -75,11 +75,9 @@ struct DailyStepCountGoal: View {
             action: {
                 guard dailyStepCountGoalModule.stepCountGoal > 3 * Constants.stepCountGoalIncrement else {
                     dailyStepCountGoalModule.stepCountGoal = 2 * Constants.stepCountGoalIncrement
-                    print("Decrease GUARD ...")
                     return
                 }
                 dailyStepCountGoalModule.stepCountGoal -= Constants.stepCountGoalIncrement
-                print("Decrease ...")
             },
             label: {
                 Image(systemName: "minus.circle")
@@ -95,7 +93,6 @@ struct DailyStepCountGoal: View {
         Button(
             action: {
                 dailyStepCountGoalModule.stepCountGoal += Constants.stepCountGoalIncrement
-                print("Increase ...")
             },
             label: {
                 Image(systemName: "plus.circle")
