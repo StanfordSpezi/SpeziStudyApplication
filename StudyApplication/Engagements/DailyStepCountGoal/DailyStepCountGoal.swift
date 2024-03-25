@@ -29,7 +29,6 @@ struct DailyStepCountGoal: View {
     
     @ViewBuilder private var todayStepCountSection: some View {
         ZStack {
-            #warning("Fast switching between UI tabs seems to wrongly re-render the Gauge (increases in size).")
             Gauge(progress: Double(dailyStepCountGoalModule.todayStepCount) / Double(dailyStepCountGoalModule.stepCountGoal))
             VStack {
                 Text("\(dailyStepCountGoalModule.todayStepCount)")
@@ -44,7 +43,7 @@ struct DailyStepCountGoal: View {
             }
                 .padding(.horizontal, 20)
         }
-            .frame(minHeight: 140, idealHeight: 160, maxHeight: 200)
+            .frame(minHeight: 140, idealHeight: 180, maxHeight: 200)
             .padding()
             .padding(.horizontal, 32)
     }

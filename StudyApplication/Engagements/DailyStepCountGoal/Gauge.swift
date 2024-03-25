@@ -81,19 +81,18 @@ struct Gauge: View {
                     style: StrokeStyle(lineWidth: 20, lineCap: .round)
                 )
                 .rotationEffect(.degrees(-90))
-                .frame(width: size.width, height: size.height)
                 .padding(lineWidth / 2)
             if progress < 1.0 - (lineWidth / (2 * radius * .pi)) {
                 Circle()
                     .frame(width: lineWidth)
                     .foregroundColor(gradient.stops.first?.color)
-                    .offset(y: -(size.height / 2))
+                    .offset(y: -(size.height / 2) + (lineWidth / 2))
             } else {
                 let shaddowOffset = shaddowOffset
                 Circle()
                     .frame(width: lineWidth)
                     .foregroundColor(gradient.stops.last?.color)
-                    .offset(y: -(size.height / 2))
+                    .offset(y: -(size.height / 2) + (lineWidth / 2))
                     .rotationEffect(Angle.degrees(360 * Double(progress)))
                     .shadow(
                         color: .black.opacity(0.2),
