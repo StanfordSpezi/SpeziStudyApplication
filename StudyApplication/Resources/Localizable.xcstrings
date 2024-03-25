@@ -240,6 +240,9 @@
     "Redeem Inviation Code" : {
 
     },
+    "Reminder to meet your daily step goal of %lld steps. Open the Spezi Study App to see your current steps for the day." : {
+
+    },
     "Repository Link" : {
       "localizations" : {
         "en" : {
@@ -319,6 +322,9 @@
 
     },
     "You will need to provide the application permission to get access to the data that the study collects." : {
+
+    },
+    "Your Daily Step Goal" : {
 
     },
     "Your First Steps" : {
