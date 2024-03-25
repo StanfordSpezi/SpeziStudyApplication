@@ -133,7 +133,7 @@ class DailyStepCountGoalModule: Module, EnvironmentAccessible, DefaultInitializa
     
     private func updateStepCountNotification() async {
         // Remove all already delivered notifications
-        let oldNotifications = notifications.filter({ $0.key <= .now })
+        let oldNotifications = notifications.filter { $0.key <= .now }
         UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: oldNotifications.map(\.value))
         for oldNotification in oldNotifications {
             notifications[oldNotification.key] = nil
