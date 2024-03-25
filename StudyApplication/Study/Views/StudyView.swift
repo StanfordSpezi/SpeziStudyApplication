@@ -28,10 +28,6 @@ struct StudyView: View {
             Divider()
             enrollSection
         }
-            .background {
-                Color(uiColor: .systemBackground)
-                    .ignoresSafeArea()
-            }
             .sheet(isPresented: $showEnrollSheet) {
                 StudyOnboardingFlow(study: study, studyOnboardingComplete: !$showEnrollSheet)
             }
@@ -47,10 +43,6 @@ struct StudyView: View {
                 .lineLimit(6)
                 .padding()
         }
-            .background {
-                Color(uiColor: .systemBackground)
-                    .ignoresSafeArea()
-            }
     }
     
     @ViewBuilder private var enrollSection: some View {
@@ -72,7 +64,12 @@ struct StudyView: View {
     ZStack {
         Color(.systemGroupedBackground)
             .edgesIgnoringSafeArea(.all)
-        StudyView(study: StudyModule().studies[0])
+        StudyApplicationListCard {
+            StudyView(study: StudyModule().studies[0])
+                .padding(.horizontal, -16)
+                .padding(.vertical, -8)
+        }
+            .padding()
     }
         .previewWith(standard: StudyApplicationStandard()) {
             StudyModule()
