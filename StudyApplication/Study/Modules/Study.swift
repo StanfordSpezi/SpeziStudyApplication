@@ -22,6 +22,7 @@ struct Study: Codable, Identifiable {
         case healthKit
         case notificationDescription
         case tasks
+        case engagements
     }
     
     
@@ -32,9 +33,10 @@ struct Study: Codable, Identifiable {
     let description: String
     let onboardingMechanism: any StudyOnboardingMechanism
     let consentDocument: String?
-    let healthKit: StudyHealthKitAccess?
+    let healthKit: Study.HealthKitAccess?
     let notificationDescription: String?
     let tasks: [Task<StudyApplicationTaskContext>]
+    let engagements: [Engagement]
     
     
     init(
@@ -45,9 +47,10 @@ struct Study: Codable, Identifiable {
         description: String,
         onboardingMechanism: any StudyOnboardingMechanism,
         consentDocument: String? = nil,
-        healthKit: StudyHealthKitAccess? = nil,
+        healthKit: Study.HealthKitAccess? = nil,
         notificationDescription: String? = nil,
-        tasks: [Task<StudyApplicationTaskContext>] = []
+        tasks: [Task<StudyApplicationTaskContext>] = [],
+        engagements: [Engagement] = []
     ) {
         self.id = id
         self.title = title
@@ -59,6 +62,7 @@ struct Study: Codable, Identifiable {
         self.healthKit = healthKit
         self.notificationDescription = notificationDescription
         self.tasks = tasks
+        self.engagements = engagements
     }
     
     init(from decoder: Decoder) throws {
@@ -81,9 +85,10 @@ struct Study: Codable, Identifiable {
         }
         
         self.consentDocument = try container.decodeIfPresent(String.self, forKey: .consentDocument)
-        self.healthKit = try container.decodeIfPresent(StudyHealthKitAccess.self, forKey: .healthKit)
+        self.healthKit = try container.decodeIfPresent(Study.HealthKitAccess.self, forKey: .healthKit)
         self.notificationDescription = try container.decodeIfPresent(String.self, forKey: .notificationDescription)
         self.tasks = try container.decodeIfPresent([Task<StudyApplicationTaskContext>].self, forKey: .tasks) ?? []
+        self.engagements = try container.decodeIfPresent([Engagement].self, forKey: .engagements) ?? []
     }
     
     
@@ -99,5 +104,6 @@ struct Study: Codable, Identifiable {
         try container.encode(self.healthKit, forKey: .healthKit)
         try container.encode(self.notificationDescription, forKey: .notificationDescription)
         try container.encode(self.tasks, forKey: .tasks)
+        try container.encode(self.engagements, forKey: .engagements)
     }
 }

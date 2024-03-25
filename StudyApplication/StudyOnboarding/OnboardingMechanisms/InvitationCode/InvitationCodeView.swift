@@ -77,10 +77,12 @@ struct InvitationCodeView: View {
             Image(systemName: "rectangle.and.pencil.and.ellipsis")
                 .resizable()
                 .scaledToFit()
-                .frame(height: 100)
+                .frame(height: 80)
                 .accessibilityHidden(true)
                 .foregroundStyle(Color.accentColor)
+                .padding(.top, 24)
             Text("Plase enter your invitation code to join the \(study.title) study.")
+                .multilineTextAlignment(.center)
         }
     }
     
@@ -101,7 +103,7 @@ struct InvitationCodeView: View {
     
     private func verifyOnboardingCode() async {
         do {
-            if FeatureFlags.disableFirebase {
+            if FeatureFlags.disableFirebase || ProcessInfo.processInfo.isPreviewSimulator {
                 guard invitationCode == "VASCTRAC" else {
                     throw InviationCodeError.invitationCodeInvalid
                 }
@@ -135,4 +137,14 @@ struct InvitationCodeView: View {
             viewState = .error(String(localized: "Unknown Invitation Code Error"))
         }
     }
+}
+
+
+#Preview {
+    OnboardingStack {
+        InvitationCodeView(study: StudyModule().studies[0])
+    }
+        .previewWith(standard: StudyApplicationStandard()) {
+            StudyModule()
+        }
 }

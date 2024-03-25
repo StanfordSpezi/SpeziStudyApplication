@@ -4,6 +4,12 @@
     "" : {
 
     },
+    "%@" : {
+
+    },
+    "%lld" : {
+
+    },
     "ACCOUNT_NEXT" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -100,6 +106,9 @@
         }
       }
     },
+    "Content ..." : {
+
+    },
     "Contribute to Science" : {
 
     },
@@ -133,6 +142,18 @@
         }
       }
     },
+    "Daily Step Count Goal" : {
+
+    },
+    "Daily Step Count Goal: %lld" : {
+
+    },
+    "Daily Step Goal" : {
+
+    },
+    "Decrease Step Count Goal by %lld" : {
+
+    },
     "Enroll" : {
 
     },
@@ -157,7 +178,13 @@
     "HealthKit Access" : {
 
     },
+    "Home" : {
+
+    },
     "If you are alredy enrolled in a research study, find it on the application home screen after the onboarding and enter your inviation code." : {
+
+    },
+    "Increase Step Count Goal by %lld" : {
 
     },
     "Invitation Code" : {
@@ -175,6 +202,18 @@
           }
         }
       }
+    },
+    "List With Sections" : {
+
+    },
+    "List Without Sections" : {
+
+    },
+    "No Enrolled Study" : {
+
+    },
+    "No Studies" : {
+
     },
     "No Tasks" : {
 
@@ -215,6 +254,9 @@
 
     },
     "Single application to enroll into multiple studies." : {
+
+    },
+    "Steps Today" : {
 
     },
     "Studies" : {
@@ -258,6 +300,9 @@
     "The Spezi Study Application currently only allows enrolling in a single study at the same time." : {
 
     },
+    "There are no studies to enroll to at the moment.\nPlease check back in the future; we add studies on a rolling basis." : {
+
+    },
     "Unknown Invitation Code Error" : {
 
     },
@@ -268,6 +313,9 @@
 
     },
     "You are all set. Please follow the Study Schedule and consider enabeling notifications to get informed about any upcoming tasks." : {
+
+    },
+    "You are not enrolled in a study.\nPlease navigate to the Study tab to enroll in a study." : {
 
     },
     "You will need to provide the application permission to get access to the data that the study collects." : {

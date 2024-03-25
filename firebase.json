@@ -6,8 +6,9 @@
     "rules": "firebasestorage.rules"
   },
   "functions": {
-    "codebase": "callable-functions",
+    "codebase": "spezistudyapp",
     "predeploy": [
+      "npm --prefix \"$RESOURCE_DIR\" install",
       "npm --prefix \"$RESOURCE_DIR\" run lint"
     ]
   },

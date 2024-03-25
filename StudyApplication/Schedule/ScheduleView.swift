@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: MIT
 //
 
+import OrderedCollections
 import SpeziQuestionnaire
 import SpeziScheduler
 import SwiftUI
@@ -14,30 +15,40 @@ import SwiftUI
 struct ScheduleView: View {
     @Environment(StudyApplicationStandard.self) private var standard
     @Environment(StudyApplicationScheduler.self) private var scheduler
-    @State private var eventContextsByDate: [Date: [EventContext]] = [:]
+    
     @State private var presentedContext: EventContext?
-
-
     @Binding private var presentingAccount: Bool
     
     
-    private var startOfDays: [Date] {
-        Array(eventContextsByDate.keys).sorted()
+    private var eventContextsByDate: OrderedDictionary<Date, [EventContext]> {
+        let eventContexts = scheduler.tasks.flatMap { task in
+            task
+                .events(
+                    from: .distantPast,
+                    to: .numberOfEvents(100)
+                )
+                .map { event in
+                    EventContext(event: event, task: task)
+                }
+        }
+            .sorted()
+
+        return OrderedDictionary(grouping: eventContexts) { eventContext in
+            Calendar.current.startOfDay(for: eventContext.event.scheduledAt)
+        }
     }
     
     
     var body: some View {
         NavigationStack {
             Group {
-                if startOfDays.isEmpty {
+                let eventContextsByDate = eventContextsByDate
+                if eventContextsByDate.isEmpty {
                     emptyListView
                 } else {
-                    listView
+                    listView(eventContextsByDate: eventContextsByDate)
                 }
             }
-                .onChange(of: scheduler.tasks, initial: true) {
-                    calculateEventContextsByDate()
-                }
                 .sheet(item: $presentedContext) { presentedContext in
                     destination(withContext: presentedContext)
                 }
@@ -51,21 +62,10 @@ struct ScheduleView: View {
         } description: {
             Text("No tasks scheduled for your enrolled studies.")
         }
-    }
-    
-    @ViewBuilder private var listView: some View {
-        List(startOfDays, id: \.timeIntervalSinceNow) { startOfDay in
-            Section(format(startOfDay: startOfDay)) {
-                ForEach(eventContextsByDate[startOfDay] ?? [], id: \.event) { eventContext in
-                    EventContextView(eventContext: eventContext)
-                        .onTapGesture {
-                            if !eventContext.event.complete && eventContext.event.due {
-                                presentedContext = eventContext
-                            }
-                        }
-                }
+            .background {
+                Color(.systemGroupedBackground)
+                    .edgesIgnoringSafeArea(.all)
             }
-        }
     }
     
     
@@ -73,6 +73,31 @@ struct ScheduleView: View {
         self._presentingAccount = presentingAccount
     }
     
+    
+    @ViewBuilder
+    private func listView(eventContextsByDate: OrderedDictionary<Date, [EventContext]>) -> some View {
+        List(eventContextsByDate.keys, id: \.timeIntervalSinceNow) { startOfDay in
+            Section(
+                content: {
+                    ForEach(eventContextsByDate[startOfDay] ?? [], id: \.event) { eventContext in
+                        StudyApplicationListCard {
+                            EventContextView(eventContext: eventContext)
+                                .onTapGesture {
+                                    if !eventContext.event.complete && eventContext.event.due {
+                                        presentedContext = eventContext
+                                    }
+                                }
+                        }
+                    }
+                },
+                header: {
+                    Text("\(startOfDay, style: .date)")
+                        .studyApplicationHeaderStyle()
+                }
+            )
+        }
+            .studyApplicationList()
+    }
     
     private func destination(withContext eventContext: EventContext) -> some View {
         @ViewBuilder var destination: some View {
@@ -92,42 +117,24 @@ struct ScheduleView: View {
         }
         return destination
     }
-    
-    
-    private func format(startOfDay: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        dateFormatter.timeStyle = .none
-        return dateFormatter.string(from: startOfDay)
-    }
-    
-    private func calculateEventContextsByDate() {
-        let eventContexts = scheduler.tasks.flatMap { task in
-            task
-                .events(
-                    from: .distantPast,
-                    to: .numberOfEvents(100)
-                )
-                .map { event in
-                    EventContext(event: event, task: task)
-                }
-        }
-            .sorted()
-        
-        let newEventContextsByDate = Dictionary(grouping: eventContexts) { eventContext in
-            Calendar.current.startOfDay(for: eventContext.event.scheduledAt)
-        }
-        
-        eventContextsByDate = newEventContextsByDate
-    }
 }
 
 
-#if DEBUG
-#Preview("ScheduleView") {
+#Preview("Mock Study") {
+    let studyModule = StudyModule()
+    
+    return ScheduleView(presentingAccount: .constant(false))
+        .previewWith(standard: StudyApplicationStandard()) {
+            studyModule
+        }
+        .task {
+            try? await studyModule.enrollInStudy(study: studyModule.studies[0])
+        }
+}
+
+#Preview("No Tasks") {
     ScheduleView(presentingAccount: .constant(false))
         .previewWith(standard: StudyApplicationStandard()) {
             StudyApplicationScheduler()
         }
 }
-#endif

@@ -9,8 +9,9 @@
 import SwiftUI
 
 
-struct HomeView: View {
+struct MainView: View {
     enum Tabs: String {
+        case home
         case studies
         case schedule
     }
@@ -27,6 +28,11 @@ struct HomeView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
+            Home()
+                .tag(Tabs.home)
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
+                }
             StudiesView()
                 .tag(Tabs.studies)
                 .tabItem {
@@ -44,6 +50,6 @@ struct HomeView: View {
 
 #if DEBUG
 #Preview {
-    HomeView()
+    MainView()
 }
 #endif

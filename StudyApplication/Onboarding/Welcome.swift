@@ -58,10 +58,8 @@ struct Welcome: View {
 }
 
 
-#if DEBUG
 #Preview {
     OnboardingStack {
         Welcome()
     }
 }
-#endif

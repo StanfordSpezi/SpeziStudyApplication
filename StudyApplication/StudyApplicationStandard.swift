@@ -68,6 +68,11 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
 
 
     func add(sample: HKSample) async {
+        guard !FeatureFlags.disableFirebase else {
+            logger.debug("Firebase disabled - would upload HKSample: \(sample)")
+            return
+        }
+        
         do {
             try await healthKitDocument(id: sample.id).setData(from: sample.resource)
         } catch {
@@ -76,6 +81,11 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
     }
     
     func remove(sample: HKDeletedObject) async {
+        guard !FeatureFlags.disableFirebase else {
+            logger.debug("Firebase disabled - would remove HKDeletedObject: \(sample)")
+            return
+        }
+        
         do {
             try await healthKitDocument(id: sample.uuid).delete()
         } catch {
@@ -84,6 +94,11 @@ actor StudyApplicationStandard: Standard, EnvironmentAccessible, HealthKitConstr
     }
     
     func add(response: ModelsR4.QuestionnaireResponse) async {
+        guard !FeatureFlags.disableFirebase else {
+            logger.debug("Firebase disabled - would upload questionnaire response: \(response.description)")
+            return
+        }
+        
         let id = response.identifier?.value?.value?.string ?? UUID().uuidString
         
         do {

@@ -74,8 +74,8 @@ extension Study {
         ]
     }
     
-    private static var vascTracHealthKitAccess: StudyHealthKitAccess {
-        StudyHealthKitAccess(
+    private static var vascTracHealthKitAccess: Study.HealthKitAccess {
+        Study.HealthKitAccess(
             usageDescription: "VascTrac requires access to your step count, flight climed, and elements like the walking steadiness score to get a complete picture about your procedure preparation."
         ) {
             CollectSamples(
@@ -110,7 +110,11 @@ extension Study {
             onboardingMechanism: InviationCodeStudyOnboardingMechanism(),
             healthKit: vascTracHealthKitAccess,
             notificationDescription: "Vasc Track wants to send you notifications to remind you about answering your questinnaires.",
-            tasks: vascTracTasks
+            tasks: vascTracTasks,
+            engagements: [
+                .studyEnrollment,
+                .dailyStepCountGoal
+            ]
         )
     }
     
@@ -127,12 +131,16 @@ extension Study {
             onboardingMechanism: InviationCodeStudyOnboardingMechanism(),
             healthKit: vascTracHealthKitAccess,
             notificationDescription: "Vasc Track wants to send you notifications to remind you about answering your questinnaires.",
-            tasks: vascTracTasks
+            tasks: vascTracTasks,
+            engagements: [
+                .studyEnrollment,
+                .dailyStepCountGoal
+            ]
         )
     }
     
     
-    static func task(forQuestionnaire questionnaire: Questionnaire, title: String, week: Int) -> SpeziScheduler.Task<StudyApplicationTaskContext> {
+    private static func task(forQuestionnaire questionnaire: Questionnaire, title: String, week: Int) -> SpeziScheduler.Task<StudyApplicationTaskContext> {
         let hour = week == 0 ? 0 : 7
         
         let date: Date
@@ -145,7 +153,7 @@ extension Study {
         
         return Task(
             title: "\(title) - Week \(week)",
-            description: "Plase fill out the \(title) questionnaire on week \(week).",
+            description: "Please fill out the \(title) questionnaire on week \(week).",
             schedule: Schedule(
                 start: date,
                 repetition: .matching(DateComponents(hour: hour, minute: 0)),
