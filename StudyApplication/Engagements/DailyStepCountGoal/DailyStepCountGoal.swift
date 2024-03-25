@@ -43,7 +43,7 @@ struct DailyStepCountGoal: View {
             }
                 .padding(.horizontal, 20)
         }
-            .frame(minHeight: 140, idealHeight: 160, maxHeight: 200)
+            .frame(minHeight: 140, idealHeight: 180, maxHeight: 200)
             .padding()
             .padding(.horizontal, 32)
     }
