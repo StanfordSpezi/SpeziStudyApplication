@@ -148,6 +148,9 @@
     "Daily Step Count Goal: %lld" : {
 
     },
+    "Daily Step Goal" : {
+
+    },
     "Decrease Step Count Goal by %lld" : {
 
     },

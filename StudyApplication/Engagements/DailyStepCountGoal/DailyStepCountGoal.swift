@@ -30,7 +30,6 @@ struct DailyStepCountGoal: View {
     @ViewBuilder private var todayStepCountSection: some View {
         ZStack {
             Gauge(progress: Double(dailyStepCountGoalModule.todayStepCount) / Double(dailyStepCountGoalModule.stepCountGoal))
-                .frame(maxHeight: 256)
             VStack {
                 Text("\(dailyStepCountGoalModule.todayStepCount)")
                     .font(.largeTitle.bold().monospacedDigit())
@@ -44,6 +43,7 @@ struct DailyStepCountGoal: View {
             }
                 .padding(.horizontal, 20)
         }
+            .frame(minHeight: 140, idealHeight: 160, maxHeight: 200)
             .padding()
             .padding(.horizontal, 32)
     }
@@ -112,12 +112,16 @@ struct DailyStepCountGoal: View {
 #Preview {
     let studyModule = StudyModule()
     
-    return List {
-        StudyApplicationListCard {
-            DailyStepCountGoal(study: studyModule.studies[0])
+    
+    return NavigationStack {
+        List {
+            StudyApplicationListCard {
+                DailyStepCountGoal(study: studyModule.studies[0])
+            }
         }
+            .studyApplicationList()
+            .navigationTitle("Daily Step Goal")
     }
-        .studyApplicationList()
         .previewWith(standard: StudyApplicationStandard()) {
             DailyStepCountGoalModule()
             studyModule

@@ -112,6 +112,7 @@ extension Study {
             notificationDescription: "Vasc Track wants to send you notifications to remind you about answering your questinnaires.",
             tasks: vascTracTasks,
             engagements: [
+                .studyEnrollment,
                 .dailyStepCountGoal
             ]
         )
