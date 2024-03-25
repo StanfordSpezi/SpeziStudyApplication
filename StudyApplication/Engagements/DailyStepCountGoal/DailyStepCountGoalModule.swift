@@ -10,6 +10,7 @@ import HealthKit
 import OSLog
 import Spezi
 import SpeziHealthKit
+import SpeziLocalStorage
 
 
 @Observable
@@ -17,16 +18,40 @@ class DailyStepCountGoalModule: Module, EnvironmentAccessible, DefaultInitializa
     private let logger = Logger(subsystem: "edu.stanford.spezi.studyapplication", category: "TodayStepCount")
     private let healthStore = HKHealthStore()
     
+    @ObservationIgnored @Dependency var localStorage: LocalStorage
     @ObservationIgnored @Dependency var healthKit: HealthKit
     
     private var queryTask: Task<Void, Error>?
     private var dayChangedTask: Task<Void, Never>?
     private(set) var todayStepCount: Int = 0
+    var stepCountGoal: Int = 10_000 {
+        didSet {
+            do {
+                try localStorage.store(stepCountGoal, storageKey: StorageKeys.dailyStepCountGoal)
+            } catch {
+                logger.error("Could not store enrolled studies.")
+            }
+        }
+    }
     
     
     required init() { }
     
+    
     func configure() {
+        do {
+            if ProcessInfo.processInfo.isPreviewSimulator {
+                Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+                    self.todayStepCount += Int.random(in: 20...42)
+                }
+            } else {
+                #warning("We need to store the step count goal in Firebase and observe changes in the study app.")
+                self.stepCountGoal = try localStorage.read(storageKey: StorageKeys.dailyStepCountGoal)
+            }
+        } catch {
+            logger.info("Could not retrieve existing step count goal.")
+        }
+        
         // We use observation tracking to observe healthKit.authorized.
         // If the value is false, the query is not executed and the observation tracking will let us know if the value changed.
         withContinousObservation(of: self.healthKit.authorized) { authorized in

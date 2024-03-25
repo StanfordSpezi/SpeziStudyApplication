@@ -23,4 +23,9 @@ enum StorageKeys {
     // MARK: - Study
     /// The currently enrolled studies
     static let currentlyEnrolledStudies = "studies.currentlyEnrolled"
+    
+    
+    // MARK: - Engagements
+    /// Daily step count goal
+    static let dailyStepCountGoal = "engagement.dailyStepCountGoal"
 }

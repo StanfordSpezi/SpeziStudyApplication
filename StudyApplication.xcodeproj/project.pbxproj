@@ -21,6 +21,9 @@
 		2F49B7762980407C00BCB272 /* Spezi in Frameworks */ = {isa = PBXBuildFile; productRef = 2F49B7752980407B00BCB272 /* Spezi */; };
 		2F6025CB29BBE70F0045459E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F6025CA29BBE70F0045459E /* GoogleService-Info.plist */; };
 		2F65B44E2A3B8B0600A36932 /* NotificationPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F65B44D2A3B8B0600A36932 /* NotificationPermissions.swift */; };
+		2F6B41652BB0B6DF00A6ADA2 /* StudyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B41642BB0B6DF00A6ADA2 /* StudyImage.swift */; };
+		2F6B41682BB0B6E300A6ADA2 /* StudyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B41672BB0B6E300A6ADA2 /* StudyHeader.swift */; };
+		2F6B416A2BB0FE0500A6ADA2 /* Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6B41692BB0FE0500A6ADA2 /* Gauge.swift */; };
 		2FA0BFED2ACC977500E0EF83 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2FA0BFEC2ACC977500E0EF83 /* Localizable.xcstrings */; };
 		2FB099AF2A875DF100B20952 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB099AE2A875DF100B20952 /* FirebaseAuth */; };
 		2FB099B12A875DF100B20952 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB099B02A875DF100B20952 /* FirebaseFirestore */; };
@@ -126,6 +129,9 @@
 		2F3AF7352B9D9B8400340B4F /* Peripheral Artery Questionnaire (PAQ).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Peripheral Artery Questionnaire (PAQ).json"; sourceTree = "<group>"; };
 		2F6025CA29BBE70F0045459E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F65B44D2A3B8B0600A36932 /* NotificationPermissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPermissions.swift; sourceTree = "<group>"; };
+		2F6B41642BB0B6DF00A6ADA2 /* StudyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyImage.swift; sourceTree = "<group>"; };
+		2F6B41672BB0B6E300A6ADA2 /* StudyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyHeader.swift; sourceTree = "<group>"; };
+		2F6B41692BB0FE0500A6ADA2 /* Gauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gauge.swift; sourceTree = "<group>"; };
 		2FA0BFEC2ACC977500E0EF83 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		2FAEC07F297F583900C11C42 /* StudyApplication.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StudyApplication.entitlements; sourceTree = "<group>"; };
 		2FBF116F2BAE918B0084DC05 /* DailyStepCountGoalModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStepCountGoalModule.swift; sourceTree = "<group>"; };
@@ -260,6 +266,8 @@
 			isa = PBXGroup;
 			children = (
 				2FC5FBB12B35153000F13E59 /* StudyView.swift */,
+				2F6B41642BB0B6DF00A6ADA2 /* StudyImage.swift */,
+				2F6B41672BB0B6E300A6ADA2 /* StudyHeader.swift */,
 				2FC5FBCC2B357F3F00F13E59 /* StudiesView.swift */,
 			);
 			path = Views;
@@ -291,6 +299,7 @@
 			children = (
 				2FBF116F2BAE918B0084DC05 /* DailyStepCountGoalModule.swift */,
 				2FBF11852BB098660084DC05 /* DailyStepCountGoal.swift */,
+				2F6B41692BB0FE0500A6ADA2 /* Gauge.swift */,
 			);
 			path = DailyStepCountGoal;
 			sourceTree = "<group>";
@@ -744,6 +753,7 @@
 				2FE5DC3529EDD7CA004B9AB4 /* Consent.swift in Sources */,
 				2FBF11862BB098660084DC05 /* DailyStepCountGoal.swift in Sources */,
 				2FC5FBA32B3511E400F13E59 /* StudyOnboardingMechanism.swift in Sources */,
+				2F6B41652BB0B6DF00A6ADA2 /* StudyImage.swift in Sources */,
 				2FE5DC4529EDD7F2004B9AB4 /* Binding+Negate.swift in Sources */,
 				2FC975A82978F11A00BA99FE /* MainView.swift in Sources */,
 				2FE5DC4E29EDD7FA004B9AB4 /* ScheduleView.swift in Sources */,
@@ -765,6 +775,7 @@
 				2FC5FBA52B3511EA00F13E59 /* InviationCodeStudyOnboardingMechanismError.swift in Sources */,
 				2F2168AF2BA4F3A7004603AE /* Home.swift in Sources */,
 				2FC5FBA72B3511F400F13E59 /* InviationCodeStudyOnboardingMechanism.swift in Sources */,
+				2F6B416A2BB0FE0500A6ADA2 /* Gauge.swift in Sources */,
 				2FC5FB942B34F55B00F13E59 /* StudyModule.swift in Sources */,
 				2FC5FB8C2B34F1CA00F13E59 /* Organization.swift in Sources */,
 				2FD08B652B9DC2E500AC7523 /* FirebaseFunctionsConfiguration.swift in Sources */,
@@ -780,6 +791,7 @@
 				653A2551283387FE005D4D48 /* StudyApplication.swift in Sources */,
 				2FC5FBAF2B3513DD00F13E59 /* StudyError.swift in Sources */,
 				2FE5DC3629EDD7CA004B9AB4 /* HealthKitPermissions.swift in Sources */,
+				2F6B41682BB0B6E300A6ADA2 /* StudyHeader.swift in Sources */,
 				2FC5FBB52B351FF800F13E59 /* StudyOnboardingFlow.swift in Sources */,
 				2FC5FB892B34F09500F13E59 /* Study.swift in Sources */,
 				2F65B44E2A3B8B0600A36932 /* NotificationPermissions.swift in Sources */,

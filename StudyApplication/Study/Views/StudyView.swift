@@ -7,7 +7,6 @@
 //
 
 import SpeziHealthKit
-import SpeziLocalStorage
 import SpeziOnboarding
 import SwiftUI
 
@@ -24,7 +23,7 @@ struct StudyView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            imageView
+            StudyImage(study: study)
             studyDescription
             Divider()
             enrollSection
@@ -33,53 +32,14 @@ struct StudyView: View {
                 Color(uiColor: .systemBackground)
                     .ignoresSafeArea()
             }
-            .clipShape(Rectangle())
             .sheet(isPresented: $showEnrollSheet) {
                 StudyOnboardingFlow(study: study, studyOnboardingComplete: !$showEnrollSheet)
             }
     }
     
-    @ViewBuilder private var imageView: some View {
-        AsyncImage(url: study.titleImage) { image in
-            image
-                .resizable()
-                .scaledToFill()
-                .frame(height: 160)
-        } placeholder: {
-            HStack {
-                Spacer()
-                ProgressView()
-                Spacer()
-            }
-        }
-            .frame(height: 160)
-            .background {
-                Color(.systemGray5)
-            }
-    }
-    
     @ViewBuilder private var studyDescription: some View {
         VStack(spacing: 0) {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(study.title)
-                        .font(.title2)
-                        .bold()
-                    Text(study.organization.title)
-                        .foregroundStyle(.secondary)
-                }
-                Spacer()
-                HStack(alignment: .top) {
-                    AsyncImage(url: study.organization.logo) { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                        .frame(width: 50)
-                }
-            }
+            StudyHeader(study: study)
                 .padding()
             Divider()
             Text(study.description)
