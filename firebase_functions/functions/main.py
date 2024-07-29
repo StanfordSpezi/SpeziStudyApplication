@@ -7,12 +7,13 @@ from spezi_data_pipeline.data_processing.observation_processor import calculate_
 from spezi_data_pipeline.data_exploration.data_explorer import DataExplorer, visualizer_factory, explore_total_records_number
 from spezi_data_pipeline.data_export.data_exporter import DataExporter
 from datetime import date, timedelta
+import os
 
 initialize_app()
 
 @scheduler_fn.on_schedule(schedule="every 168 hours")
 def data_test(event: scheduler_fn.ScheduledEvent) -> None:
-    
+
     start_date = date.today()
     end_date = start_date - timedelta(days=7)
     start_date = start_date.strftime('%Y-%m-%d')
@@ -77,3 +78,5 @@ def data_test(event: scheduler_fn.ScheduledEvent) -> None:
                     blob = bucket.blob(firebase_storage_path)
                     blob.upload_from_filename(local_csv_file_path)
                     print("Uploaded")
+
+                    os.remove(local_csv_file_path)
