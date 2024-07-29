@@ -11,11 +11,11 @@ import os
 
 initialize_app()
 
-@scheduler_fn.on_schedule(schedule="every 168 hours")
+@scheduler_fn.on_schedule(schedule="every 24 hours")
 def data_test(event: scheduler_fn.ScheduledEvent) -> None:
 
     start_date = date.today()
-    end_date = start_date - timedelta(days=7)
+    end_date = start_date - timedelta(days=3)
     start_date = start_date.strftime('%Y-%m-%d')
     end_date = end_date.strftime('%Y-%m-%d')
 
@@ -66,6 +66,8 @@ def data_test(event: scheduler_fn.ScheduledEvent) -> None:
                         print("DOES NOT EXIST")
                 
                 if flattened_fhir_dataframe is not None:
+
+                    ## make it more user friendly name
                 
                     local_csv_file_path = f"{uid}-{study_id}-{subcollection_name}.csv"
 
